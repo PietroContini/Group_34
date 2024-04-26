@@ -1,5 +1,7 @@
 package gestioneGioco;
 import componentiGioco.Carta;
+import componentiGioco.Risorsa;
+
 import java.util.ArrayList;
 
 
@@ -9,6 +11,7 @@ private String nome;
 private ArrayList<Carta> carteInMano;
 private Manoscritto manoscritto;
 private int punti;
+private ArrayList<Risorsa> conteggio;
 
 public String getNome() {
 	return nome;
