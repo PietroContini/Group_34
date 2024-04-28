@@ -11,7 +11,7 @@ private String nome;
 private ArrayList<Carta> carteInMano;
 private Manoscritto manoscritto;
 private int punti;
-private ArrayList<Risorsa> conteggio;
+private ArrayList<Risorsa> risorseVisibili;
 
 public String getNome() {
 	return nome;
