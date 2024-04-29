@@ -11,6 +11,7 @@ import componentiGioco.CartaRisorsa;
 import componentiGioco.Colore;
 import componentiGioco.Posizione;
 import componentiGioco.Risorsa;
+import gestioneGioco.Mazzo;
 
 public class Main {
 
@@ -779,6 +780,35 @@ public class Main {
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
 		CartaRisorsa carta40risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
+		
+		Carta[] carterisorsa = new Carta [] {carta1risorsa,carta2risorsa,carta3risorsa,carta4risorsa,carta5risorsa,carta6risorsa,
+			                        carta7risorsa,carta8risorsa,carta9risorsa,carta10risorsa,
+			                        carta11risorsa,carta12risorsa,carta13risorsa,carta14risorsa,carta15risorsa,carta16risorsa, carta17risorsa,carta18risorsa,carta19risorsa,
+			                        carta20risorsa,carta21risorsa,carta22risorsa,carta23risorsa,
+			                        carta24risorsa,carta25risorsa,carta26risorsa,carta27risorsa,carta28risorsa,carta29risorsa,
+			                        carta30risorsa,carta31risorsa,carta32risorsa,carta33risorsa,carta34risorsa,carta35risorsa,carta36risorsa,
+			                        carta37risorsa,carta38risorsa,carta39risorsa,carta40risorsa};
+		Mazzo carteRisorsa = new Mazzo(40,carterisorsa);
+		
+		
+		Carta[] carteoro = new Carta[] {carta1oro,carta2oro,carta3oro,carta4oro,carta5oro,carta6oro,carta7oro,carta8oro,carta9oro,carta10oro,
+				carta11oro,carta12oro,carta13oro,carta14oro,carta15oro,carta16oro,carta17oro,carta18oro,carta19oro,carta20oro,
+				carta21oro,carta22oro,carta23oro,carta24oro,carta25oro,carta26oro,carta27oro,carta28oro,carta29oro,carta30oro,
+				carta31oro,carta32oro,carta33oro,carta34oro,carta35oro,carta36oro, carta37oro,carta38oro,carta39oro,carta40oro};
+		Mazzo carteOro = new Mazzo(40,carteoro);
+		
+		Carta [] cart = new Carta []{cartaIni1,cartaIni2,cartaIni3,cartaIni4,cartaIni5,cartaIni6};
+        Mazzo carteIniziali = new Mazzo(6,cart);
+
+        Carta [] car = new Carta [] {cartaObiet1,cartaObiet2,cartaObiet3,cartaObiet4,cartaObiet5,cartaObiet6,
+                                     cartaObiet7,cartaObiet8,cartaObiet9,cartaObiet10,cartaObiet11,cartaObiet12,
+                                     cartaObiet13,cartaObiet14,cartaObiet15,cartaObiet16};
+        Mazzo carteObiettivo = new Mazzo(16,car);
+		
+		
 	}
 
+	  
+	
+	
 }
