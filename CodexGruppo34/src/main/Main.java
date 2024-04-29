@@ -55,10 +55,10 @@ public class Main {
 		
 		//Creazione carte iniziali
 		
-		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
-		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.farfalla);
-		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
-		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
+		Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
+		Angolo angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.farfalla);
+		Angolo angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
+		Angolo angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
 		ArrayList<Risorsa> listaIni = new ArrayList<> ();
 		listaIni.add(Risorsa.farfalla);
 		
@@ -540,10 +540,10 @@ public class Main {
 		
 		//creazione 40 carte risorsa
 		
-	    Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
-		Angolo angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
-		Angolo angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
-		Angolo angolo4 = new Angolo(Posizione.BassoDestra,null);
+	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
+	    angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
+	    angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
+	    angolo4 = new Angolo(Posizione.BassoDestra,null);
 		CartaRisorsa carta1risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
