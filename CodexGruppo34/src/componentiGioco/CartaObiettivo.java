@@ -5,12 +5,16 @@ import java.util.ArrayList;
 public class CartaObiettivo extends Carta {
 	
 	private PuntiPerCarta puntiCarta;
-	private ArrayList <Risorsa> richiesta;
+	private String tipo = "n";
 	
-    public CartaObiettivo(ArrayList <Risorsa> richiesta,int punti,Risorsa risorsa) {
+    public CartaObiettivo(int punti,Risorsa [] risorsa) {
     	 
-    	this.richiesta = richiesta;
     	this.puntiCarta = new PuntiPerCarta(punti,risorsa);
+    }
+    public CartaObiettivo(int punti,String tipo) {
+    	
+    	this.puntiCarta = new PuntiPerCarta(punti);
+    	this.tipo=tipo;
     }
 	
 }
