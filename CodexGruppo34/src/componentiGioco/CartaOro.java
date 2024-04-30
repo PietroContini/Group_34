@@ -15,5 +15,24 @@ public class CartaOro extends Carta {
     	this.puntiCarta = new PuntiPerCarta(punti,risorsa);
     	this.color=col;
     }
+    
+    public CartaOro(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,Colore col) {
+    	 
+    	super(angolo1,angolo2,angolo3,angolo4);
+    	this.color=col;
+    }
+    
+    public CartaOro retroCarta(CartaOro x) {
+    	
+    	Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
+		Angolo angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
+		Angolo angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
+		Angolo angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
+    	
+    	CartaOro y = new CartaOro(angolo1,angolo2,angolo3,angolo4,x.color);
+    	
+    	return y;
+    	
+    }
 
 }

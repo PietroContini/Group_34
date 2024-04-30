@@ -11,4 +11,8 @@ public class Angolo extends Carta{
 		this.risorsa = risorsa;
 	}
 
+	public Angolo() {
+		
+	}
+
 }

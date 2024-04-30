@@ -54,7 +54,63 @@ public class Main {
 		pObiet[1]=Risorsa.piuma;
 		CartaObiettivo cartaObiet16 = new CartaObiettivo(2,pObiet);
 		
-		//Creazione carte iniziali
+		// Creazione carte iniziali front
+		
+		Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
+		Angolo angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.farfalla);
+		Angolo angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
+		Angolo angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
+		
+		
+		CartaIniziale cartaIni1 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,1);
+		
+		
+		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
+		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
+		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
+		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
+		
+		
+		CartaIniziale cartaIni2 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,2);
+		
+		
+		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
+		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
+		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
+		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.foglia);
+		
+		
+		CartaIniziale cartaIni3 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,3);
+		
+		
+		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
+		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.lupo);
+		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
+		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
+		
+		
+		CartaIniziale cartaIni4 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,4);
+		
+		
+		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
+		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.foglia);
+		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.fungo);
+		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
+	
+		CartaIniziale cartaIni5 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,5);
+		
+		
+		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
+		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.foglia);
+		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
+		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
+	
+		
+		CartaIniziale cartaIni6 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,6);
+		
+		
+		//Creazione carte iniziali retro
+		/*
 		
 		Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		Angolo angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.farfalla);
@@ -116,6 +172,8 @@ public class Main {
 		
 		CartaIniziale cartaIni6 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni);
 		listaIni.clear();
+		
+		*/
 		
 		// Creazione carte oro
 		
