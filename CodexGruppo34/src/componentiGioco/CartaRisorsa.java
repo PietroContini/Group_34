@@ -21,7 +21,7 @@ public class CartaRisorsa extends Carta {
     	this.color=col;
     }
     
-    public CartaRisorsa retroCarta(CartaRisorsa x) {
+    public static CartaRisorsa retroCarta(CartaRisorsa x) {
     	
     	Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		Angolo angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);

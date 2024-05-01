@@ -22,7 +22,7 @@ public class CartaOro extends Carta {
     	this.color=col;
     }
     
-    public CartaOro retroCarta(CartaOro x) {
+    public static CartaOro retroCarta(CartaOro x) {
     	
     	Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		Angolo angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);

@@ -6,11 +6,12 @@ import componentiGioco.Carta;
 public class Mazzo {
 	
     private Carta [] carte;
+    private int num;
     
     public Mazzo(int numero,Carta[] carte ) {
     	this.carte=new Carta[numero];
     	this.carte=carte;
-    	
+    	this.num=numero;
  
     	
     }
@@ -25,6 +26,12 @@ public class Mazzo {
           this.carte[i] = carta;
 		}
 	
+	}
+	
+	public Carta getCarta() {
+		num--;
+		return this.carte[num];
+		
 	}
 
 }

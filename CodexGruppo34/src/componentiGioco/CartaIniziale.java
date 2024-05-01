@@ -25,7 +25,7 @@ public class CartaIniziale extends Carta {
 		return tipo;
 	}
     
-    public CartaIniziale retroCarta(CartaIniziale x) {
+    public static CartaIniziale retroCarta(CartaIniziale x) {
     	ArrayList<Risorsa> listaIni = new ArrayList<> ();
     	Angolo angolo1 = new Angolo();
 		Angolo angolo2 = new Angolo();
