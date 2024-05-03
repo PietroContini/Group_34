@@ -16,5 +16,11 @@ public class CartaObiettivo extends Carta {
     	this.puntiCarta = new PuntiPerCarta(punti);
     	this.tipo=tipo;
     }
+	public PuntiPerCarta getPuntiCarta() {
+		return puntiCarta;
+	}
+	public String getTipo() {
+		return tipo;
+	}
 	
 }

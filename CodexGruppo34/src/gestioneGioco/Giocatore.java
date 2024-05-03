@@ -1,5 +1,6 @@
 package gestioneGioco;
 import componentiGioco.Carta;
+import componentiGioco.CartaObiettivo;
 import componentiGioco.Risorsa;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class Giocatore {
 	
 	private String nome;
 	private ArrayList<Carta> carteInMano;
-	private ArrayList<Carta> carteObiettivo;
+	private ArrayList<CartaObiettivo> carteObiettivo;
 	private Manoscritto manoscritto;
 	private int punti;
 	private ArrayList<Risorsa> risorseVisibili;
@@ -44,6 +45,14 @@ public class Giocatore {
 	public void pescaCartaTavolo(int i) {
 		
 		carteInMano.add(Partita.pescaCartaTavolo(i));
+	}
+	
+	public ArrayList<CartaObiettivo> getCarteObiettivo() {
+		return carteObiettivo;
+	}
+	
+	public Manoscritto getManoscritto() {
+		return manoscritto;
 	}
 
 }

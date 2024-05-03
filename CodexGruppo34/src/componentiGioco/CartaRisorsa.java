@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public class CartaRisorsa extends Carta {
 	
 	private int puntiRis;
-	private Colore color;
+	
 	
     public CartaRisorsa(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,int punti,Colore col) {
    	 
-    	super(angolo1,angolo2,angolo3,angolo4);
+    	super(angolo1,angolo2,angolo3,angolo4,col);
     	this.puntiRis=punti;
-    	this.color=col;
+    	
 
     }
     
     public CartaRisorsa(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,Colore col) {
    	 
-    	super(angolo1,angolo2,angolo3,angolo4);
-    	this.color=col;
+    	super(angolo1,angolo2,angolo3,angolo4,col);
+    	
     }
     
     public static CartaRisorsa retroCarta(CartaRisorsa x) {
@@ -28,7 +28,7 @@ public class CartaRisorsa extends Carta {
 		Angolo angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		Angolo angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
     	
-    	CartaRisorsa y = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,x.color);
+    	CartaRisorsa y = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,x.getColor());
     	
     	return y;
     	
