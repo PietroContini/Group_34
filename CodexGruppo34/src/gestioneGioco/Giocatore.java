@@ -1,6 +1,7 @@
 package gestioneGioco;
 import componentiGioco.Carta;
 import componentiGioco.CartaObiettivo;
+import componentiGioco.CartaOro;
 import componentiGioco.Risorsa;
 
 import java.util.ArrayList;
@@ -53,6 +54,57 @@ public class Giocatore {
 	
 	public Manoscritto getManoscritto() {
 		return manoscritto;
+	}
+	
+	public void removeCarta(Risorsa risorsa) {
+		risorseVisibili.remove(risorsa);
+		
+	}
+	
+	public int ricercaRisorsa(Risorsa risorsa) {
+		int cont = 0;
+		for(int i=0;i<risorseVisibili.size();i++) {
+			if(risorseVisibili.get(i)==risorsa) {
+				cont++;
+			}
+		}
+		return cont;
+	}
+	
+	public boolean checkRichiesta(CartaOro carta) {
+		ArrayList<Risorsa> risorse = carta.getRichiesta();
+		int cont = 0;
+		if(ricercaRisorsa(Risorsa.foglia)>=ricercaRisorsa(Risorsa.foglia,risorse)) {
+			cont++;
+		
+		}
+		else 	if(ricercaRisorsa(Risorsa.farfalla)>=ricercaRisorsa(Risorsa.farfalla,risorse)) {
+			cont++;
+		
+		}
+		else 	if(ricercaRisorsa(Risorsa.lupo)>=ricercaRisorsa(Risorsa.lupo,risorse)) {
+			cont++;
+		
+		}
+		else 	if(ricercaRisorsa(Risorsa.fungo)>=ricercaRisorsa(Risorsa.fungo,risorse)) {
+			cont++;
+		
+		}
+		if(cont==4) {
+			return true;
+		}
+		return false;
+		
+	}
+	
+	public int ricercaRisorsa(Risorsa risorsa,ArrayList<Risorsa> risorse) {
+		int cont = 0;
+		for(int i=0;i<risorse.size();i++) {
+			if(risorse.get(i)==risorsa) {
+				cont++;
+			}
+		}
+		return cont;
 	}
 
 }

@@ -34,4 +34,9 @@ public class CartaOro extends Carta {
     	
     }
 
+	public ArrayList<Risorsa> getRichiesta() {
+		return richiesta;
+	}
+    
+
 }
