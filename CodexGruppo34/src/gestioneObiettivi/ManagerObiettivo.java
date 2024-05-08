@@ -65,12 +65,11 @@ public class ManagerObiettivo {
 							if(m.getCarta(x, y).getColor()==Colore.viola && m.getCarta(xs--, ys--).getColor()==Colore.viola && m.getCarta(xs++, ys++).getColor()==Colore.viola  ) {
 								xs=x; 
 								ys=y;
+								if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs++, ys++))==false) {
+									
+									punti=punti+2;
+								}
 							}
-							else if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs++, ys++))==false) {
-								
-								punti=punti+2;
-							}
-								
 							
 								int as=x; 
 								int bs=y; 
@@ -131,12 +130,11 @@ public class ManagerObiettivo {
 							if(m.getCarta(x, y).getColor()==Colore.viola && m.getCarta(xs--, ys--).getColor()==Colore.viola && m.getCarta(xs++, ys++).getColor()==Colore.viola  ) {
 								xs=x; 
 								ys=y;
+								if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs++, ys++))==false) {
+									
+									punti=punti+2;
+								}
 							}
-							else if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs++, ys++))==false) {
-								
-								punti=punti+2;
-							}
-								
 							
 								int as=x;
 								int bs=y;
@@ -208,11 +206,12 @@ public class ManagerObiettivo {
 							if(m.getCarta(x, y).getColor()==Colore.verde && m.getCarta(xs--, ys--).getColor()==Colore.verde && m.getCarta(xs++, ys++).getColor()==Colore.verde  ) {
 								xs=x; 
 								ys=y;
+								if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs++, ys++))==false) {
+									
+									punti=punti+2;
+								}
 							}
-							else if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs++, ys++))==false) {
-								
-								punti=punti+2;
-							}
+							
 								int as=x; 
 								int bs=y; 
 								while(y<90) {
@@ -273,11 +272,12 @@ public class ManagerObiettivo {
 							if(m.getCarta(x, y).getColor()==Colore.verde && m.getCarta(xs--, ys--).getColor()==Colore.verde && m.getCarta(xs++, ys++).getColor()==Colore.verde  ) {
 								xs=x; 
 								ys=y;
+								if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs++, ys++))==false) {
+									
+									punti=punti+2;
+								}
 							}
-							else if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs++, ys++))==false) {
-								
-								punti=punti+2;
-							}
+							
 								int as=x;
 								int bs=y;
 								while(y<90) {
@@ -347,7 +347,12 @@ public class ManagerObiettivo {
 						int ys = y;
 						if(m.getCarta(x, y)!=null) {
 							if(m.getCarta(x, y).getColor()==Colore.rosso && m.getCarta(xs--, ys++).getColor()==Colore.rosso && m.getCarta(xs++, ys--).getColor()==Colore.rosso  ) {
-								punti=punti+2;
+								xs=x; 
+								ys=y;
+								if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys++)) ==false && m.search(m.getCarta(xs++, ys--))==false) {
+									
+									punti=punti+2;
+								}
 								
 							}
 								int as=x;
@@ -358,7 +363,7 @@ public class ManagerObiettivo {
 									cop = 0;
 									break;
 								}
-								if(fg.getColor()==Colore.rosso) {
+								if(fg.getColor()==Colore.rosso && m.search(fg)==false) {
 									cop++;
 									copy.add(fg);
 									if(cop==3) {
@@ -381,7 +386,7 @@ public class ManagerObiettivo {
 										cop = 0;
 										break;
 									}
-									if(fg.getColor()==Colore.rosso) {
+									if(fg.getColor()==Colore.rosso && m.search(fg)==false) {
 										cop++;
 										copy.add(fg);
 										if(cop==3) {
@@ -407,7 +412,12 @@ public class ManagerObiettivo {
 						int ys = y;
 						if(m.getCarta(x, y)!=null) {
 							if(m.getCarta(x, y).getColor()==Colore.rosso && m.getCarta(xs--, ys++).getColor()==Colore.rosso && m.getCarta(xs++, ys--).getColor()==Colore.rosso  ) {
-								punti=punti+2;
+								xs=x; 
+								ys=y;
+								if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys++)) ==false && m.search(m.getCarta(xs++, ys--))==false) {
+									
+									punti=punti+2;
+								}
 								
 							}
 								int as=x;
@@ -418,7 +428,7 @@ public class ManagerObiettivo {
 									cop = 0;
 									break;
 								}
-								if(fg.getColor()==Colore.rosso) {
+								if(fg.getColor()==Colore.rosso && m.search(fg)==false) {
 									cop++;
 									copy.add(fg);
 									if(cop==3) {
@@ -441,7 +451,7 @@ public class ManagerObiettivo {
 										cop = 0;
 										break;
 									}
-									if(fg.getColor()==Colore.rosso) {
+									if(fg.getColor()==Colore.rosso && m.search(fg)==false) {
 										cop++;
 										copy.add(fg);
 										if(cop==3) {
@@ -479,7 +489,12 @@ public class ManagerObiettivo {
 						int ys = y;
 						if(m.getCarta(x, y)!=null) {
 							if(m.getCarta(x, y).getColor()==Colore.azzurro && m.getCarta(xs--, ys++).getColor()==Colore.azzurro && m.getCarta(xs++, ys--).getColor()==Colore.azzurro  ) {
-								punti=punti+2;
+								xs=x; 
+								ys=y;
+								if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys++)) ==false && m.search(m.getCarta(xs++, ys--))==false) {
+									
+									punti=punti+2;
+								}
 								
 							}
 								int as=x;
@@ -490,7 +505,7 @@ public class ManagerObiettivo {
 									cop = 0;
 									break;
 								}
-								if(fg.getColor()==Colore.azzurro) {
+								if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
 									cop++;
 									copy.add(fg);
 									if(cop==3) {
@@ -513,7 +528,7 @@ public class ManagerObiettivo {
 										cop = 0;
 										break;
 									}
-									if(fg.getColor()==Colore.azzurro) {
+									if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
 										cop++;
 										copy.add(fg);
 										if(cop==3) {
@@ -539,7 +554,12 @@ public class ManagerObiettivo {
 						int ys = y;
 						if(m.getCarta(x, y)!=null) {
 							if(m.getCarta(x, y).getColor()==Colore.azzurro && m.getCarta(xs--, ys++).getColor()==Colore.azzurro && m.getCarta(xs++, ys--).getColor()==Colore.azzurro  ) {
-								punti=punti+2;
+								xs=x; 
+								ys=y;
+								if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys++)) ==false && m.search(m.getCarta(xs++, ys--))==false) {
+									
+									punti=punti+2;
+								}
 								
 							}
 								int as=x;
@@ -550,7 +570,7 @@ public class ManagerObiettivo {
 									cop = 0;
 									break;
 								}
-								if(fg.getColor()==Colore.azzurro) {
+								if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
 									cop++;
 									copy.add(fg);
 									if(cop==3) {
@@ -573,7 +593,7 @@ public class ManagerObiettivo {
 										cop = 0;
 										break;
 									}
-									if(fg.getColor()==Colore.azzurro) {
+									if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
 										cop++;
 										copy.add(fg);
 										if(cop==3) {
