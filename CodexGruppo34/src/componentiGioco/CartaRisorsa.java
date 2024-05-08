@@ -7,17 +7,17 @@ public class CartaRisorsa extends Carta {
 	private int puntiRis;
 	
 	
-    public CartaRisorsa(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,int punti,Colore col) {
+    public CartaRisorsa(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,int punti,Colore col) {
    	 
-    	super(angolo1,angolo2,angolo3,angolo4,col);
+    	super(id,angolo1,angolo2,angolo3,angolo4,col);
     	this.puntiRis=punti;
     	
 
     }
     
-    public CartaRisorsa(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,Colore col) {
+    public CartaRisorsa(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,Colore col) {
    	 
-    	super(angolo1,angolo2,angolo3,angolo4,col);
+    	super(id,angolo1,angolo2,angolo3,angolo4,col);
     	
     }
     
@@ -28,7 +28,7 @@ public class CartaRisorsa extends Carta {
 		Angolo angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		Angolo angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
     	
-    	CartaRisorsa y = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,x.getColor());
+    	CartaRisorsa y = new CartaRisorsa(x.getId(),angolo1,angolo2,angolo3,angolo4,x.getColor());
     	
     	return y;
     	

@@ -6,6 +6,7 @@ public class Carta {
 	
 	private Angolo [] angoli = new Angolo [4];
 	private Colore color;
+	private String id;
     
 
    
@@ -16,12 +17,13 @@ public class Carta {
     	this.angoli[3] = angolo4;
     	
     }
-    public Carta(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,Colore col) {
+    public Carta(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,Colore col) {
     	this.angoli[0] = angolo1;
     	this.angoli[1] = angolo2;
     	this.angoli[2] = angolo3;
     	this.angoli[3] = angolo4;
     	this.color=col;
+    	this.id=id;
     }
     
     public Carta() {
@@ -29,5 +31,8 @@ public class Carta {
     }
     public Colore getColor() {
 		return color;
+	}
+	public String getId() {
+		return id;
 	}
 }

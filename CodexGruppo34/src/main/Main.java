@@ -185,7 +185,7 @@ public class Main {
 		lista1.add(Risorsa.fungo);
 		lista1.add(Risorsa.fungo);
 		lista1.add(Risorsa.lupo);
-		CartaOro carta1oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista1,1,Risorsa.piuma,Colore.rosso);
+		CartaOro carta1oro = new CartaOro ("id.O1",angolo1,angolo2,angolo3,angolo4,lista1,1,Risorsa.piuma,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -195,7 +195,7 @@ public class Main {
 		lista2.add(Risorsa.fungo);
 		lista2.add(Risorsa.fungo);
 		lista2.add(Risorsa.foglia);
-		CartaOro carta2oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista2,1,Risorsa.boccetta,Colore.rosso);
+		CartaOro carta2oro = new CartaOro ("id.O2",angolo1,angolo2,angolo3,angolo4,lista2,1,Risorsa.boccetta,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.pergamena);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -205,7 +205,7 @@ public class Main {
 		lista3.add(Risorsa.fungo);
 		lista3.add(Risorsa.fungo);
 		lista3.add(Risorsa.farfalla);
-		CartaOro carta3oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista3,1,Risorsa.pergamena,Colore.rosso);
+		CartaOro carta3oro = new CartaOro ("id.O3",angolo1,angolo2,angolo3,angolo4,lista3,1,Risorsa.pergamena,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);  
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);           
@@ -216,7 +216,7 @@ public class Main {
 		lista4.add(Risorsa.fungo);
 		lista4.add(Risorsa.fungo);
 		lista4.add(Risorsa.lupo);
-		CartaOro carta4oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista4,2,Risorsa.vuoto,Colore.rosso);
+		CartaOro carta4oro = new CartaOro ("id.O4",angolo1,angolo2,angolo3,angolo4,lista4,2,Risorsa.vuoto,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -227,7 +227,7 @@ public class Main {
 		lista5.add(Risorsa.fungo);
 		lista5.add(Risorsa.fungo);
 		lista5.add(Risorsa.foglia);
-		CartaOro carta5oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista5,2,Risorsa.vuoto,Colore.rosso);
+		CartaOro carta5oro = new CartaOro ("id.O5",angolo1,angolo2,angolo3,angolo4,lista5,2,Risorsa.vuoto,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -238,7 +238,7 @@ public class Main {
 		lista6.add(Risorsa.fungo);
 		lista6.add(Risorsa.fungo);
 		lista6.add(Risorsa.farfalla);
-		CartaOro carta6oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista6,2,Risorsa.vuoto,Colore.rosso);
+		CartaOro carta6oro = new CartaOro ("id.O6",angolo1,angolo2,angolo3,angolo4,lista6,2,Risorsa.vuoto,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.boccetta);
@@ -248,7 +248,7 @@ public class Main {
 		lista7.add(Risorsa.fungo);
 		lista7.add(Risorsa.fungo);
 		lista7.add(Risorsa.fungo);
-		CartaOro carta7oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista7,3,null,Colore.rosso);
+		CartaOro carta7oro = new CartaOro ("id.O7",angolo1,angolo2,angolo3,angolo4,lista7,3,null,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.piuma);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -258,7 +258,7 @@ public class Main {
 		lista8.add(Risorsa.fungo);
 		lista8.add(Risorsa.fungo);
 		lista8.add(Risorsa.fungo);
-		CartaOro carta8oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista8,3,null,Colore.rosso);
+		CartaOro carta8oro = new CartaOro ("id.O8",angolo1,angolo2,angolo3,angolo4,lista8,3,null,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -268,7 +268,7 @@ public class Main {
 		lista9.add(Risorsa.fungo);
 		lista9.add(Risorsa.fungo);
 		lista9.add(Risorsa.fungo);
-		CartaOro carta9oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista9,3,null,Colore.rosso);
+		CartaOro carta9oro = new CartaOro ("id.O9",angolo1,angolo2,angolo3,angolo4,lista9,3,null,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -280,7 +280,7 @@ public class Main {
 		lista10.add(Risorsa.fungo);
 		lista10.add(Risorsa.fungo);
 		lista10.add(Risorsa.fungo);
-		CartaOro carta10oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista10,5,null,Colore.rosso);
+		CartaOro carta10oro = new CartaOro ("id.O10",angolo1,angolo2,angolo3,angolo4,lista10,5,null,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.piuma);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -290,7 +290,7 @@ public class Main {
 		lista11.add(Risorsa.foglia);
 		lista11.add(Risorsa.foglia);
 		lista11.add(Risorsa.farfalla);
-		CartaOro carta11oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista11,1,Risorsa.piuma,Colore.rosso);
+		CartaOro carta11oro = new CartaOro ("id.O11",angolo1,angolo2,angolo3,angolo4,lista11,1,Risorsa.piuma,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -300,7 +300,7 @@ public class Main {
 		lista12.add(Risorsa.foglia);
 		lista12.add(Risorsa.foglia);
 		lista12.add(Risorsa.fungo);
-		CartaOro carta12oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista12,1,Risorsa.pergamena,Colore.rosso);
+		CartaOro carta12oro = new CartaOro ("id.O12",angolo1,angolo2,angolo3,angolo4,lista12,1,Risorsa.pergamena,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.boccetta);
@@ -310,7 +310,7 @@ public class Main {
 		lista13.add(Risorsa.foglia);
 		lista13.add(Risorsa.foglia);
 		lista13.add(Risorsa.lupo);
-		CartaOro carta13oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista13,1,Risorsa.boccetta,Colore.rosso);
+		CartaOro carta13oro = new CartaOro ("id.O13",angolo1,angolo2,angolo3,angolo4,lista13,1,Risorsa.boccetta,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);            
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);   
@@ -321,7 +321,7 @@ public class Main {
 		lista14.add(Risorsa.foglia);
 		lista14.add(Risorsa.foglia);
 		lista14.add(Risorsa.farfalla);
-		CartaOro carta14oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista14,2,Risorsa.vuoto,Colore.rosso);
+		CartaOro carta14oro = new CartaOro ("id.O14",angolo1,angolo2,angolo3,angolo4,lista14,2,Risorsa.vuoto,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -332,7 +332,7 @@ public class Main {
 		lista15.add(Risorsa.foglia);
 		lista15.add(Risorsa.foglia);
 		lista15.add(Risorsa.lupo);
-		CartaOro carta15oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista15,2,Risorsa.vuoto,Colore.rosso);
+		CartaOro carta15oro = new CartaOro ("id.O15",angolo1,angolo2,angolo3,angolo4,lista15,2,Risorsa.vuoto,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -343,7 +343,7 @@ public class Main {
 		lista16.add(Risorsa.foglia);
 		lista16.add(Risorsa.foglia);
 		lista16.add(Risorsa.fungo);
-		CartaOro carta16oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista16,2,Risorsa.vuoto,Colore.rosso);
+		CartaOro carta16oro = new CartaOro ("id.O16",angolo1,angolo2,angolo3,angolo4,lista16,2,Risorsa.vuoto,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.piuma);
@@ -353,7 +353,7 @@ public class Main {
 		lista17.add(Risorsa.foglia);
 		lista17.add(Risorsa.foglia);
 		lista17.add(Risorsa.foglia);
-		CartaOro carta17oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista17,3,null,Colore.rosso);
+		CartaOro carta17oro = new CartaOro ("id.O17",angolo1,angolo2,angolo3,angolo4,lista17,3,null,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.pergamena);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -363,7 +363,7 @@ public class Main {
 		lista18.add(Risorsa.foglia);
 		lista18.add(Risorsa.foglia);
 		lista18.add(Risorsa.foglia);
-		CartaOro carta18oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista18,3,null,Colore.rosso);
+		CartaOro carta18oro = new CartaOro ("id.O18",angolo1,angolo2,angolo3,angolo4,lista18,3,null,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -373,7 +373,7 @@ public class Main {
 		lista19.add(Risorsa.foglia);
 		lista19.add(Risorsa.foglia);
 		lista19.add(Risorsa.foglia);
-		CartaOro carta19oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista19,3,null,Colore.rosso);
+		CartaOro carta19oro = new CartaOro ("id.O19",angolo1,angolo2,angolo3,angolo4,lista19,3,null,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -385,7 +385,7 @@ public class Main {
 		lista20.add(Risorsa.foglia);
 		lista20.add(Risorsa.foglia);
 		lista20.add(Risorsa.foglia);
-		CartaOro carta20oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista20,5,null,Colore.rosso);
+		CartaOro carta20oro = new CartaOro ("id.O20",angolo1,angolo2,angolo3,angolo4,lista20,5,null,Colore.rosso);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.boccetta);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -395,7 +395,7 @@ public class Main {
 		lista21.add(Risorsa.lupo);
 		lista21.add(Risorsa.lupo);
 		lista21.add(Risorsa.farfalla);
-		CartaOro carta21oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista21,1,Risorsa.boccetta,Colore.azzurro);
+		CartaOro carta21oro = new CartaOro ("id.O21",angolo1,angolo2,angolo3,angolo4,lista21,1,Risorsa.boccetta,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -405,7 +405,7 @@ public class Main {
 		lista22.add(Risorsa.lupo);
 		lista22.add(Risorsa.lupo);
 		lista22.add(Risorsa.foglia);
-		CartaOro carta22oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista22,1,Risorsa.pergamena,Colore.azzurro);
+		CartaOro carta22oro = new CartaOro ("id.O22",angolo1,angolo2,angolo3,angolo4,lista22,1,Risorsa.pergamena,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.piuma);
@@ -415,7 +415,7 @@ public class Main {
 		lista23.add(Risorsa.lupo);
 		lista23.add(Risorsa.lupo);
 		lista23.add(Risorsa.fungo);
-		CartaOro carta23oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista23,1,Risorsa.piuma,Colore.azzurro);
+		CartaOro carta23oro = new CartaOro ("id.O23",angolo1,angolo2,angolo3,angolo4,lista23,1,Risorsa.piuma,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);            
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);   
@@ -426,7 +426,7 @@ public class Main {
 		lista24.add(Risorsa.lupo);
 		lista24.add(Risorsa.lupo);
 		lista24.add(Risorsa.farfalla);
-		CartaOro carta24oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista24,2,Risorsa.vuoto,Colore.azzurro);
+		CartaOro carta24oro = new CartaOro ("id.O24",angolo1,angolo2,angolo3,angolo4,lista24,2,Risorsa.vuoto,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -437,7 +437,7 @@ public class Main {
 		lista25.add(Risorsa.lupo);
 		lista25.add(Risorsa.lupo);
 		lista25.add(Risorsa.fungo);
-		CartaOro carta25oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista25,2,Risorsa.vuoto,Colore.azzurro);
+		CartaOro carta25oro = new CartaOro ("id.O25",angolo1,angolo2,angolo3,angolo4,lista25,2,Risorsa.vuoto,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -448,7 +448,7 @@ public class Main {
 		lista26.add(Risorsa.lupo);
 		lista26.add(Risorsa.lupo);
 		lista26.add(Risorsa.foglia);
-		CartaOro carta26oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista26,2,Risorsa.vuoto,Colore.azzurro);
+		CartaOro carta26oro = new CartaOro ("id.O26",angolo1,angolo2,angolo3,angolo4,lista26,2,Risorsa.vuoto,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.pergamena);
@@ -458,7 +458,7 @@ public class Main {
 		lista27.add(Risorsa.lupo);
 		lista27.add(Risorsa.lupo);
 		lista27.add(Risorsa.lupo);
-		CartaOro carta27oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista27,3,null,Colore.azzurro);
+		CartaOro carta27oro = new CartaOro ("id.O27",angolo1,angolo2,angolo3,angolo4,lista27,3,null,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -468,7 +468,7 @@ public class Main {
 		lista28.add(Risorsa.lupo);
 		lista28.add(Risorsa.lupo);
 		lista28.add(Risorsa.lupo);
-		CartaOro carta28oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista28,3,null,Colore.azzurro);
+		CartaOro carta28oro = new CartaOro ("id.O28",angolo1,angolo2,angolo3,angolo4,lista28,3,null,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -478,7 +478,7 @@ public class Main {
 		lista29.add(Risorsa.lupo);
 		lista29.add(Risorsa.lupo);
 		lista29.add(Risorsa.lupo);
-		CartaOro carta29oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista29,3,null,Colore.azzurro);
+		CartaOro carta29oro = new CartaOro ("id.O29",angolo1,angolo2,angolo3,angolo4,lista29,3,null,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -490,7 +490,7 @@ public class Main {
 		lista30.add(Risorsa.lupo);
 		lista30.add(Risorsa.lupo);
 		lista30.add(Risorsa.lupo);
-		CartaOro carta30oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista30,5,null,Colore.azzurro);
+		CartaOro carta30oro = new CartaOro ("id.O30",angolo1,angolo2,angolo3,angolo4,lista30,5,null,Colore.azzurro);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -500,7 +500,7 @@ public class Main {
 		lista31.add(Risorsa.farfalla);
 		lista31.add(Risorsa.farfalla);
 		lista31.add(Risorsa.foglia);
-		CartaOro carta31oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista31,1,Risorsa.piuma,Colore.viola);
+		CartaOro carta31oro = new CartaOro ("id.O31",angolo1,angolo2,angolo3,angolo4,lista31,1,Risorsa.piuma,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.pergamena);
@@ -510,7 +510,7 @@ public class Main {
 		lista32.add(Risorsa.farfalla);
 		lista32.add(Risorsa.farfalla);
 		lista32.add(Risorsa.lupo);
-		CartaOro carta32oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista32,1,Risorsa.pergamena,Colore.viola);
+		CartaOro carta32oro = new CartaOro ("id.O32",angolo1,angolo2,angolo3,angolo4,lista32,1,Risorsa.pergamena,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -520,7 +520,7 @@ public class Main {
 		lista33.add(Risorsa.farfalla);
 		lista33.add(Risorsa.farfalla);
 		lista33.add(Risorsa.fungo);
-		CartaOro carta33oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista33,1,Risorsa.boccetta,Colore.viola);
+		CartaOro carta33oro = new CartaOro ("id.O33",angolo1,angolo2,angolo3,angolo4,lista33,1,Risorsa.boccetta,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);            
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);   
@@ -531,7 +531,7 @@ public class Main {
 		lista34.add(Risorsa.farfalla);
 		lista34.add(Risorsa.farfalla);
 		lista34.add(Risorsa.lupo);
-		CartaOro carta34oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista34,2,Risorsa.vuoto,Colore.viola);
+		CartaOro carta34oro = new CartaOro ("id.O34",angolo1,angolo2,angolo3,angolo4,lista34,2,Risorsa.vuoto,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -542,7 +542,7 @@ public class Main {
 		lista35.add(Risorsa.farfalla);
 		lista35.add(Risorsa.farfalla);
 		lista35.add(Risorsa.foglia);
-		CartaOro carta35oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista35,2,Risorsa.vuoto,Colore.viola);
+		CartaOro carta35oro = new CartaOro ("id.O35",angolo1,angolo2,angolo3,angolo4,lista35,2,Risorsa.vuoto,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -553,7 +553,7 @@ public class Main {
 		lista36.add(Risorsa.farfalla);
 		lista36.add(Risorsa.farfalla);
 		lista36.add(Risorsa.fungo);
-		CartaOro carta36oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista36,2,Risorsa.vuoto,Colore.viola);
+		CartaOro carta36oro = new CartaOro ("id.O36",angolo1,angolo2,angolo3,angolo4,lista36,2,Risorsa.vuoto,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.boccetta);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
@@ -563,7 +563,7 @@ public class Main {
 		lista37.add(Risorsa.farfalla);
 		lista37.add(Risorsa.farfalla);
 		lista37.add(Risorsa.farfalla);
-		CartaOro carta37oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista37,3,null,Colore.viola);
+		CartaOro carta37oro = new CartaOro ("id.O37",angolo1,angolo2,angolo3,angolo4,lista37,3,null,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -573,7 +573,7 @@ public class Main {
 		lista38.add(Risorsa.farfalla);
 		lista38.add(Risorsa.farfalla);
 		lista38.add(Risorsa.farfalla);
-		CartaOro carta38oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista38,3,null,Colore.viola);
+		CartaOro carta38oro = new CartaOro ("id.O38",angolo1,angolo2,angolo3,angolo4,lista38,3,null,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.piuma);
@@ -583,7 +583,7 @@ public class Main {
 		lista39.add(Risorsa.farfalla);
 		lista39.add(Risorsa.farfalla);
 		lista39.add(Risorsa.farfalla);
-		CartaOro carta39oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista39,3,null,Colore.viola);
+		CartaOro carta39oro = new CartaOro ("id.O39",angolo1,angolo2,angolo3,angolo4,lista39,3,null,Colore.viola);
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
@@ -595,7 +595,7 @@ public class Main {
 		lista40.add(Risorsa.farfalla);
 		lista40.add(Risorsa.farfalla);
 		lista40.add(Risorsa.farfalla);
-		CartaOro carta40oro = new CartaOro (angolo1,angolo2,angolo3,angolo4,lista40,5,null,Colore.viola);
+		CartaOro carta40oro = new CartaOro ("id.O40",angolo1,angolo2,angolo3,angolo4,lista40,5,null,Colore.viola);
 		
 		//creazione 40 carte risorsa
 		
@@ -603,241 +603,241 @@ public class Main {
 	    angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
 	    angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 	    angolo4 = new Angolo(Posizione.BassoDestra,null);
-		CartaRisorsa carta1risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
+		CartaRisorsa carta1risorsa = new CartaRisorsa("id.R1",angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
 	    angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.fungo);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta2risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
+		CartaRisorsa carta2risorsa = new CartaRisorsa("id.R2",angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
 		 
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
-		CartaRisorsa carta3risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
+		CartaRisorsa carta3risorsa = new CartaRisorsa("id.R3",angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
 		 
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.fungo);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
-		CartaRisorsa carta4risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
+		CartaRisorsa carta4risorsa = new CartaRisorsa("id.R4",angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.foglia);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.piuma);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
-		CartaRisorsa carta5risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
+		CartaRisorsa carta5risorsa = new CartaRisorsa("id.R5",angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.boccetta);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.fungo);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
-		CartaRisorsa carta6risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
+		CartaRisorsa carta6risorsa = new CartaRisorsa("id.R6",angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.pergamena);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta7risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
+		CartaRisorsa carta7risorsa = new CartaRisorsa("id.R7",angolo1,angolo2,angolo3,angolo4,0,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.fungo);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		CartaRisorsa carta8risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.rosso);
+		CartaRisorsa carta8risorsa = new CartaRisorsa("id.R8",angolo1,angolo2,angolo3,angolo4,1,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta9risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.rosso);
+		CartaRisorsa carta9risorsa = new CartaRisorsa("id.R9",angolo1,angolo2,angolo3,angolo4,1,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta10risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.rosso);
+		CartaRisorsa carta10risorsa = new CartaRisorsa("id.R10",angolo1,angolo2,angolo3,angolo4,1,Colore.rosso);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.foglia);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		CartaRisorsa carta11risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
+		CartaRisorsa carta11risorsa = new CartaRisorsa("id.R11",angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta12risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
+		CartaRisorsa carta12risorsa = new CartaRisorsa("id.R12",angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.foglia);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.foglia);
-		CartaRisorsa carta13risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
+		CartaRisorsa carta13risorsa = new CartaRisorsa("id.R13",angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.foglia);
-		CartaRisorsa carta14risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
+		CartaRisorsa carta14risorsa = new CartaRisorsa("id.R14",angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.piuma);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.foglia);
-		CartaRisorsa carta15risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
+		CartaRisorsa carta15risorsa = new CartaRisorsa("id.R15",angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.boccetta);
-		CartaRisorsa carta16risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
+		CartaRisorsa carta16risorsa = new CartaRisorsa("id.R16",angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.pergamena);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.foglia);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
-		CartaRisorsa carta17risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
+		CartaRisorsa carta17risorsa = new CartaRisorsa("id.R17",angolo1,angolo2,angolo3,angolo4,0,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.foglia);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		CartaRisorsa carta18risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.verde);
+		CartaRisorsa carta18risorsa = new CartaRisorsa("id.R18",angolo1,angolo2,angolo3,angolo4,1,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.foglia);
-		CartaRisorsa carta19risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.verde);
+		CartaRisorsa carta19risorsa = new CartaRisorsa("id.R19",angolo1,angolo2,angolo3,angolo4,1,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta20risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.verde);
+		CartaRisorsa carta20risorsa = new CartaRisorsa("id.R20",angolo1,angolo2,angolo3,angolo4,1,Colore.verde);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.lupo);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		CartaRisorsa carta21risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
+		CartaRisorsa carta21risorsa = new CartaRisorsa("id.R21",angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.lupo);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
-		CartaRisorsa carta22risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
+		CartaRisorsa carta22risorsa = new CartaRisorsa("id.R22",angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.lupo);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.lupo);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta23risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
+		CartaRisorsa carta23risorsa = new CartaRisorsa("id.R23",angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
-		CartaRisorsa carta24risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
+		CartaRisorsa carta24risorsa = new CartaRisorsa("id.R24",angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.boccetta);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
-		CartaRisorsa carta25risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
+		CartaRisorsa carta25risorsa = new CartaRisorsa("id.R25",angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.pergamena);
-		CartaRisorsa carta26risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
+		CartaRisorsa carta26risorsa = new CartaRisorsa("id.R26",angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.piuma);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.lupo);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
-		CartaRisorsa carta27risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
+		CartaRisorsa carta27risorsa = new CartaRisorsa("id.R27",angolo1,angolo2,angolo3,angolo4,0,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.lupo);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta28risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.azzurro);
+		CartaRisorsa carta28risorsa = new CartaRisorsa("id.R28",angolo1,angolo2,angolo3,angolo4,1,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
-		CartaRisorsa carta29risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.azzurro);
+		CartaRisorsa carta29risorsa = new CartaRisorsa("id.R29",angolo1,angolo2,angolo3,angolo4,1,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		CartaRisorsa carta30risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.azzurro);
+		CartaRisorsa carta30risorsa = new CartaRisorsa("id.R30",angolo1,angolo2,angolo3,angolo4,1,Colore.azzurro);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		CartaRisorsa carta31risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
+		CartaRisorsa carta31risorsa = new CartaRisorsa("id.R31",angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.farfalla);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
-		CartaRisorsa carta32risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
+		CartaRisorsa carta32risorsa = new CartaRisorsa("id.R32",angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.farfalla);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta33risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
+		CartaRisorsa carta33risorsa = new CartaRisorsa("id.R33",angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
-		CartaRisorsa carta34risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
+		CartaRisorsa carta34risorsa = new CartaRisorsa("id.R34",angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.lupo);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.piuma);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
-		CartaRisorsa carta35risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
+		CartaRisorsa carta35risorsa = new CartaRisorsa("id.R35",angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.pergamena);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
-		CartaRisorsa carta36risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
+		CartaRisorsa carta36risorsa = new CartaRisorsa("id.R36",angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.boccetta);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		CartaRisorsa carta37risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
+		CartaRisorsa carta37risorsa = new CartaRisorsa("id.R37",angolo1,angolo2,angolo3,angolo4,0,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,null);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta38risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
+		CartaRisorsa carta38risorsa = new CartaRisorsa("id.R38",angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
-		CartaRisorsa carta39risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
+		CartaRisorsa carta39risorsa = new CartaRisorsa("id.R39",angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
 		
 	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
 		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.farfalla);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		CartaRisorsa carta40risorsa = new CartaRisorsa(angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
+		CartaRisorsa carta40risorsa = new CartaRisorsa("id.R40",angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
 		
 		Carta[] carterisorsa = new Carta [] {carta1risorsa,carta2risorsa,carta3risorsa,carta4risorsa,carta5risorsa,carta6risorsa,
 			                        carta7risorsa,carta8risorsa,carta9risorsa,carta10risorsa,
