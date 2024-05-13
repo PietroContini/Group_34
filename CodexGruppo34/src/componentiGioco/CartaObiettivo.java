@@ -7,9 +7,10 @@ public class CartaObiettivo extends Carta {
 	private PuntiPerCarta puntiCarta;
 	private String tipo = "n";
 	
-    public CartaObiettivo(int punti,Risorsa [] risorsa) {
+    public CartaObiettivo(int punti,Risorsa [] risorsa,String tipo) {
     	 
     	this.puntiCarta = new PuntiPerCarta(punti,risorsa);
+    	this.tipo=tipo;
     }
     public CartaObiettivo(int punti,String tipo) {
     	

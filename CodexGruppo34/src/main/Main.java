@@ -30,29 +30,29 @@ public class Main {
 		CartaObiettivo cartaObiet7 = new CartaObiettivo(2,"r");
 		CartaObiettivo cartaObiet8 = new CartaObiettivo(2,"1");
 		Risorsa [] pObiet = {Risorsa.fungo,Risorsa.fungo,Risorsa.fungo};
-		CartaObiettivo cartaObiet9 = new CartaObiettivo(2,pObiet);
+		CartaObiettivo cartaObiet9 = new CartaObiettivo(2,pObiet,"fungo");
 		pObiet[0]=Risorsa.foglia;
 		pObiet[1]=Risorsa.foglia;
 		pObiet[2]=Risorsa.foglia;
-		CartaObiettivo cartaObiet10 = new CartaObiettivo(2,pObiet);
+		CartaObiettivo cartaObiet10 = new CartaObiettivo(2,pObiet,"foglia");
 		pObiet[0]=Risorsa.lupo;
 		pObiet[1]=Risorsa.lupo;
 		pObiet[2]=Risorsa.lupo;
-		CartaObiettivo cartaObiet11 = new CartaObiettivo(2,pObiet);
+		CartaObiettivo cartaObiet11 = new CartaObiettivo(2,pObiet,"lupo");
 		pObiet[0]=Risorsa.farfalla;
 		pObiet[1]=Risorsa.farfalla;
 		pObiet[2]=Risorsa.farfalla;
-		CartaObiettivo cartaObiet12 = new CartaObiettivo(2,pObiet);
+		CartaObiettivo cartaObiet12 = new CartaObiettivo(2,pObiet,"farfalla");
 		CartaObiettivo cartaObiet13 = new CartaObiettivo(3,"3div");
 		pObiet[0]=Risorsa.pergamena;
 		pObiet[1]=Risorsa.pergamena;
-		CartaObiettivo cartaObiet14 = new CartaObiettivo(2,pObiet);
+		CartaObiettivo cartaObiet14 = new CartaObiettivo(2,pObiet,"pergamena");
 		pObiet[0]=Risorsa.boccetta;
 		pObiet[1]=Risorsa.boccetta;
-		CartaObiettivo cartaObiet15 = new CartaObiettivo(2,pObiet);
+		CartaObiettivo cartaObiet15 = new CartaObiettivo(2,pObiet,"boccetta");
 		pObiet[0]=Risorsa.piuma;
 		pObiet[1]=Risorsa.piuma;
-		CartaObiettivo cartaObiet16 = new CartaObiettivo(2,pObiet);
+		CartaObiettivo cartaObiet16 = new CartaObiettivo(2,pObiet,"piuma");
 		
 		// Creazione carte iniziali front
 		
