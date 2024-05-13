@@ -1,6 +1,9 @@
 package gestioneObiettivi;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
 
 import componentiGioco.Carta;
 import componentiGioco.CartaObiettivo;
@@ -1880,6 +1883,26 @@ public class ManagerObiettivo {
 					punti = (cont/2)*2; //tolgo caso dispari
 				}
 				
+				if(b.get(0).getTipo().equalsIgnoreCase("3div")) {
+					Integer [] x = {a.ricercaRisorsa(Risorsa.boccetta),a.ricercaRisorsa(Risorsa.pergamena),a.ricercaRisorsa(Risorsa.piuma),
+							a.ricercaRisorsa(Risorsa.foglia),a.ricercaRisorsa(Risorsa.farfalla),a.ricercaRisorsa(Risorsa.lupo),a.ricercaRisorsa(Risorsa.fungo)};
+					
+					x = sortCrescente(x);
+					
+					int cont = 0;
+					
+					while(x[2]!=0 && x[3]!=0) {
+						cont = cont + x[2];
+						x[1] = x[1] - x[2];
+						x[0] = x[0] - x[2];
+						x[2] = 0;
+						
+						x = sortCrescente(x);
+					}
+					
+					punti = cont * 3;
+				}
+				
 				
 		
 		a.getManoscritto().setCarteUsate(m.getCarteUsate());
@@ -1888,4 +1911,11 @@ public class ManagerObiettivo {
 		
 	}
 
+	
+	public Integer[] sortCrescente(Integer [] x) {
+		
+		Arrays.sort(x,Collections.reverseOrder());
+		
+		return x;
+	}
 }
