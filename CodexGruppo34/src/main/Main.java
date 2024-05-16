@@ -6,11 +6,13 @@ import componentiGioco.Angolo;
 import componentiGioco.Carta;
 import componentiGioco.CartaIniziale;
 import componentiGioco.CartaObiettivo;
+import componentiGioco.CartaObiettivoEn;
 import componentiGioco.CartaOro;
 import componentiGioco.CartaRisorsa;
 import componentiGioco.Colore;
 import componentiGioco.Posizione;
 import componentiGioco.Risorsa;
+import componentiGioco.TipoIni;
 import gestioneGioco.Mazzo;
 
 public class Main {
@@ -21,38 +23,38 @@ public class Main {
 		
 	    //Creazione carte obiettivo
 		
-		CartaObiettivo cartaObiet1 = new CartaObiettivo(2,"/rosso");
-		CartaObiettivo cartaObiet2 = new CartaObiettivo(2,"\\verde");
-		CartaObiettivo cartaObiet3 = new CartaObiettivo(2,"/azzurra");
-		CartaObiettivo cartaObiet4 = new CartaObiettivo(2,"\\viola");
-		CartaObiettivo cartaObiet5 = new CartaObiettivo(2,"L");
-		CartaObiettivo cartaObiet6 = new CartaObiettivo(2,"J");
-		CartaObiettivo cartaObiet7 = new CartaObiettivo(2,"r");
-		CartaObiettivo cartaObiet8 = new CartaObiettivo(2,"1");
+		CartaObiettivo cartaObiet1 = new CartaObiettivo(2,CartaObiettivoEn.COTriplaRossa);
+		CartaObiettivo cartaObiet2 = new CartaObiettivo(2,CartaObiettivoEn.COTriplaVerde);
+		CartaObiettivo cartaObiet3 = new CartaObiettivo(2,CartaObiettivoEn.COTriplaAzzurra);
+		CartaObiettivo cartaObiet4 = new CartaObiettivo(2,CartaObiettivoEn.COTriplaViola);
+		CartaObiettivo cartaObiet5 = new CartaObiettivo(2,CartaObiettivoEn.COFormaL);
+		CartaObiettivo cartaObiet6 = new CartaObiettivo(2,CartaObiettivoEn.COFormaJ);
+		CartaObiettivo cartaObiet7 = new CartaObiettivo(2,CartaObiettivoEn.COFormaR);
+		CartaObiettivo cartaObiet8 = new CartaObiettivo(2,CartaObiettivoEn.COForma1);
 		Risorsa [] pObiet = {Risorsa.fungo,Risorsa.fungo,Risorsa.fungo};
-		CartaObiettivo cartaObiet9 = new CartaObiettivo(2,pObiet,"fungo");
-		pObiet[0]=Risorsa.foglia;
+		CartaObiettivo cartaObiet9 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.COTreFungo);
+		pObiet[0]=Risorsa.foglia; //da togliere
 		pObiet[1]=Risorsa.foglia;
 		pObiet[2]=Risorsa.foglia;
-		CartaObiettivo cartaObiet10 = new CartaObiettivo(2,pObiet,"foglia");
+		CartaObiettivo cartaObiet10 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.COTreFoglia);
 		pObiet[0]=Risorsa.lupo;
 		pObiet[1]=Risorsa.lupo;
 		pObiet[2]=Risorsa.lupo;
-		CartaObiettivo cartaObiet11 = new CartaObiettivo(2,pObiet,"lupo");
+		CartaObiettivo cartaObiet11 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.COTreLupo);
 		pObiet[0]=Risorsa.farfalla;
 		pObiet[1]=Risorsa.farfalla;
 		pObiet[2]=Risorsa.farfalla;
-		CartaObiettivo cartaObiet12 = new CartaObiettivo(2,pObiet,"farfalla");
-		CartaObiettivo cartaObiet13 = new CartaObiettivo(3,"3div");
+		CartaObiettivo cartaObiet12 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.COTreFarfalla);
+		CartaObiettivo cartaObiet13 = new CartaObiettivo(3,CartaObiettivoEn.COTreDiversi);
 		pObiet[0]=Risorsa.pergamena;
 		pObiet[1]=Risorsa.pergamena;
-		CartaObiettivo cartaObiet14 = new CartaObiettivo(2,pObiet,"pergamena");
+		CartaObiettivo cartaObiet14 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.CODuePergamena);
 		pObiet[0]=Risorsa.boccetta;
 		pObiet[1]=Risorsa.boccetta;
-		CartaObiettivo cartaObiet15 = new CartaObiettivo(2,pObiet,"boccetta");
+		CartaObiettivo cartaObiet15 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.CODueBoccetta);
 		pObiet[0]=Risorsa.piuma;
 		pObiet[1]=Risorsa.piuma;
-		CartaObiettivo cartaObiet16 = new CartaObiettivo(2,pObiet,"piuma");
+		CartaObiettivo cartaObiet16 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.CODuePiuma);
 		
 		// Creazione carte iniziali front
 		
@@ -62,7 +64,7 @@ public class Main {
 		Angolo angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
 		
 		
-		CartaIniziale cartaIni1 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,1);
+		CartaIniziale cartaIni1 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni1);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
@@ -71,7 +73,7 @@ public class Main {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
 		
 		
-		CartaIniziale cartaIni2 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,2);
+		CartaIniziale cartaIni2 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni2);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
@@ -80,7 +82,7 @@ public class Main {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.foglia);
 		
 		
-		CartaIniziale cartaIni3 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,3);
+		CartaIniziale cartaIni3 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni3);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
@@ -89,7 +91,7 @@ public class Main {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
 		
 		
-		CartaIniziale cartaIni4 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,4);
+		CartaIniziale cartaIni4 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni4);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
@@ -97,7 +99,7 @@ public class Main {
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.fungo);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
 	
-		CartaIniziale cartaIni5 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,5);
+		CartaIniziale cartaIni5 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni5);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
@@ -106,7 +108,7 @@ public class Main {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
 	
 		
-		CartaIniziale cartaIni6 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,6);
+		CartaIniziale cartaIni6 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni6);
 		
 		
 		//Creazione carte iniziali retro
