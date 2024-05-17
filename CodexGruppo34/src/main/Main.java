@@ -832,29 +832,122 @@ public class Main {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
 		CartaRisorsa carta40risorsa = new CartaRisorsa("id.R40",angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
 		
-		Carta[] carterisorsa = new Carta [] {carta1risorsa,carta2risorsa,carta3risorsa,carta4risorsa,carta5risorsa,carta6risorsa,
-			                        carta7risorsa,carta8risorsa,carta9risorsa,carta10risorsa,
-			                        carta11risorsa,carta12risorsa,carta13risorsa,carta14risorsa,carta15risorsa,carta16risorsa, carta17risorsa,carta18risorsa,carta19risorsa,
-			                        carta20risorsa,carta21risorsa,carta22risorsa,carta23risorsa,
-			                        carta24risorsa,carta25risorsa,carta26risorsa,carta27risorsa,carta28risorsa,carta29risorsa,
-			                        carta30risorsa,carta31risorsa,carta32risorsa,carta33risorsa,carta34risorsa,carta35risorsa,carta36risorsa,
-			                        carta37risorsa,carta38risorsa,carta39risorsa,carta40risorsa};
-		Mazzo carteRisorsa = new Mazzo(40,carterisorsa);
+
+		ArrayList<Carta> carteRisorsa = new ArrayList<Carta>();
+		carteRisorsa.add(carta1risorsa);
+		carteRisorsa.add(carta2risorsa);
+		carteRisorsa.add(carta3risorsa);
+		carteRisorsa.add(carta4risorsa);
+		carteRisorsa.add(carta5risorsa);
+		carteRisorsa.add(carta6risorsa);
+		carteRisorsa.add(carta7risorsa);
+		carteRisorsa.add(carta8risorsa);
+		carteRisorsa.add(carta9risorsa);
+		carteRisorsa.add(carta10risorsa);
+		carteRisorsa.add(carta11risorsa);
+		carteRisorsa.add(carta12risorsa);
+		carteRisorsa.add(carta13risorsa);
+		carteRisorsa.add(carta14risorsa);
+		carteRisorsa.add(carta15risorsa);
+		carteRisorsa.add(carta16risorsa);
+		carteRisorsa.add(carta17risorsa);
+		carteRisorsa.add(carta18risorsa);
+		carteRisorsa.add(carta19risorsa);
+		carteRisorsa.add(carta20risorsa);
+		carteRisorsa.add(carta21risorsa);
+		carteRisorsa.add(carta22risorsa);
+		carteRisorsa.add(carta23risorsa);
+		carteRisorsa.add(carta24risorsa);
+		carteRisorsa.add(carta25risorsa);
+		carteRisorsa.add(carta26risorsa);
+		carteRisorsa.add(carta27risorsa);
+		carteRisorsa.add(carta28risorsa);
+		carteRisorsa.add(carta29risorsa);
+		carteRisorsa.add(carta30risorsa);
+		carteRisorsa.add(carta31risorsa);
+		carteRisorsa.add(carta32risorsa);
+		carteRisorsa.add(carta33risorsa);
+		carteRisorsa.add(carta34risorsa);
+		carteRisorsa.add(carta35risorsa);
+		carteRisorsa.add(carta36risorsa);
+		carteRisorsa.add(carta37risorsa);
+		carteRisorsa.add(carta38risorsa);
+		carteRisorsa.add(carta39risorsa);
+		carteRisorsa.add(carta40risorsa);
+		Mazzo carteRisorse = new Mazzo(40,carteRisorsa);
 		
 		
-		Carta[] carteoro = new Carta[] {carta1oro,carta2oro,carta3oro,carta4oro,carta5oro,carta6oro,carta7oro,carta8oro,carta9oro,carta10oro,
-				carta11oro,carta12oro,carta13oro,carta14oro,carta15oro,carta16oro,carta17oro,carta18oro,carta19oro,carta20oro,
-				carta21oro,carta22oro,carta23oro,carta24oro,carta25oro,carta26oro,carta27oro,carta28oro,carta29oro,carta30oro,
-				carta31oro,carta32oro,carta33oro,carta34oro,carta35oro,carta36oro, carta37oro,carta38oro,carta39oro,carta40oro};
+		ArrayList<Carta> carteoro = new ArrayList<Carta>();
+        carteoro.add(carta1oro);
+        carteoro.add(carta2oro);
+        carteoro.add(carta3oro);
+        carteoro.add(carta4oro);
+        carteoro.add(carta5oro);
+        carteoro.add(carta6oro);
+        carteoro.add(carta7oro);
+        carteoro.add(carta8oro);
+        carteoro.add(carta9oro);
+        carteoro.add(carta10oro);
+        carteoro.add(carta11oro);
+        carteoro.add(carta12oro);
+        carteoro.add(carta13oro);
+        carteoro.add(carta14oro);
+        carteoro.add(carta15oro);
+        carteoro.add(carta16oro);
+        carteoro.add(carta17oro);
+        carteoro.add(carta18oro);
+        carteoro.add(carta19oro);
+        carteoro.add(carta20oro);
+        carteoro.add(carta21oro);
+        carteoro.add(carta22oro);
+        carteoro.add(carta23oro);
+        carteoro.add(carta24oro);
+        carteoro.add(carta25oro);
+        carteoro.add(carta26oro);
+        carteoro.add(carta27oro);
+        carteoro.add(carta28oro);
+        carteoro.add(carta29oro);
+        carteoro.add(carta30oro);
+        carteoro.add(carta31oro);
+        carteoro.add(carta32oro);
+        carteoro.add(carta33oro);
+        carteoro.add(carta34oro);
+        carteoro.add(carta35oro);
+        carteoro.add(carta36oro);
+        carteoro.add(carta37oro);
+        carteoro.add(carta38oro);
+        carteoro.add(carta39oro);
+        carteoro.add(carta40oro);
 		Mazzo carteOro = new Mazzo(40,carteoro);
 		
-		Carta [] cart = new Carta []{cartaIni1,cartaIni2,cartaIni3,cartaIni4,cartaIni5,cartaIni6};
-        Mazzo carteIniziali = new Mazzo(6,cart);
+		ArrayList<Carta> cartainiziale = new ArrayList<Carta>();
+		cartainiziale.add(cartaIni1);
+		cartainiziale.add(cartaIni2);
+		cartainiziale.add(cartaIni3);
+		cartainiziale.add(cartaIni4);
+		cartainiziale.add(cartaIni5);
+		cartainiziale.add(cartaIni6);
+        Mazzo carteIniziali = new Mazzo(6,cartainiziale);
 
-        Carta [] car = new Carta [] {cartaObiet1,cartaObiet2,cartaObiet3,cartaObiet4,cartaObiet5,cartaObiet6,
-                                     cartaObiet7,cartaObiet8,cartaObiet9,cartaObiet10,cartaObiet11,cartaObiet12,
-                                     cartaObiet13,cartaObiet14,cartaObiet15,cartaObiet16};
-        Mazzo carteObiettivo = new Mazzo(16,car);
+        ArrayList<Carta> carteobiettivo = new ArrayList<Carta>();
+        carteobiettivo.add(cartaObiet1);
+        carteobiettivo.add(cartaObiet2);
+        carteobiettivo.add(cartaObiet3);
+        carteobiettivo.add(cartaObiet4);
+        carteobiettivo.add(cartaObiet5);
+        carteobiettivo.add(cartaObiet6);
+        carteobiettivo.add(cartaObiet7);
+        carteobiettivo.add(cartaObiet8);
+        carteobiettivo.add(cartaObiet9);
+        carteobiettivo.add(cartaObiet10);
+        carteobiettivo.add(cartaObiet11);
+        carteobiettivo.add(cartaObiet12);
+        carteobiettivo.add(cartaObiet13);
+        carteobiettivo.add(cartaObiet14);
+        carteobiettivo.add(cartaObiet15);
+        carteobiettivo.add(cartaObiet16);
+
+        Mazzo carteObiettivo = new Mazzo(16,carteobiettivo);
 		
 		
 	}

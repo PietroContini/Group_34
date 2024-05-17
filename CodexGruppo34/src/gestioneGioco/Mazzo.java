@@ -1,15 +1,16 @@
 package gestioneGioco;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import componentiGioco.Carta;
 
 public class Mazzo {
 	
-    private Carta [] carte;
+    private  ArrayList<Carta> carte;
     private int num;
     
-    public Mazzo(int numero,Carta[] carte ) {
-    	this.carte=new Carta[numero];
+    public Mazzo(int numero, ArrayList<Carta> carte ) {
     	this.carte=carte;
     	this.num=numero;
  
@@ -17,20 +18,14 @@ public class Mazzo {
     }
 
 	public void mischiaMazzo() {
-		Random rn = new Random();
-		
-		for(int i=0; i<this.carte.length;i++) {
-			int nuovoIndice = rn.nextInt(this.carte.length);
-          Carta carta = this.carte[nuovoIndice];
-          this.carte[nuovoIndice] = this.carte[i];
-          this.carte[i] = carta;
-		}
+ 
+		Collections.shuffle(carte);
 	
 	}
 	
 	public Carta getCarta() {
 		num--;
-		return this.carte[num];
+		return this.carte.get(num);
 		
 	}
 
