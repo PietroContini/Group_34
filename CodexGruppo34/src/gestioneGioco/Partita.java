@@ -21,12 +21,13 @@ public class Partita {
 	private static Mazzo mazzoObiettivo;
 	private static Mazzo mazzoIniziale;
 	private static ArrayList<Carta> carteVisibili;
-	private static ArrayList<Carta> carteObiettivoComuni;
+	private static ArrayList<CartaObiettivo> carteObiettivoComuni;
 	
 	
 	public Partita(ArrayList<Giocatore> giocatori) {
 		creaMazzi();
 		this.giocatori = giocatori;
+		inizioTavolo();
 	}
 	
 	
@@ -74,9 +75,11 @@ public class Partita {
 		carteVisibili.add(pescaCartaRis());
 		carteVisibili.add(pescaCartaOro());
 		carteVisibili.add(pescaCartaOro());
+		carteObiettivoComuni.add(pescaCartaObiettivo());
+		carteObiettivoComuni.add(pescaCartaObiettivo());
 	}
 
-	public static ArrayList<Carta> getCarteObiettivoComuni() {
+	public ArrayList<CartaObiettivo> getCarteObiettivoComuni() {
 		return carteObiettivoComuni;
 	}
 
