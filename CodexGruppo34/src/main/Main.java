@@ -18,43 +18,34 @@ import gestioneGioco.Mazzo;
 public class Main {
 
 	public static void Main(String[] args) {
-		// TODO Auto-generated method stub
     
 		
 	    //Creazione carte obiettivo
 		
-		CartaObiettivo cartaObiet1 = new CartaObiettivo(2,CartaObiettivoEn.COTriplaRossa);
-		CartaObiettivo cartaObiet2 = new CartaObiettivo(2,CartaObiettivoEn.COTriplaVerde);
-		CartaObiettivo cartaObiet3 = new CartaObiettivo(2,CartaObiettivoEn.COTriplaAzzurra);
-		CartaObiettivo cartaObiet4 = new CartaObiettivo(2,CartaObiettivoEn.COTriplaViola);
-		CartaObiettivo cartaObiet5 = new CartaObiettivo(2,CartaObiettivoEn.COFormaL);
-		CartaObiettivo cartaObiet6 = new CartaObiettivo(2,CartaObiettivoEn.COFormaJ);
-		CartaObiettivo cartaObiet7 = new CartaObiettivo(2,CartaObiettivoEn.COFormaR);
-		CartaObiettivo cartaObiet8 = new CartaObiettivo(2,CartaObiettivoEn.COForma1);
-		Risorsa [] pObiet = {Risorsa.fungo,Risorsa.fungo,Risorsa.fungo};
-		CartaObiettivo cartaObiet9 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.COTreFungo);
-		pObiet[0]=Risorsa.foglia; //da togliere
-		pObiet[1]=Risorsa.foglia;
-		pObiet[2]=Risorsa.foglia;
-		CartaObiettivo cartaObiet10 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.COTreFoglia);
-		pObiet[0]=Risorsa.lupo;
-		pObiet[1]=Risorsa.lupo;
-		pObiet[2]=Risorsa.lupo;
-		CartaObiettivo cartaObiet11 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.COTreLupo);
-		pObiet[0]=Risorsa.farfalla;
-		pObiet[1]=Risorsa.farfalla;
-		pObiet[2]=Risorsa.farfalla;
-		CartaObiettivo cartaObiet12 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.COTreFarfalla);
-		CartaObiettivo cartaObiet13 = new CartaObiettivo(3,CartaObiettivoEn.COTreDiversi);
-		pObiet[0]=Risorsa.pergamena;
-		pObiet[1]=Risorsa.pergamena;
-		CartaObiettivo cartaObiet14 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.CODuePergamena);
-		pObiet[0]=Risorsa.boccetta;
-		pObiet[1]=Risorsa.boccetta;
-		CartaObiettivo cartaObiet15 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.CODueBoccetta);
-		pObiet[0]=Risorsa.piuma;
-		pObiet[1]=Risorsa.piuma;
-		CartaObiettivo cartaObiet16 = new CartaObiettivo(2,pObiet,CartaObiettivoEn.CODuePiuma);
+		CartaObiettivo cartaObiet1 = new CartaObiettivo(CartaObiettivoEn.COTriplaRossa);
+		CartaObiettivo cartaObiet2 = new CartaObiettivo(CartaObiettivoEn.COTriplaVerde);
+		CartaObiettivo cartaObiet3 = new CartaObiettivo(CartaObiettivoEn.COTriplaAzzurra);
+		CartaObiettivo cartaObiet4 = new CartaObiettivo(CartaObiettivoEn.COTriplaViola);
+		CartaObiettivo cartaObiet5 = new CartaObiettivo(CartaObiettivoEn.COFormaL);
+		CartaObiettivo cartaObiet6 = new CartaObiettivo(CartaObiettivoEn.COFormaJ);
+		CartaObiettivo cartaObiet7 = new CartaObiettivo(CartaObiettivoEn.COFormaR);
+		CartaObiettivo cartaObiet8 = new CartaObiettivo(CartaObiettivoEn.COForma1);
+	
+		CartaObiettivo cartaObiet9 = new CartaObiettivo(CartaObiettivoEn.COTreFungo);
+	
+		CartaObiettivo cartaObiet10 = new CartaObiettivo(CartaObiettivoEn.COTreFoglia);
+		
+		CartaObiettivo cartaObiet11 = new CartaObiettivo(CartaObiettivoEn.COTreLupo);
+	
+		CartaObiettivo cartaObiet12 = new CartaObiettivo(CartaObiettivoEn.COTreFarfalla);
+		
+		CartaObiettivo cartaObiet13 = new CartaObiettivo(CartaObiettivoEn.COTreDiversi);
+	
+		CartaObiettivo cartaObiet14 = new CartaObiettivo(CartaObiettivoEn.CODuePergamena);
+	
+		CartaObiettivo cartaObiet15 = new CartaObiettivo(CartaObiettivoEn.CODueBoccetta);
+		
+		CartaObiettivo cartaObiet16 = new CartaObiettivo(CartaObiettivoEn.CODuePiuma);
 		
 		// Creazione carte iniziali front
 		

@@ -1,9 +1,6 @@
 package gestioneObiettivi;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
 
 import carteObiettivo.CartaObiettivo1;
 import carteObiettivo.CartaObiettivo10;
@@ -21,13 +18,9 @@ import carteObiettivo.CartaObiettivo6;
 import carteObiettivo.CartaObiettivo7;
 import carteObiettivo.CartaObiettivo8;
 import carteObiettivo.CartaObiettivo9;
-import componentiGioco.Carta;
 import componentiGioco.CartaObiettivo;
 import componentiGioco.CartaObiettivoEn;
-import componentiGioco.Colore;
-import componentiGioco.Risorsa;
 import gestioneGioco.Giocatore;
-import gestioneGioco.Manoscritto;
 
 public class ManagerPunti {
 	
