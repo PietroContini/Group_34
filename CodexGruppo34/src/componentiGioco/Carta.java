@@ -1,5 +1,6 @@
 package componentiGioco;
 
+import java.util.ArrayList;
 
 public class Carta {
 	
@@ -34,4 +35,18 @@ public class Carta {
 	public String getId() {
 		return id;
 	}
+	
+    public Angolo getAngolo(int x) {
+		return angoli[x];
+	}
+	public ArrayList<Risorsa> risorseAngoli (){
+    	ArrayList<Risorsa> x = new ArrayList<Risorsa>();
+    	for (int i=0;i<4;i++) {
+    	if(this.angoli[i] != null && angoli[i].getRisorsa() != Risorsa.vuoto) {
+    		x.add(angoli[i].getRisorsa());
+    		
+    	}
+    	}
+    	return x;
+    }
 }

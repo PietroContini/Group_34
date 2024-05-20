@@ -24,6 +24,7 @@ public class Partita {
 	private static ArrayList<CartaObiettivo> carteObiettivoComuni;
 	
 	
+	
 	public Partita(ArrayList<Giocatore> giocatori) {
 		creaMazzi();
 		this.giocatori = giocatori;
@@ -82,6 +83,33 @@ public class Partita {
 	public ArrayList<CartaObiettivo> getCarteObiettivoComuni() {
 		return carteObiettivoComuni;
 	}
+	
+    public CartaRisorsa cercaCartaRisorsa(Carta carta) {
+    	for (CartaRisorsa cartaRisorsa : mazzoRisorsa.getCarteRisorsa()) {
+			if(cartaRisorsa.getId() == carta.getId()) {
+				return cartaRisorsa;
+			}
+		}
+    	return null;
+    }
+    
+    public CartaIniziale cercaCartaIniziale(Carta carta) {
+    	for (CartaIniziale cartaIniziale : mazzoIniziale.getCarteIniziale()) {
+			if(cartaIniziale.getId() == carta.getId()) {
+				return cartaIniziale;
+			}
+		}
+    	return null;
+    }
+    
+    public CartaOro cercaCartaOro(Carta carta) {
+    	for (CartaOro cartaOro : mazzoOro.getCarteOro()) {
+			if(cartaOro.getId() == carta.getId()) {
+				return cartaOro;
+			}
+		}
+    	return null;
+    }
 
 
 	public void creaMazzi() {

@@ -46,4 +46,9 @@ public class Manoscritto {
 	public ArrayList<Carta> getCarteUsate() {
 		return carteUsate;
 	}
+	
+	public void piazzaCarta (Carta carta,int x,int y) {
+		
+		carteManoscritto[x][y] = carta;
+	}
 }

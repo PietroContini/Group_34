@@ -14,5 +14,8 @@ public class Angolo extends Carta{
 	public Angolo() {
 		
 	}
+	public Risorsa getRisorsa () {
+		return risorsa;
+	}
 
 }

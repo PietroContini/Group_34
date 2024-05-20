@@ -1,7 +1,9 @@
 package gestioneGioco;
 import componentiGioco.Carta;
+import componentiGioco.CartaIniziale;
 import componentiGioco.CartaObiettivo;
 import componentiGioco.CartaOro;
+import componentiGioco.CartaRisorsa;
 import componentiGioco.Risorsa;
 
 import java.util.ArrayList;
@@ -56,7 +58,7 @@ public class Giocatore {
 		return manoscritto;
 	}
 	
-	public void removeCarta(Risorsa risorsa) {
+	public void removeRisorsa(Risorsa risorsa) {
 		risorseVisibili.remove(risorsa);
 		
 	}
@@ -105,6 +107,77 @@ public class Giocatore {
 			}
 		}
 		return cont;
+	}
+	
+	public void piazzaCarta(Partita partita, Carta carta,int x,int y) {
+		
+		if(carta instanceof CartaIniziale) {
+			this.getManoscritto().piazzaCarta(carta, 46, 46);
+			CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+			this.risorseVisibili.addAll(cartaIniziale.risorseAngoli());
+		}
+		
+		if(carta instanceof CartaOro) {
+			CartaOro cartaOro = partita.cercaCartaOro(carta);
+			if(checkRichiesta(cartaOro)==true) {
+			this.getManoscritto().piazzaCarta(carta, x, y);
+			this.risorseVisibili.addAll(cartaOro.risorseAngoli());
+			angoloCoperto(x, y);
+			}
+		}
+		
+		if(carta instanceof CartaRisorsa) {
+			this.getManoscritto().piazzaCarta(carta, x, y);
+			CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+			this.risorseVisibili.addAll(cartaRisorsa.risorseAngoli());
+			angoloCoperto(x, y);
+		}
+		
+	}
+	
+	public void angoloCoperto(int x,int y) {
+	int a = x;
+	int b = y;
+	Carta carta = this.getManoscritto().getCarta(a--, b--);
+	if(carta != null) {
+		if(carta.getAngolo(4) != null && carta.getAngolo(4).getRisorsa() != Risorsa.vuoto) {
+			
+			removeRisorsa(carta.getAngolo(4).getRisorsa());
+			
+		}
+	}
+	
+	 a = x;
+	 b = y;
+	carta = this.getManoscritto().getCarta(a++, b--);
+	if(carta != null) {
+		if(carta.getAngolo(2) != null && carta.getAngolo(2).getRisorsa() != Risorsa.vuoto) {
+			
+			removeRisorsa(carta.getAngolo(2).getRisorsa());
+			
+		}
+	}
+	
+	 a = x;
+	 b = y;
+	carta = this.getManoscritto().getCarta(a--, b++);
+	if(carta != null) {
+		if(carta.getAngolo(3) != null && carta.getAngolo(3).getRisorsa() != Risorsa.vuoto) {
+			
+			removeRisorsa(carta.getAngolo(3).getRisorsa());
+			
+		}
+	}
+	 a = x;
+	 b = y;
+	carta = this.getManoscritto().getCarta(a++, b++);
+	if(carta != null) {
+		if(carta.getAngolo(1) != null && carta.getAngolo(1).getRisorsa() != Risorsa.vuoto) {
+			
+			removeRisorsa(carta.getAngolo(1).getRisorsa());
+			
+		}
+	}
 	}
 
 }
