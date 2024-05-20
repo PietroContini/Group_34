@@ -33,6 +33,10 @@ public class CartaRisorsa extends Carta {
     	return y;
     	
     }
+
+	public int getPuntiRis() {
+		return puntiRis;
+	}
     
 
 }

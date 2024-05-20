@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CartaIniziale extends Carta {
 	
-	private ArrayList<Risorsa> risorseBase;
+	private ArrayList<Risorsa> risorseBase = null;
 	private TipoIni tipo;
 
     public CartaIniziale(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,ArrayList <Risorsa> richiesta) {
@@ -106,4 +106,8 @@ public class CartaIniziale extends Carta {
     	}
 		return null;
     }
+
+	public ArrayList<Risorsa> getRisorseBase() {
+		return risorseBase;
+	}
 }

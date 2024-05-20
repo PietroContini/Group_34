@@ -18,8 +18,12 @@ import carteObiettivo.CartaObiettivo6;
 import carteObiettivo.CartaObiettivo7;
 import carteObiettivo.CartaObiettivo8;
 import carteObiettivo.CartaObiettivo9;
+import componentiGioco.Carta;
 import componentiGioco.CartaObiettivo;
 import componentiGioco.CartaObiettivoEn;
+import componentiGioco.CartaOro;
+import componentiGioco.CartaRisorsa;
+import componentiGioco.PuntiPerCarta;
 import gestioneGioco.Giocatore;
 import gestioneGioco.Partita;
 
@@ -27,7 +31,7 @@ public class ManagerPunti {
 	
 	
 	
-	public int checkObiettivi(Giocatore a, Partita ps) {
+	public static int checkObiettivi(Giocatore a, Partita ps) {
 		
 		ArrayList<CartaObiettivo> b = a.getCarteObiettivo();
 		ArrayList<CartaObiettivo> p = ps.getCarteObiettivoComuni();
@@ -147,6 +151,37 @@ public class ManagerPunti {
 				}
 		
 				return punti;
+	}
+	
+	public static int puntiCarta(Giocatore g, CartaOro b) {
+		
+		int punti = 0;
+
+		
+		PuntiPerCarta x = b.getPuntiCarta();
+		
+			if(x.getMoltiplicatore()==null) {
+				punti = x.getPunti();
+			}
+			else {
+				int cont = g.ricercaRisorsa(x.getMoltiplicatore());
+				punti = cont * x.getPunti();
+			}
+		
+		
+		return punti;
+		
+	}
+	
+	public static int puntiCarta(Giocatore g, CartaRisorsa b) {
+		
+		int punti = 0;
+
+			punti = b.getPuntiRis();
+			
+		
+		return punti;
+		
 	}
 
 	

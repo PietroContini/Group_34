@@ -37,6 +37,10 @@ public class CartaOro extends Carta {
 	public ArrayList<Risorsa> getRichiesta() {
 		return richiesta;
 	}
+
+	public PuntiPerCarta getPuntiCarta() {
+		return puntiCarta;
+	}
     
 
 }

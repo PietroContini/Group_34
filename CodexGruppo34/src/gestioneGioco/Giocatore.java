@@ -5,6 +5,7 @@ import componentiGioco.CartaObiettivo;
 import componentiGioco.CartaOro;
 import componentiGioco.CartaRisorsa;
 import componentiGioco.Risorsa;
+import gestioneObiettivi.ManagerPunti;
 
 import java.util.ArrayList;
 
@@ -115,20 +116,25 @@ public class Giocatore {
 			this.getManoscritto().piazzaCarta(carta, 46, 46);
 			CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
 			this.risorseVisibili.addAll(cartaIniziale.risorseAngoli());
+			if(cartaIniziale.getRisorseBase()!=null) {
+				this.risorseVisibili.addAll(cartaIniziale.getRisorseBase());
+			}
 		}
 		
 		if(carta instanceof CartaOro) {
 			CartaOro cartaOro = partita.cercaCartaOro(carta);
 			if(checkRichiesta(cartaOro)==true) {
-			this.getManoscritto().piazzaCarta(carta, x, y);
-			this.risorseVisibili.addAll(cartaOro.risorseAngoli());
-			angoloCoperto(x, y);
+				this.punti = punti + ManagerPunti.puntiCarta(this, cartaOro);
+				this.getManoscritto().piazzaCarta(carta, x, y);
+				this.risorseVisibili.addAll(cartaOro.risorseAngoli());
+				angoloCoperto(x, y);
 			}
 		}
 		
 		if(carta instanceof CartaRisorsa) {
 			this.getManoscritto().piazzaCarta(carta, x, y);
 			CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+			this.punti = punti + ManagerPunti.puntiCarta(this, cartaRisorsa);
 			this.risorseVisibili.addAll(cartaRisorsa.risorseAngoli());
 			angoloCoperto(x, y);
 		}
@@ -140,7 +146,7 @@ public class Giocatore {
 	int b = y;
 	Carta carta = this.getManoscritto().getCarta(a--, b--);
 	if(carta != null) {
-		if(carta.getAngolo(4) != null && carta.getAngolo(4).getRisorsa() != Risorsa.vuoto) {
+		if(carta.getAngolo(4) != null ) {
 			
 			removeRisorsa(carta.getAngolo(4).getRisorsa());
 			
@@ -151,7 +157,7 @@ public class Giocatore {
 	 b = y;
 	carta = this.getManoscritto().getCarta(a++, b--);
 	if(carta != null) {
-		if(carta.getAngolo(2) != null && carta.getAngolo(2).getRisorsa() != Risorsa.vuoto) {
+		if(carta.getAngolo(2) != null ) {
 			
 			removeRisorsa(carta.getAngolo(2).getRisorsa());
 			
@@ -162,7 +168,7 @@ public class Giocatore {
 	 b = y;
 	carta = this.getManoscritto().getCarta(a--, b++);
 	if(carta != null) {
-		if(carta.getAngolo(3) != null && carta.getAngolo(3).getRisorsa() != Risorsa.vuoto) {
+		if(carta.getAngolo(3) != null ) {
 			
 			removeRisorsa(carta.getAngolo(3).getRisorsa());
 			
@@ -172,7 +178,7 @@ public class Giocatore {
 	 b = y;
 	carta = this.getManoscritto().getCarta(a++, b++);
 	if(carta != null) {
-		if(carta.getAngolo(1) != null && carta.getAngolo(1).getRisorsa() != Risorsa.vuoto) {
+		if(carta.getAngolo(1) != null ) {
 			
 			removeRisorsa(carta.getAngolo(1).getRisorsa());
 			
