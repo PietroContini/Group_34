@@ -12,10 +12,10 @@ public class PuntiPerCarta {
 		this.moltiplicatore = risorsa;
 	}
 
-	public PuntiPerCarta(int punti2, Risorsa [] simbol) {
+	/*public PuntiPerCarta(int punti2, Risorsa [] simbol) {
 		this.punti = punti2;
 		this.simboli=simbol;
-	}
+	}*/
 	public PuntiPerCarta(int punti2) {
 		this.punti = punti2;
 		
