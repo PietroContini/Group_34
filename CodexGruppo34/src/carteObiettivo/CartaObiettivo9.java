@@ -19,5 +19,8 @@ public class CartaObiettivo9 {
 	 return punti;
 	}
 	
+	public static void stampaCarta() {
+		   
+	}
 }
 	

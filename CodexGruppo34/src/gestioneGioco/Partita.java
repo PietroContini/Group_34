@@ -16,12 +16,12 @@ import componentiGioco.TipoIni;
 public class Partita {
 	
 	private ArrayList<Giocatore> giocatori;
-	private static Mazzo mazzoOro;
-	private static Mazzo mazzoRisorsa;
-	private static Mazzo mazzoObiettivo;
-	private static Mazzo mazzoIniziale;
-	private static ArrayList<Carta> carteVisibili;
-	private static ArrayList<CartaObiettivo> carteObiettivoComuni;
+	private Mazzo mazzoOro;
+	private Mazzo mazzoRisorsa;
+	private Mazzo mazzoObiettivo;
+	private Mazzo mazzoIniziale;
+	private ArrayList<Carta> carteVisibili;
+	private ArrayList<CartaObiettivo> carteObiettivoComuni;
 	
 	
 	
@@ -32,32 +32,32 @@ public class Partita {
 	}
 	
 	
-	public static CartaIniziale pescaCartaIni() {
+	public  CartaIniziale pescaCartaIni() {
 		
 		CartaIniziale x = (CartaIniziale) mazzoIniziale.getCarta();
 		return x;
 			
 	}
 	
-	public static CartaRisorsa pescaCartaRis() {
+	public  CartaRisorsa pescaCartaRis() {
 		
 		CartaRisorsa x = (CartaRisorsa) mazzoRisorsa.getCarta();
 		return x;
 			
 	}
-	public static CartaOro pescaCartaOro() {
+	public  CartaOro pescaCartaOro() {
 		
 		CartaOro x = (CartaOro) mazzoOro.getCarta();
 		return x;
 			
 	}
-	public static CartaObiettivo pescaCartaObiettivo() {
+	public  CartaObiettivo pescaCartaObiettivo() {
 		
 		CartaObiettivo x = (CartaObiettivo) mazzoObiettivo.getCarta();
 		return x;
 			
 	}
-	public static Carta pescaCartaTavolo(int i) {
+	public  Carta pescaCartaTavolo(int i) {
 		
 		Carta x =  carteVisibili.get(i);
 		if(i == 0 || i == 1) {	
@@ -194,72 +194,6 @@ public class Partita {
 		
 		CartaIniziale cartaIni6 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni6);
 		
-		
-		//Creazione carte iniziali retro
-		/*
-		
-		Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
-		Angolo angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.farfalla);
-		Angolo angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.foglia);
-		Angolo angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		ArrayList<Risorsa> listaIni = new ArrayList<> ();
-		listaIni.add(Risorsa.farfalla);
-		
-		CartaIniziale cartaIni1 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni);
-		listaIni.clear();
-		
-		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.lupo);
-		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
-		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
-		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
-		listaIni.add(Risorsa.fungo);
-		
-		CartaIniziale cartaIni2 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni);
-		listaIni.clear();
-		
-		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
-		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
-		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
-		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		listaIni.add(Risorsa.foglia);
-		listaIni.add(Risorsa.fungo);
-		
-		CartaIniziale cartaIni3 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni);
-		listaIni.clear();
-		
-		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
-		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
-		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
-		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.vuoto);
-		listaIni.add(Risorsa.lupo);
-		listaIni.add(Risorsa.farfalla);
-		
-		CartaIniziale cartaIni4 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni);
-		listaIni.clear();
-		
-		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
-		angolo2 = new Angolo(Posizione.BassoSinistra,null);
-		angolo3 = new Angolo(Posizione.AltoDestra,null);
-		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		listaIni.add(Risorsa.lupo);
-		listaIni.add(Risorsa.farfalla);
-		listaIni.add(Risorsa.foglia);
-		
-		CartaIniziale cartaIni5 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni);
-		listaIni.clear();
-		
-		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
-		angolo2 = new Angolo(Posizione.BassoSinistra,null);
-		angolo3 = new Angolo(Posizione.AltoDestra,null);
-		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		listaIni.add(Risorsa.foglia);
-		listaIni.add(Risorsa.lupo);
-		listaIni.add(Risorsa.fungo);
-		
-		CartaIniziale cartaIni6 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni);
-		listaIni.clear();
-		
-		*/
 		
 		// Creazione carte oro
 		

@@ -47,4 +47,8 @@ public class CartaObiettivo16 {
 		return x;
 	}
 	
+	public static void stampaCarta() {
+		   
+	}
+	
 }

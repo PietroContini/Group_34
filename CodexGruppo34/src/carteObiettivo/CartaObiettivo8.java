@@ -11,7 +11,7 @@ public class CartaObiettivo8 {
 
 
 
-public static int checkObietFormaJ(Giocatore a) {
+	public static int checkObietFormaJ(Giocatore a) {
 	
 	Manoscritto m = a.getManoscritto();
 	ArrayList<Carta> copy = new ArrayList<Carta>();
@@ -304,5 +304,7 @@ public static int checkObietFormaJ(Giocatore a) {
 		
 	}
 
-
+	public static void stampaCarta() {
+		   
+	}
 }

@@ -11,43 +11,179 @@ public class CartaObiettivo6 {
 
 
 
-public static int checkObietForma1(Giocatore a) {
-	
-	Manoscritto m = a.getManoscritto();
-	ArrayList<Carta> copy = new ArrayList<Carta>();
-	
-	int punti = 0;
-	
-	// forma a 1
-		int x=46;
-		int y=46;
-		int cop = 0;
-		int cont = 0;
-		while(x<90) {
-			y =50+cont;
-			x = 50+cont;
-			cont++;
-			cop = 0;
-			int xs = x;
-			int ys = y;
-			if(m.getCarta(x, y)!=null) {
-				if(x!=46 && y!=46 && m.getCarta(x, y).getColor()==Colore.azzurro && m.getCarta(xs, ys+2).getColor()==Colore.azzurro && m.getCarta(xs-1, ys+3).getColor()==Colore.rosso  ) {
-					xs=x; 
-					ys=y;
-					if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs, ys+2)) ==false && m.search(m.getCarta(xs-1, ys+3))==false) {
-						copy.add(m.getCarta(x, y));
+	public static int checkObietForma1(Giocatore a) {
+		
+		Manoscritto m = a.getManoscritto();
+		ArrayList<Carta> copy = new ArrayList<Carta>();
+		
+		int punti = 0;
+		
+		// forma a 1
+			int x=46;
+			int y=46;
+			int cop = 0;
+			int cont = 0;
+			while(x<90) {
+				y =50+cont;
+				x = 50+cont;
+				cont++;
+				cop = 0;
+				int xs = x;
+				int ys = y;
+				if(m.getCarta(x, y)!=null) {
+					if(x!=46 && y!=46 && m.getCarta(x, y).getColor()==Colore.azzurro && m.getCarta(xs, ys+2).getColor()==Colore.azzurro && m.getCarta(xs-1, ys+3).getColor()==Colore.rosso  ) {
 						xs=x; 
 						ys=y;
-						copy.add(m.getCarta(xs, ys+2));
-						copy.add(m.getCarta(xs-1, ys+3));
-						m.addS(copy);
-						punti=punti+2;
-						copy.clear();
+						if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs, ys+2)) ==false && m.search(m.getCarta(xs-1, ys+3))==false) {
+							copy.add(m.getCarta(x, y));
+							xs=x; 
+							ys=y;
+							copy.add(m.getCarta(xs, ys+2));
+							copy.add(m.getCarta(xs-1, ys+3));
+							m.addS(copy);
+							punti=punti+2;
+							copy.clear();
+						}
+						
 					}
 					
-				}
-				
-				
+					
+						int as=x;
+						int bs=y;
+						while(y<90) {
+						Carta fg =	m.getCarta(as-1, bs+1);
+						xs=as;
+						ys=bs;
+						if(fg == null) {
+							cop = 0;
+							break;
+						}
+						if(fg.getColor()==Colore.viola && m.search(fg)==false) {
+							cop++;
+							copy.add(fg);
+							
+							fg = m.getCarta(xs,ys-2);
+							
+							if(fg == null) {
+								cop = 0;
+								copy.clear();
+								break;
+							}
+							if(fg.getColor()==Colore.viola && m.search(fg)==false) {
+								cop++;
+								copy.add(fg);
+							}
+							fg = m.getCarta(xs-1,ys-1);
+							
+							if(fg == null) {
+								cop = 0;
+								copy.clear();
+								break;
+							}
+							if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
+								cop++;
+								copy.add(fg);
+							}
+							
+							if(cop==3) {
+								m.addS(copy);
+								copy.clear();
+								punti=punti+2;
+							}
+							else{
+								copy.clear();
+								cop = 0;
+							}
+						}
+						else{
+							copy.clear();
+							cop = 0;
+						}
+							
+						}
+						as=x;
+						bs=y;
+						xs=x;
+						ys=y;
+						while(y>0) {
+							Carta fg =	m.getCarta(as+1, bs-1);
+							xs=as;
+							ys=bs;
+							if(fg == null) {
+								cop = 0;
+								break;
+							}
+							if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
+								cop++;
+								copy.add(fg);
+								
+								fg = m.getCarta(xs+1,ys+1);
+								
+								if(fg == null) {
+									cop = 0;
+									copy.clear();
+									break;
+								}
+								if(fg.getColor()==Colore.viola && m.search(fg)==false) {
+									cop++;
+									copy.add(fg);
+								}
+								fg = m.getCarta(xs,ys+2);
+								
+								if(fg == null) {
+									cop = 0;
+									copy.clear();
+									break;
+								}
+								if(fg.getColor()==Colore.viola && m.search(fg)==false) {
+									cop++;
+									copy.add(fg);
+								}
+								
+								if(cop==3) {
+									m.addS(copy);
+									copy.clear();
+									punti=punti+2;
+								}
+								else{
+									copy.clear();
+									cop = 0;
+								}
+							}
+							else{
+								copy.clear();
+								cop = 0;
+							}
+								
+							}
+			
+			}
+			}
+			cont = 0;
+			while(x>0) {
+				y =46-cont;
+				x = 46-cont;
+				cont++;
+				int xs = x;
+				int ys = y;
+				if(m.getCarta(x, y)!=null) {
+					if(x!=46 && y!=46 && m.getCarta(x, y).getColor()==Colore.azzurro && m.getCarta(xs, ys+2).getColor()==Colore.azzurro && m.getCarta(xs-1, ys+3).getColor()==Colore.rosso  ) {
+						xs=x; 
+						ys=y;
+						if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs, ys+2)) ==false && m.search(m.getCarta(xs-1, ys+3))==false) {
+							copy.add(m.getCarta(x, y));
+							xs=x; 
+							ys=y;
+							copy.add(m.getCarta(xs, ys+2));
+							copy.add(m.getCarta(xs-1, ys+3));
+							m.addS(copy);
+							punti=punti+2;
+							copy.clear();
+						}
+						
+					}
+					
+					
 					int as=x;
 					int bs=y;
 					while(y<90) {
@@ -85,6 +221,7 @@ public static int checkObietForma1(Giocatore a) {
 							copy.add(fg);
 						}
 						
+						
 						if(cop==3) {
 							m.addS(copy);
 							copy.clear();
@@ -105,202 +242,67 @@ public static int checkObietForma1(Giocatore a) {
 					bs=y;
 					xs=x;
 					ys=y;
-					while(y>0) {
-						Carta fg =	m.getCarta(as+1, bs-1);
-						xs=as;
-						ys=bs;
-						if(fg == null) {
-							cop = 0;
-							break;
-						}
-						if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
-							cop++;
-							copy.add(fg);
-							
-							fg = m.getCarta(xs+1,ys+1);
-							
+						while(y>0) {
+							Carta fg =	m.getCarta(as+1, bs-1);
+							xs=as;
+							ys=bs;
 							if(fg == null) {
 								cop = 0;
-								copy.clear();
 								break;
 							}
-							if(fg.getColor()==Colore.viola && m.search(fg)==false) {
+							if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
 								cop++;
 								copy.add(fg);
-							}
-							fg = m.getCarta(xs,ys+2);
-							
-							if(fg == null) {
-								cop = 0;
-								copy.clear();
-								break;
-							}
-							if(fg.getColor()==Colore.viola && m.search(fg)==false) {
-								cop++;
-								copy.add(fg);
-							}
-							
-							if(cop==3) {
-								m.addS(copy);
-								copy.clear();
-								punti=punti+2;
+								
+								fg = m.getCarta(xs+1,ys+1);
+								
+								if(fg == null) {
+									cop = 0;
+									copy.clear();
+									break;
+								}
+								if(fg.getColor()==Colore.viola && m.search(fg)==false) {
+									cop++;
+									copy.add(fg);
+								}
+								fg = m.getCarta(xs,ys+2);
+								
+								if(fg == null) {
+									cop = 0;
+									copy.clear();
+									break;
+								}
+								if(fg.getColor()==Colore.viola && m.search(fg)==false) {
+									cop++;
+									copy.add(fg);
+								}
+								
+								if(cop==3) {
+									m.addS(copy);
+									copy.clear();
+									punti=punti+2;
+								}
+								else{
+									copy.clear();
+									cop = 0;
+								}
 							}
 							else{
 								copy.clear();
 								cop = 0;
 							}
+								
 						}
-						else{
-							copy.clear();
-							cop = 0;
-						}
-							
-						}
-		
-		}
-		}
-		cont = 0;
-		while(x>0) {
-			y =46-cont;
-			x = 46-cont;
-			cont++;
-			int xs = x;
-			int ys = y;
-			if(m.getCarta(x, y)!=null) {
-				if(x!=46 && y!=46 && m.getCarta(x, y).getColor()==Colore.azzurro && m.getCarta(xs, ys+2).getColor()==Colore.azzurro && m.getCarta(xs-1, ys+3).getColor()==Colore.rosso  ) {
-					xs=x; 
-					ys=y;
-					if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs, ys+2)) ==false && m.search(m.getCarta(xs-1, ys+3))==false) {
-						copy.add(m.getCarta(x, y));
-						xs=x; 
-						ys=y;
-						copy.add(m.getCarta(xs, ys+2));
-						copy.add(m.getCarta(xs-1, ys+3));
-						m.addS(copy);
-						punti=punti+2;
-						copy.clear();
-					}
-					
 				}
-				
-				
-				int as=x;
-				int bs=y;
-				while(y<90) {
-				Carta fg =	m.getCarta(as-1, bs+1);
-				xs=as;
-				ys=bs;
-				if(fg == null) {
-					cop = 0;
-					break;
-				}
-				if(fg.getColor()==Colore.viola && m.search(fg)==false) {
-					cop++;
-					copy.add(fg);
-					
-					fg = m.getCarta(xs,ys-2);
-					
-					if(fg == null) {
-						cop = 0;
-						copy.clear();
-						break;
-					}
-					if(fg.getColor()==Colore.viola && m.search(fg)==false) {
-						cop++;
-						copy.add(fg);
-					}
-					fg = m.getCarta(xs-1,ys-1);
-					
-					if(fg == null) {
-						cop = 0;
-						copy.clear();
-						break;
-					}
-					if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
-						cop++;
-						copy.add(fg);
-					}
-					
-					
-					if(cop==3) {
-						m.addS(copy);
-						copy.clear();
-						punti=punti+2;
-					}
-					else{
-						copy.clear();
-						cop = 0;
-					}
-				}
-				else{
-					copy.clear();
-					cop = 0;
-				}
-					
-				}
-				as=x;
-				bs=y;
-				xs=x;
-				ys=y;
-					while(y>0) {
-						Carta fg =	m.getCarta(as+1, bs-1);
-						xs=as;
-						ys=bs;
-						if(fg == null) {
-							cop = 0;
-							break;
-						}
-						if(fg.getColor()==Colore.azzurro && m.search(fg)==false) {
-							cop++;
-							copy.add(fg);
-							
-							fg = m.getCarta(xs+1,ys+1);
-							
-							if(fg == null) {
-								cop = 0;
-								copy.clear();
-								break;
-							}
-							if(fg.getColor()==Colore.viola && m.search(fg)==false) {
-								cop++;
-								copy.add(fg);
-							}
-							fg = m.getCarta(xs,ys+2);
-							
-							if(fg == null) {
-								cop = 0;
-								copy.clear();
-								break;
-							}
-							if(fg.getColor()==Colore.viola && m.search(fg)==false) {
-								cop++;
-								copy.add(fg);
-							}
-							
-							if(cop==3) {
-								m.addS(copy);
-								copy.clear();
-								punti=punti+2;
-							}
-							else{
-								copy.clear();
-								cop = 0;
-							}
-						}
-						else{
-							copy.clear();
-							cop = 0;
-						}
-							
-					}
 			}
+		
+			
+			 a.getManoscritto().setCarteUsate(m.getCarteUsate());
+		     return punti;
+			
 		}
-	
-		
-		 a.getManoscritto().setCarteUsate(m.getCarteUsate());
-	     return punti;
-		
+
+	public static void stampaCarta() {
+		   
 	}
-
-
 }
