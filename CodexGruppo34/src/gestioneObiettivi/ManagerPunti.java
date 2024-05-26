@@ -6,10 +6,10 @@ import carteObiettivo.CartaObiettivo1;
 import carteObiettivo.CartaObiettivo10;
 import carteObiettivo.CartaObiettivo11;
 import carteObiettivo.CartaObiettivo12;
-import carteObiettivo.CartaObiettivo13;
+import carteObiettivo.CartaObiettivo16;
 import carteObiettivo.CartaObiettivo14;
 import carteObiettivo.CartaObiettivo15;
-import carteObiettivo.CartaObiettivo16;
+import carteObiettivo.CartaObiettivo13;
 import carteObiettivo.CartaObiettivo2;
 import carteObiettivo.CartaObiettivo3;
 import carteObiettivo.CartaObiettivo4;
@@ -94,25 +94,25 @@ public class ManagerPunti {
 				
 				// forma a r
 				if(b.get(0).getTipo() == CartaObiettivoEn.COFormaR || p.get(0).getTipo() == CartaObiettivoEn.COFormaR || p.get(1).getTipo() == CartaObiettivoEn.COFormaR) {
-					punti = punti + CartaObiettivo5.checkObietFormaR(a);
+					punti = punti + CartaObiettivo7.checkObietFormaR(a);
 					
 				}
 				
 				// forma a 1
 				if(b.get(0).getTipo() == CartaObiettivoEn.COForma1 || p.get(0).getTipo() == CartaObiettivoEn.COForma1 || p.get(1).getTipo() == CartaObiettivoEn.COForma1) {
-					punti = punti + CartaObiettivo6.checkObietForma1(a);
+					punti = punti + CartaObiettivo8.checkObietForma1(a);
 					
 				}
 				
 				// forma a L
 				if(b.get(0).getTipo() == CartaObiettivoEn.COFormaL || p.get(0).getTipo() == CartaObiettivoEn.COFormaL || p.get(1).getTipo() == CartaObiettivoEn.COFormaL) {
-					punti = punti + CartaObiettivo7.checkObietFormaL(a);
+					punti = punti + CartaObiettivo5.checkObietFormaL(a);
 					
 				}
 				
 				// forma a J
 				if(b.get(0).getTipo() == CartaObiettivoEn.COFormaJ || p.get(0).getTipo() == CartaObiettivoEn.COFormaJ || p.get(1).getTipo() == CartaObiettivoEn.COFormaJ) {
-					punti = punti + CartaObiettivo8.checkObietFormaJ(a);
+					punti = punti + CartaObiettivo6.checkObietFormaJ(a);
 					
 				}
 				
@@ -123,19 +123,19 @@ public class ManagerPunti {
 				}
 				
 				if(b.get(0).getTipo() == CartaObiettivoEn.COTreLupo || p.get(0).getTipo() == CartaObiettivoEn.COTreLupo || p.get(1).getTipo() == CartaObiettivoEn.COTreLupo) {
-					punti = punti + CartaObiettivo10.checkObietTreLupi(a);
+					punti = punti + CartaObiettivo11.checkObietTreLupi(a);
 				}
 				
 				if(b.get(0).getTipo() == CartaObiettivoEn.COTreFarfalla || p.get(0).getTipo() == CartaObiettivoEn.COTreFarfalla || p.get(1).getTipo() == CartaObiettivoEn.COTreFarfalla) {
-					punti = punti + CartaObiettivo11.checkObietTreFarfalle(a);
+					punti = punti + CartaObiettivo12.checkObietTreFarfalle(a);
 				}
 				
 				if(b.get(0).getTipo() == CartaObiettivoEn.COTreFoglia || p.get(0).getTipo() == CartaObiettivoEn.COTreFoglia || p.get(1).getTipo() == CartaObiettivoEn.COTreFoglia) {
-					punti = punti + CartaObiettivo12.checkObietTreFoglie(a);
+					punti = punti + CartaObiettivo10.checkObietTreFoglie(a);
 				}
 				
 				if(b.get(0).getTipo() == CartaObiettivoEn.CODuePiuma || p.get(0).getTipo() == CartaObiettivoEn.CODuePiuma || p.get(1).getTipo() == CartaObiettivoEn.CODuePiuma) {
-					punti = punti + CartaObiettivo13.checkObietDuePiume(a);
+					punti = punti + CartaObiettivo16.checkObietDuePiume(a);
 				}
 				
 				if(b.get(0).getTipo() == CartaObiettivoEn.CODuePergamena || p.get(0).getTipo() == CartaObiettivoEn.CODuePergamena || p.get(1).getTipo() == CartaObiettivoEn.CODuePergamena) {
@@ -147,7 +147,7 @@ public class ManagerPunti {
 				}
 				
 				if(b.get(0).getTipo() == CartaObiettivoEn.COTreDiversi || p.get(0).getTipo() == CartaObiettivoEn.COTreDiversi || p.get(1).getTipo() == CartaObiettivoEn.COTreDiversi) {
-					punti = punti + CartaObiettivo16.checkObietTreDiversi(a);
+					punti = punti + CartaObiettivo13.checkObietTreDiversi(a);
 				}
 		
 				return punti;
