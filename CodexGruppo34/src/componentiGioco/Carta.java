@@ -25,6 +25,13 @@ public class Carta {
     	this.color=col;
     	this.id=id;
     }
+    public Carta(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4) {
+    	this.angoli[0] = angolo1;
+    	this.angoli[1] = angolo2;
+    	this.angoli[2] = angolo3;
+    	this.angoli[3] = angolo4;
+    	this.id=id;
+    }
     
     public Carta() {
     	
@@ -50,7 +57,7 @@ public class Carta {
     	return x;
     }
 	
-	 public static void stampaVuoto() {
+	 public static String [][] stampaVuoto() {
 		 
 			//ATT! i vari spazi e assegnazioni manuali servono per rendere la stampa omogenea visivamente
 			   
@@ -96,14 +103,9 @@ public class Carta {
 			        color[0][x]= coloreS;
 			
 			    }
+				return color;
 		       
-		       for(int x=0;x<color[0].length;x++) {
-		    	      for(int y=0;y<color.length;y++) {
-		    	        System.out.print(color[y][x]+" ");
-		    	      }
-		    	      System.out.println("");
-		    	    }
-		       System.out.print("\033[0m ");
+		       
 		       
 		       
 		       

@@ -117,4 +117,99 @@ public class CartaObiettivo extends Carta {
 		}
 		
 	}
+	
+	public String [][] creaCarta() {
+		
+				// tripla rossa
+				if(this.tipo == CartaObiettivoEn.COTriplaRossa ) {
+					CartaObiettivo1.creaCarta();
+					
+				}
+				
+				// tripla verde
+				if(this.tipo == CartaObiettivoEn.COTriplaVerde ) {
+					CartaObiettivo2.creaCarta();
+					
+				}
+				
+				// tripla viola
+				if(this.tipo == CartaObiettivoEn.COTriplaViola ) {
+					CartaObiettivo3.creaCarta();
+					
+				}
+				
+				// tripla azzurra
+				if(this.tipo == CartaObiettivoEn.COTriplaAzzurra ) {
+					CartaObiettivo4.creaCarta();
+					
+				}
+				
+				
+				
+				// forma a r
+				if(this.tipo == CartaObiettivoEn.COFormaR ) {
+					CartaObiettivo7.creaCarta();
+					
+				}
+				
+				// forma a 1
+				if(this.tipo == CartaObiettivoEn.COForma1 ) {
+					CartaObiettivo8.creaCarta();
+					
+				}
+				
+				// forma a L
+				if(this.tipo == CartaObiettivoEn.COFormaL ) {
+					CartaObiettivo5.creaCarta();
+					
+				}
+				
+				// forma a J
+				if(this.tipo == CartaObiettivoEn.COFormaJ ) {
+					CartaObiettivo6.creaCarta();
+					
+				}
+				
+				
+					
+				if(this.tipo == CartaObiettivoEn.COTreFungo ) {
+					CartaObiettivo9.creaCarta();
+				}
+				
+				if(this.tipo == CartaObiettivoEn.COTreLupo ) {
+					CartaObiettivo11.creaCarta();
+				}
+				
+				if(this.tipo == CartaObiettivoEn.COTreFarfalla ) {
+					CartaObiettivo12.creaCarta();
+				}
+				
+				if(this.tipo == CartaObiettivoEn.COTreFoglia ) {
+					CartaObiettivo10.creaCarta();
+				}
+				
+				if(this.tipo == CartaObiettivoEn.CODuePiuma ) {
+					CartaObiettivo16.creaCarta();
+				}
+				
+				if(this.tipo == CartaObiettivoEn.CODuePergamena ) {
+					CartaObiettivo14.creaCarta();
+				}
+				
+				if(this.tipo == CartaObiettivoEn.CODueBoccetta ) {
+					CartaObiettivo15.creaCarta();
+				}
+				
+				if(this.tipo == CartaObiettivoEn.COTreDiversi ) {
+					CartaObiettivo13.creaCarta();
+				}
+		
+		
+		
+		
+		
+		return null;
+		
+		
+	}
 }

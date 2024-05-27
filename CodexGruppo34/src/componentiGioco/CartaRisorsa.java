@@ -38,7 +38,7 @@ public class CartaRisorsa extends Carta {
 		return puntiRis;
 	}
     
-	public void stampaCarta() {
+	public String [][] creaCarta() {
 		
 		//ATT! i vari spazi e assegnazioni manuali servono per rendere la stampa omogenea visivamente
 		
@@ -47,22 +47,22 @@ public class CartaRisorsa extends Carta {
 		   String colore = null;
 		   String coloreS ="\033[48;2;213;212;179m";
 	  	 if(this.getColor() == Colore.viola) {
-	    	   colore= "\033[48;2;129;13;165m ";
+	    	   colore= "\033[48;2;129;13;165m";
 	    	  
 	       }
 	       
 	       if(this.getColor() == Colore.verde) {
-	    	   colore= "\033[48;2;28;165;13m ";
+	    	   colore= "\033[48;2;28;165;13m";
 	    	   
 	       }
 	       
 	       if(this.getColor() == Colore.rosso) {
-	    	   colore= "\033[48;2;189;15;15m ";
+	    	   colore= "\033[48;2;189;15;15m";
 	    	   
 	       }
 	       
 	       if(this.getColor() == Colore.azzurro) {
-	    	   colore= "\033[48;2;14;170;201m ";
+	    	   colore= "\033[48;2;14;170;201m";
 	    	   
 	       }
 	       
@@ -74,16 +74,16 @@ public class CartaRisorsa extends Carta {
 
 	           for(int y=0;y<10;y++) {
 	            
-	                	   color[y][x]= colore+"";
+	                	   color[y][x]= colore+" ";
 	                   
 	           }
 
 	       }
-		   color[8][2] = colore+"    ";
+		   color[8][2] = colore+"   ";
 		  
-		   color[8][3] = colore+"    ";
+		   color[8][3] = colore+"   ";
 		  
-		   color[8][1] = colore+"    ";
+		   color[8][1] = colore+"   ";
 		   
 		   
 		   //impostazione dei colori dei primi due angoli
@@ -151,24 +151,24 @@ public class CartaRisorsa extends Carta {
 	     
 	     	if(this.puntiRis!=0) {
 	    	 color[1][0] = colore+" ";
-	    	 color[2][0] = colore;
-	    	 color[3][0] = colore;
+	    	 color[2][0] = colore+" ";
+	    	 color[3][0] = colore+" ";
 	    	 color[4][0] = coloreS + this.puntiRis + " ";
-	    	 color[5][0] = colore;
-	    	 color[6][0] = colore;
-	    	 color[7][0] = colore;
+	    	 color[5][0] = colore+" ";
+	    	 color[6][0] = colore+" ";
+	    	 color[7][0] = colore+" ";
 	    	 color[8][0] = colore;
 	    	 
 	     	}
 	     	else {
-	     		 color[1][0] = colore;
-		    	 color[2][0] = colore;
-		    	 color[3][0] = colore;
-		    	 color[4][0] = colore+"  ";
-		    	 color[5][0] = colore;
-		    	 color[6][0] = colore;
-		    	 color[7][0] = colore;
-		    	 color[8][0] = colore;
+	     		 color[1][0] = colore+" ";;
+		    	 color[2][0] = colore+" ";;
+		    	 color[3][0] = colore+" ";;
+		    	 color[4][0] = colore+" ";
+		    	 color[5][0] = colore+" ";;
+		    	 color[6][0] = colore+" ";;
+		    	 color[7][0] = colore+" ";;
+		    	 color[8][0] = colore+" ";;
 	     	}
 	     
 	     
@@ -238,17 +238,28 @@ public class CartaRisorsa extends Carta {
 	       //impostazione colori e richiesta carta, ultima riga
 	    	   
 	       color[8][4]=colore+" ";
+	       
+		return color;
 		     	
 	       
-	       for(int x=0;x<color[0].length;x++) {
-	    	      for(int y=0;y<color.length;y++) {
-	    	        System.out.print(color[y][x]+" ");
-	    	      }
-	    	      System.out.println("");
-	    	    }
-	       System.out.print("\033[0m ");
+	      
 	       
 		   
+	}
+	
+	public void stampaCarta() {
+		
+		String [][] color = creaCarta();
+		
+		for(int x=0;x<color[0].length;x++) {
+  	      for(int y=0;y<color.length;y++) {
+  	        System.out.print(color[y][x]+" ");
+  	      }
+  	      System.out.println("");
+  	    }
+       System.out.print("\033[0m ");
+		
+		
 	}
 
 }

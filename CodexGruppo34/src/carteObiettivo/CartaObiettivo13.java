@@ -49,7 +49,23 @@ public class CartaObiettivo13 {
 	
 	public static void stampaCarta() {
 		   
-		 // assegnazione colori carta 
+			String color[][] = creaCarta();
+		       
+	     	for(int x=0;x<color[0].length;x++) {
+	    	      for(int y=0;y<color.length;y++) {
+	    	        System.out.print(color[y][x]+" ");
+	    	      }
+	    	      System.out.println("");
+	    	    }
+	       System.out.print("\033[0m ");
+	}
+
+
+
+
+	public static String [][] creaCarta() {
+		
+		// assegnazione colori carta 
 		  
 		   String colore = "\033[48;2;213;212;179m ";
 		   String coloreS = "\033[48;2;171;158;53m ";
@@ -72,7 +88,7 @@ public class CartaObiettivo13 {
 	        for(int y=0;y<10;y++) {
 	            
 	        	color[y][0]= coloreS;
-  
+
 	        }
 
 	        for(int y=0;y<10;y++) {
@@ -109,15 +125,8 @@ public class CartaObiettivo13 {
 			color[6][2] = coloreSp +"B ";
 			color[6][1] = coloreSp +"P ";
 			
-			
-			
-			 for(int x=0;x<color[0].length;x++) {
-	    	      for(int y=0;y<color.length;y++) {
-	    	        System.out.print(color[y][x]+" ");
-	    	      }
-	    	      System.out.println("");
-	    	    }
-	       System.out.print("\033[0m ");
+			return color;
+		
 	}
 	
 }

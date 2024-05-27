@@ -8,6 +8,7 @@ public class CartaIniziale extends Carta {
 	
 	private ArrayList<Risorsa> risorseBase = null;
 	private TipoIni tipo;
+	
 
     public CartaIniziale(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,ArrayList <Risorsa> richiesta) {
     	 
@@ -16,8 +17,8 @@ public class CartaIniziale extends Carta {
 
     }
 
-	public CartaIniziale(Angolo angolo1, Angolo angolo2, Angolo angolo3, Angolo angolo4,TipoIni tipo) {
-		super(angolo1,angolo2,angolo3,angolo4);
+	public CartaIniziale(String id,Angolo angolo1, Angolo angolo2, Angolo angolo3, Angolo angolo4,TipoIni tipo) {
+		super(id,angolo1,angolo2,angolo3,angolo4);
 		this.tipo=tipo;
 	}
 
@@ -118,7 +119,7 @@ public class CartaIniziale extends Carta {
 	
 	
 	
-	public void stampaCarta() {
+	public String [][] creaCarta() {
 		  // assegnazione colori carta 
 		  
 		   String colore = "\033[48;2;213;212;179m";
@@ -337,14 +338,24 @@ public class CartaIniziale extends Carta {
 				
 			}
 	       
-	       for(int x=0;x<color[0].length;x++) {
-	    	      for(int y=0;y<color.length;y++) {
-	    	        System.out.print(color[y][x]+" ");
-	    	      }
-	    	      System.out.println("");
-	    	    }
-	       System.out.print("\033[0m ");
+	       
+		return color;
 	       
 	
+	}
+	
+	public void stampaCarta() {
+		
+		String [][] color = creaCarta();
+		
+		for(int x=0;x<color[0].length;x++) {
+  	      for(int y=0;y<color.length;y++) {
+  	        System.out.print(color[y][x]+" ");
+  	      }
+  	      System.out.println("");
+  	    }
+       System.out.print("\033[0m ");
+		
+		
 	}
 }

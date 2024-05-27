@@ -153,7 +153,7 @@ public class Partita {
 		Angolo angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
 		
 		
-		CartaIniziale cartaIni1 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni1);
+		CartaIniziale cartaIni1 = new CartaIniziale("id.I1",angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni1);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
@@ -162,7 +162,7 @@ public class Partita {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
 		
 		
-		CartaIniziale cartaIni2 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni2);
+		CartaIniziale cartaIni2 = new CartaIniziale("id.I2",angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni2);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
@@ -171,7 +171,7 @@ public class Partita {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.foglia);
 		
 		
-		CartaIniziale cartaIni3 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni3);
+		CartaIniziale cartaIni3 = new CartaIniziale("id.I3",angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni3);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
@@ -180,7 +180,7 @@ public class Partita {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
 		
 		
-		CartaIniziale cartaIni4 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni4);
+		CartaIniziale cartaIni4 = new CartaIniziale("id.I4",angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni4);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.farfalla);
@@ -188,7 +188,7 @@ public class Partita {
 		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.fungo);
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.lupo);
 	
-		CartaIniziale cartaIni5 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni5);
+		CartaIniziale cartaIni5 = new CartaIniziale("id.I5",angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni5);
 		
 		
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.fungo);
@@ -197,7 +197,7 @@ public class Partita {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
 	
 		
-		CartaIniziale cartaIni6 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni6);
+		CartaIniziale cartaIni6 = new CartaIniziale("id.I6",angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni6);
 		
 		
 		// Creazione carte oro

@@ -42,7 +42,7 @@ public class CartaOro extends Carta {
 		return puntiCarta;
 	}
 	
-	 public void stampaCarta() {
+	 public String [][] creaCarta() {
 		 
 		//ATT! i vari spazi e assegnazioni manuali servono per rendere la stampa omogenea visivamente
 		   
@@ -298,17 +298,27 @@ public class CartaOro extends Carta {
 				  color[8][4]=colore;
 				  
 	       
-	       for(int x=0;x<color[0].length;x++) {
-	    	      for(int y=0;y<color.length;y++) {
-	    	        System.out.print(color[y][x]+" ");
-	    	      }
-	    	      System.out.println("");
-	    	    }
-	       System.out.print("\033[0m ");
+	       
+		return color;
 	       
 	       
 	       
 	   }
+	 
+	 	public void stampaCarta() {
+			
+			String [][] color = creaCarta();
+			
+			for(int x=0;x<color[0].length;x++) {
+	  	      for(int y=0;y<color.length;y++) {
+	  	        System.out.print(color[y][x]+" ");
+	  	      }
+	  	      System.out.println("");
+	  	    }
+	       System.out.print("\033[0m ");
+			
+			
+		}
     
 
 }

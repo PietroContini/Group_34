@@ -31,15 +31,15 @@ public class CartaObiettivo3 {
 				int xs = x;
 				int ys = y;
 				if(m.getCarta(x, y)!=null) {
-					if(m.getCarta(x, y).getColor()==Colore.viola && m.getCarta(xs--, ys--).getColor()==Colore.viola && m.getCarta(xs+2, ys+2).getColor()==Colore.viola  ) {
+					if(m.getCarta(x, y).getColor()==Colore.viola && m.getCarta(--xs, --ys).getColor()==Colore.viola && m.getCarta(xs=xs+2, ys=ys+2).getColor()==Colore.viola  ) {
 						xs=x; 
 						ys=y;
-						if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs+2, ys+2))==false) {
+						if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(--xs, --ys)) ==false && m.search(m.getCarta(xs=xs+2, ys=ys+2))==false) {
 							copy.add(m.getCarta(x, y));
 							xs=x; 
 							ys=y;
-							copy.add(m.getCarta(xs--, ys--));
-							copy.add(m.getCarta(xs+2, ys+2));
+							copy.add(m.getCarta(--xs, --ys));
+							copy.add(m.getCarta(xs=xs+2, ys=ys+2));
 							m.addS(copy);
 							punti=punti+2;
 							copy.clear();
@@ -49,7 +49,7 @@ public class CartaObiettivo3 {
 						int as=x; 
 						int bs=y; 
 						while(y<90) {
-						Carta fg =	m.getCarta(as+1, bs+1);
+						Carta fg =	m.getCarta(++as, ++bs);
 						if(fg == null) {
 							cop = 0;
 							break;
@@ -72,7 +72,7 @@ public class CartaObiettivo3 {
 						as=x;
 						bs=y;
 						while(y>0) {
-							Carta fg =	m.getCarta(as-1, bs-1);
+							Carta fg =	m.getCarta(--as, --bs);
 							if(fg == null) {
 								cop = 0;
 								break;
@@ -103,15 +103,15 @@ public class CartaObiettivo3 {
 				int xs = x;
 				int ys = y;
 				if(m.getCarta(x, y)!=null) {
-					if(m.getCarta(x, y).getColor()==Colore.viola && m.getCarta(xs--, ys--).getColor()==Colore.viola && m.getCarta(xs+2, ys+2).getColor()==Colore.viola  ) {
+					if(m.getCarta(x, y).getColor()==Colore.viola && m.getCarta(--xs, --ys).getColor()==Colore.viola && m.getCarta(xs=xs+2, ys=ys+2).getColor()==Colore.viola  ) {
 						xs=x; 
 						ys=y;
-						if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs--, ys--)) ==false && m.search(m.getCarta(xs+2, ys+2))==false) {
+						if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(--xs, --ys)) ==false && m.search(m.getCarta(xs=xs+2, ys=ys+2))==false) {
 							copy.add(m.getCarta(x, y));
 							xs=x; 
 							ys=y;
-							copy.add(m.getCarta(xs--, ys--));
-							copy.add(m.getCarta(xs+2, ys+2));
+							copy.add(m.getCarta(--xs, --ys));
+							copy.add(m.getCarta(xs=xs+2, ys=ys+2));
 							m.addS(copy);
 							punti=punti+2;
 							copy.clear();
@@ -121,7 +121,7 @@ public class CartaObiettivo3 {
 						int as=x;
 						int bs=y;
 						while(y<90) {
-						Carta fg =	m.getCarta(as+1, bs+1);
+						Carta fg =	m.getCarta(++as, ++bs);
 						if(fg == null) {
 							cop = 0;
 							break;
@@ -144,7 +144,7 @@ public class CartaObiettivo3 {
 						as=x;
 						bs=y;
 						while(y>0) {
-							Carta fg =	m.getCarta(as-1, bs-1);
+							Carta fg =	m.getCarta(--as, --bs);
 							if(fg == null) {
 								cop = 0;
 								break;
@@ -180,6 +180,20 @@ public class CartaObiettivo3 {
 
 	public static void stampaCarta() {
 		   
+			
+	       
+			String color[][] = creaCarta();
+		       
+	     	for(int x=0;x<color[0].length;x++) {
+	    	      for(int y=0;y<color.length;y++) {
+	    	        System.out.print(color[y][x]+" ");
+	    	      }
+	    	      System.out.println("");
+	    	    }
+	       System.out.print("\033[0m ");
+	       }
+
+	public static String [][] creaCarta() {
 		// assegnazione colori carta 
 		  
 		   String colore = "\033[48;2;213;212;179m ";
@@ -204,8 +218,8 @@ public class CartaObiettivo3 {
 	        
 	        for(int y=0;y<10;y++) {
 	            
-   	   color[y][0]= coloreS;
-      
+	   color[y][0]= coloreS;
+   
 	        }
 
 	        for(int y=0;y<10;y++) {
@@ -233,18 +247,10 @@ public class CartaObiettivo3 {
 			color[6][2] = viola;
 			color[5][1] = viola;
 			
-				
-				
+			return color;
 			
-	       
-	       for(int x=0;x<color[0].length;x++) {
-	    	      for(int y=0;y<color.length;y++) {
-	    	        System.out.print(color[y][x]+" ");
-	    	      }
-	    	      System.out.println("");
-	    	    }
-	       System.out.print("\033[0m ");
-	       }
+		
+	}
 	
 
 }
