@@ -5,6 +5,7 @@ import java.util.Random;
 
 import componentiGioco.Carta;
 import componentiGioco.CartaIniziale;
+import componentiGioco.CartaObiettivo;
 import componentiGioco.CartaOro;
 import componentiGioco.CartaRisorsa;
 
@@ -14,11 +15,17 @@ public class Mazzo {
     private  ArrayList<CartaOro> carteOro;
     private  ArrayList<CartaRisorsa> carteRisorsa;
     private  ArrayList<CartaIniziale> carteIniziale;
+    private  ArrayList<CartaObiettivo> carteObiettivo;
     private int num;
     
     public Mazzo(int numero, ArrayList<Carta> carte ) {
     	this.carte=carte;
     	this.num=numero;
+
+    }
+    
+    public Mazzo() {
+    	
 
     }
     
@@ -28,6 +35,14 @@ public class Mazzo {
  
     	
     }
+    
+    public void MazzoCarteObiettivo(int numero, ArrayList<CartaObiettivo> carte ) {
+    	this.carteObiettivo=carte;
+    	this.num=numero;
+ 
+    	
+    }
+    
     public ArrayList<CartaOro> getCarteOro() {
 		return carteOro;
 	}

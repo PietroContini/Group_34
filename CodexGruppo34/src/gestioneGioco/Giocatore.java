@@ -22,6 +22,12 @@ public class Giocatore {
 	private int punti;
 	private ArrayList<Risorsa> risorseVisibili;
 	
+	public Giocatore(Manoscritto m, String nome) {
+		this.manoscritto = m;
+		this.punti = 0;
+		this.nome = nome;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -237,10 +243,159 @@ public class Giocatore {
     }
     
     
-   private void stampa(int x,int y) {
+   public void stampa(int x,int y) {
    System.out.println("\n Legenda Risorse : F foglia, \n FA farfalla, \n FU fungo, \n L lupo, \n P piuma, \n PE pergamena, \n B boccetta, \n spazio vuoto per angolo vuoto \n");
+	   int a = x;
+	   int b = y;
+	   Partita partita = new Partita();
+	   Carta carta = this.manoscritto.getCarta(a--, b--);
+	   
+	   
+	  
+		if(carta instanceof CartaIniziale) {
+			
+			CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+			cartaIniziale.stampaCarta();
+			}
+		
+		
+		if(carta instanceof CartaOro) {
+			CartaOro cartaOro = partita.cercaCartaOro(carta);
+			cartaOro.stampaCarta();
+			}
+		
+		
+		if(carta instanceof CartaRisorsa) {
+		
+			CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+			cartaRisorsa.stampaCarta();
+		}else if(carta == null) {
+			Carta.stampaVuoto();
+			
+		}
+		
+
+		System.out.print("\t\t\t");
+		
+		    a = x;
+		    b = y;
+		    
+		 Carta carta1 = this.manoscritto.getCarta(a++, b--);
+			  
+			if(carta1 instanceof CartaIniziale) {
+				
+				CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta1);
+				cartaIniziale.stampaCarta();
+				}
+			
+			
+			if(carta1 instanceof CartaOro) {
+				CartaOro cartaOro = partita.cercaCartaOro(carta1);
+				cartaOro.stampaCarta();
+				}
+			
+			
+			if(carta1 instanceof CartaRisorsa) {
+			
+				CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta1);
+				cartaRisorsa.stampaCarta();
+			}else if(carta1 == null) {
+				Carta.stampaVuoto();
+				
+			}
+			
+			System.out.println("");
+			System.out.print("\t\t\t");
+			
+		   Carta carta2 = this.manoscritto.getCarta(x,y);
+			  
+			if(carta2 instanceof CartaIniziale) {
+				
+				CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta2);
+				cartaIniziale.stampaCarta();
+				}
+			
+			
+			if(carta2 instanceof CartaOro) {
+				CartaOro cartaOro = partita.cercaCartaOro(carta2);
+				cartaOro.stampaCarta();
+				}
+			
+			
+			if(carta2 instanceof CartaRisorsa) {
+			
+				CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta2);
+				cartaRisorsa.stampaCarta();
+			}else if(carta2 == null) {
+				Carta.stampaVuoto();
+				
+			}
+			
+			System.out.println("");
+			
+			a = x;
+			b = y;
+			
+			  Carta carta3 = this.manoscritto.getCarta(a--, b++);
+			  
+				if(carta3 instanceof CartaIniziale) {
+					
+					CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta3);
+					cartaIniziale.stampaCarta();
+					}
+				
+				
+				if(carta3 instanceof CartaOro) {
+					CartaOro cartaOro = partita.cercaCartaOro(carta3);
+					cartaOro.stampaCarta();
+					}
+				
+				
+				if(carta3 instanceof CartaRisorsa) {
+				
+					CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta3);
+					cartaRisorsa.stampaCarta();
+				}else if(carta3 == null) {
+					Carta.stampaVuoto();
+					
+				}
+				
+
+				System.out.print("\t\t\t");
+				
+				    a = x;
+				    b = y;
+				    
+				   Carta carta4 = this.manoscritto.getCarta(a++, b++);
+					  
+					if(carta4 instanceof CartaIniziale) {
+						
+						CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta4);
+						cartaIniziale.stampaCarta();
+						}
+					
+					
+					if(carta4 instanceof CartaOro) {
+						CartaOro cartaOro = partita.cercaCartaOro(carta4);
+						cartaOro.stampaCarta();
+						}
+					
+					
+					if(carta4 instanceof CartaRisorsa) {
+					
+						CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta4);
+						cartaRisorsa.stampaCarta();
+					}else if(carta4 == null) {
+						Carta.stampaVuoto();
+						
+					}
+					
+					System.out.println("");
+			
 	   
    }
+   
+   
    
    
    

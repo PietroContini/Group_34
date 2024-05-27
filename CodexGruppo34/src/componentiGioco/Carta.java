@@ -49,4 +49,63 @@ public class Carta {
     	}
     	return x;
     }
+	
+	 public static void stampaVuoto() {
+		 
+			//ATT! i vari spazi e assegnazioni manuali servono per rendere la stampa omogenea visivamente
+			   
+			   // assegnazione colori carta 
+			   String colore = "\033[48;2;255;255;255m";
+			   String coloreS ="\033[48;2;105;105;105m ";
+		  
+		       
+			   String[][] color = new String[10][5];
+			   
+			// impostazione colori righe 
+			   
+			   for(int x=0;x<5;x++) {
+
+		           for(int y=0;y<10;y++) {
+		            
+		                	   color[y][x]= colore+" ";
+		                   
+		           }
+
+		       }		 
+			   
+		        for(int y=0;y<10;y++) {
+		            
+		        	color[y][0]= coloreS;
+
+		        }
+
+		        for(int y=0;y<10;y++) {
+		            
+		           color[y][4]= coloreS;
+		            
+			    }
+			          
+		        for(int x=0;x<5;x++) {
+
+			        color[9][x]= coloreS;
+			
+			    }
+			   
+		        for(int x=0;x<5;x++) {
+
+			        color[0][x]= coloreS;
+			
+			    }
+		       
+		       for(int x=0;x<color[0].length;x++) {
+		    	      for(int y=0;y<color.length;y++) {
+		    	        System.out.print(color[y][x]+" ");
+		    	      }
+		    	      System.out.println("");
+		    	    }
+		       System.out.print("\033[0m ");
+		       
+		       
+		       
+		   }
 }

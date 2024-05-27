@@ -32,6 +32,11 @@ public class Partita {
 	}
 	
 	
+	public Partita() {
+		creaMazzi();
+	}
+
+
 	public  CartaIniziale pescaCartaIni() {
 		
 		CartaIniziale x = (CartaIniziale) mazzoIniziale.getCarta();
@@ -860,7 +865,7 @@ public class Partita {
 		CartaRisorsa carta40risorsa = new CartaRisorsa("id.R40",angolo1,angolo2,angolo3,angolo4,1,Colore.viola);
 		
 
-		ArrayList<Carta> carteRisorsa = new ArrayList<Carta>();
+		ArrayList<CartaRisorsa> carteRisorsa = new ArrayList<CartaRisorsa>();
 		carteRisorsa.add(carta1risorsa);
 		carteRisorsa.add(carta2risorsa);
 		carteRisorsa.add(carta3risorsa);
@@ -901,10 +906,11 @@ public class Partita {
 		carteRisorsa.add(carta38risorsa);
 		carteRisorsa.add(carta39risorsa);
 		carteRisorsa.add(carta40risorsa);
-		Mazzo carteRisorse = new Mazzo(40,carteRisorsa);
+		Mazzo carteRisorse = new Mazzo();
+		carteRisorse.MazzoCarteRisorsa(40, carteRisorsa);
 		
 		
-		ArrayList<Carta> carteoro = new ArrayList<Carta>();
+		ArrayList<CartaOro> carteoro = new ArrayList<CartaOro>();
         carteoro.add(carta1oro);
         carteoro.add(carta2oro);
         carteoro.add(carta3oro);
@@ -945,18 +951,20 @@ public class Partita {
         carteoro.add(carta38oro);
         carteoro.add(carta39oro);
         carteoro.add(carta40oro);
-		Mazzo carteOro = new Mazzo(40,carteoro);
+		Mazzo carteOro = new Mazzo();
+		carteOro.MazzoCarteOro(40, carteoro);
 		
-		ArrayList<Carta> cartainiziale = new ArrayList<Carta>();
+		ArrayList<CartaIniziale> cartainiziale = new ArrayList<CartaIniziale>();
 		cartainiziale.add(cartaIni1);
 		cartainiziale.add(cartaIni2);
 		cartainiziale.add(cartaIni3);
 		cartainiziale.add(cartaIni4);
 		cartainiziale.add(cartaIni5);
 		cartainiziale.add(cartaIni6);
-        Mazzo carteIniziali = new Mazzo(6,cartainiziale);
+        Mazzo carteIniziali = new Mazzo();
+        carteIniziali.MazzoCarteIniziali(6, cartainiziale);
 
-        ArrayList<Carta> carteobiettivo = new ArrayList<Carta>();
+        ArrayList<CartaObiettivo> carteobiettivo = new ArrayList<CartaObiettivo>();
         carteobiettivo.add(cartaObiet1);
         carteobiettivo.add(cartaObiet2);
         carteobiettivo.add(cartaObiet3);
@@ -974,7 +982,8 @@ public class Partita {
         carteobiettivo.add(cartaObiet15);
         carteobiettivo.add(cartaObiet16);
 
-        Mazzo carteObiettivo = new Mazzo(16,carteobiettivo);
+        Mazzo carteObiettivo = new Mazzo();
+        carteObiettivo.MazzoCarteObiettivo(16, carteobiettivo);
         
 		this.mazzoRisorsa = carteRisorse;
 		this.mazzoOro = carteOro;
