@@ -69,20 +69,51 @@ public class Mazzo {
     
 
 	public void mischiaMazzo() {
- 
-		Collections.shuffle(carte);
+		if(this.carte!=null) {
+		    Collections.shuffle(carte);
+		}
+		else if(this.carteIniziale!=null) {
+			Collections.shuffle(carteIniziale);
+		}
+		else if(this.carteRisorsa!=null) {
+			Collections.shuffle(carteRisorsa);
+		}
+		else if(this.carteObiettivo!=null) {
+			Collections.shuffle(carteObiettivo);
+		}
+		else if(this.carteOro!=null) {
+			Collections.shuffle(carteOro);
+		}
 	
 	}
 	
-	public Carta getCarta() {
+	public CartaRisorsa getCartaR() {
 		num--;
-		return this.carte.get(num);
+		return this.carteRisorsa.get(num);
 		
+	}
+	public CartaOro getCartaO() {
+		num--;
+		return this.carteOro.get(num);
+		
+	}
+	
+	public CartaObiettivo getCartaOb() {
+		num--;
+		return this.carteObiettivo.get(num);
+		
+	}
+	
+	public CartaIniziale getCartaI() {
+		num--;
+		return this.carteIniziale.get(num);
 	}
 
 	public ArrayList<Carta> getCarte() {
 		return carte;
 	}
+
+	
 	
 	
 

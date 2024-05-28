@@ -122,25 +122,25 @@ public class CartaObiettivo extends Carta {
 		
 				// tripla rossa
 				if(this.tipo == CartaObiettivoEn.COTriplaRossa ) {
-					CartaObiettivo1.creaCarta();
+					return CartaObiettivo1.creaCarta();
 					
 				}
 				
 				// tripla verde
 				if(this.tipo == CartaObiettivoEn.COTriplaVerde ) {
-					CartaObiettivo2.creaCarta();
+					return CartaObiettivo2.creaCarta();
 					
 				}
 				
 				// tripla viola
 				if(this.tipo == CartaObiettivoEn.COTriplaViola ) {
-					CartaObiettivo3.creaCarta();
+					return CartaObiettivo3.creaCarta();
 					
 				}
 				
 				// tripla azzurra
 				if(this.tipo == CartaObiettivoEn.COTriplaAzzurra ) {
-					CartaObiettivo4.creaCarta();
+					return CartaObiettivo4.creaCarta();
 					
 				}
 				
@@ -148,60 +148,60 @@ public class CartaObiettivo extends Carta {
 				
 				// forma a r
 				if(this.tipo == CartaObiettivoEn.COFormaR ) {
-					CartaObiettivo7.creaCarta();
+					return CartaObiettivo7.creaCarta();
 					
 				}
 				
 				// forma a 1
 				if(this.tipo == CartaObiettivoEn.COForma1 ) {
-					CartaObiettivo8.creaCarta();
+					return CartaObiettivo8.creaCarta();
 					
 				}
 				
 				// forma a L
 				if(this.tipo == CartaObiettivoEn.COFormaL ) {
-					CartaObiettivo5.creaCarta();
+					return CartaObiettivo5.creaCarta();
 					
 				}
 				
 				// forma a J
 				if(this.tipo == CartaObiettivoEn.COFormaJ ) {
-					CartaObiettivo6.creaCarta();
+					return CartaObiettivo6.creaCarta();
 					
 				}
 				
 				
 					
 				if(this.tipo == CartaObiettivoEn.COTreFungo ) {
-					CartaObiettivo9.creaCarta();
+					return CartaObiettivo9.creaCarta();
 				}
 				
 				if(this.tipo == CartaObiettivoEn.COTreLupo ) {
-					CartaObiettivo11.creaCarta();
+					return CartaObiettivo11.creaCarta();
 				}
 				
 				if(this.tipo == CartaObiettivoEn.COTreFarfalla ) {
-					CartaObiettivo12.creaCarta();
+					return CartaObiettivo12.creaCarta();
 				}
 				
 				if(this.tipo == CartaObiettivoEn.COTreFoglia ) {
-					CartaObiettivo10.creaCarta();
+					return CartaObiettivo10.creaCarta();
 				}
 				
 				if(this.tipo == CartaObiettivoEn.CODuePiuma ) {
-					CartaObiettivo16.creaCarta();
+					return CartaObiettivo16.creaCarta();
 				}
 				
 				if(this.tipo == CartaObiettivoEn.CODuePergamena ) {
-					CartaObiettivo14.creaCarta();
+					return CartaObiettivo14.creaCarta();
 				}
 				
 				if(this.tipo == CartaObiettivoEn.CODueBoccetta ) {
-					CartaObiettivo15.creaCarta();
+					return CartaObiettivo15.creaCarta();
 				}
 				
 				if(this.tipo == CartaObiettivoEn.COTreDiversi ) {
-					CartaObiettivo13.creaCarta();
+					return CartaObiettivo13.creaCarta();
 				}
 		
 		

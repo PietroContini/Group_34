@@ -11,6 +11,7 @@ import componentiGioco.CartaRisorsa;
 import componentiGioco.Colore;
 import componentiGioco.Posizione;
 import componentiGioco.Risorsa;
+import componentiGioco.Segnapunti;
 import componentiGioco.TipoIni;
 
 public class Partita {
@@ -20,8 +21,9 @@ public class Partita {
 	private Mazzo mazzoRisorsa;
 	private Mazzo mazzoObiettivo;
 	private Mazzo mazzoIniziale;
-	private ArrayList<Carta> carteVisibili;
-	private ArrayList<CartaObiettivo> carteObiettivoComuni;
+	private ArrayList<Carta> carteVisibili = new ArrayList<Carta>();
+	private ArrayList<CartaObiettivo> carteObiettivoComuni = new ArrayList<CartaObiettivo>();;
+	private Segnapunti segnapunti;
 	
 	
 	
@@ -29,36 +31,39 @@ public class Partita {
 		creaMazzi();
 		this.giocatori = giocatori;
 		inizioTavolo();
+		this.segnapunti = new Segnapunti(this);
 	}
 	
 	
 	public Partita() {
 		creaMazzi();
+		inizioTavolo();
+		
 	}
 
 
 	public  CartaIniziale pescaCartaIni() {
 		
-		CartaIniziale x = (CartaIniziale) mazzoIniziale.getCarta();
+		CartaIniziale x =  mazzoIniziale.getCartaI();
 		return x;
 			
 	}
 	
 	public  CartaRisorsa pescaCartaRis() {
 		
-		CartaRisorsa x = (CartaRisorsa) mazzoRisorsa.getCarta();
+		CartaRisorsa x =  mazzoRisorsa.getCartaR();
 		return x;
 			
 	}
 	public  CartaOro pescaCartaOro() {
 		
-		CartaOro x = (CartaOro) mazzoOro.getCarta();
+		CartaOro x = (CartaOro) mazzoOro.getCartaO();
 		return x;
 			
 	}
 	public  CartaObiettivo pescaCartaObiettivo() {
 		
-		CartaObiettivo x = (CartaObiettivo) mazzoObiettivo.getCarta();
+		CartaObiettivo x = (CartaObiettivo) mazzoObiettivo.getCartaOb();
 		return x;
 			
 	}
@@ -114,6 +119,175 @@ public class Partita {
 			}
 		}
     	return null;
+    }
+    
+    public void stampaCarteTavolo() {
+    	
+    	String spazi = "		 ";
+    	
+       String [][]color1 = new String[10][5];
+   	   String [][]color2 = new String[10][5];
+   	   
+   		
+   		
+   		if(carteVisibili.get(0) instanceof CartaOro) {
+   			CartaOro cartaOro = this.cercaCartaOro(carteVisibili.get(0));
+   			color1 = cartaOro.creaCarta();
+   			
+   			}
+   		
+   		
+   		if(carteVisibili.get(0) instanceof CartaRisorsa) {
+   		
+   			CartaRisorsa cartaRisorsa = this.cercaCartaRisorsa(carteVisibili.get(0));
+   			color1 = cartaRisorsa.creaCarta();
+   			
+   		}
+   		else if(carteVisibili.get(0) == null) {
+   			color1 = Carta.stampaVuoto();
+   			
+   		}
+   		
+   			
+   			if(carteVisibili.get(1) instanceof CartaOro) {
+   				CartaOro cartaOro = this.cercaCartaOro(carteVisibili.get(1));
+   				color2 = cartaOro.creaCarta();
+   				
+   				}
+   			
+   			
+   			if(carteVisibili.get(1) instanceof CartaRisorsa) {
+   		   		
+   	   			CartaRisorsa cartaRisorsa = this.cercaCartaRisorsa(carteVisibili.get(1));
+   	   			color2 = cartaRisorsa.creaCarta();
+   	   			
+   	   		}
+   			else if(carteVisibili.get(1) == null) {
+   				color2 = Carta.stampaVuoto();
+   				
+   				
+   			}
+   			
+   			
+   			
+   			
+   			//stampa prima parte
+   			
+   			for(int n=0;n<color1[0].length;n++) {
+   	    	      for(int m=0;m<color1.length;m++) {
+   	    	        System.out.print(color1[m][n]+" ");
+   	    	        
+   	    	      }
+   	    	      System.out.print("\033[0m ");
+   	    	      System.out.print(spazi);
+   	    	      
+   	    	      for(int m=0;m<color2.length;m++) {
+   		    	        System.out.print(color2[m][n]+" ");
+   		    	        
+   		    	  }
+   	    	      
+   	    	      System.out.println("");
+   	    	    }
+   	       System.out.print("\033[0m ");
+   	       System.out.println("");
+
+    		
+    		if(carteVisibili.get(2) instanceof CartaOro) {
+    			CartaOro cartaOro = this.cercaCartaOro(carteVisibili.get(2));
+    			color1 = cartaOro.creaCarta();
+    			
+    			}
+    		
+    		
+    		if(carteVisibili.get(2) instanceof CartaRisorsa) {
+    		
+    			CartaRisorsa cartaRisorsa = this.cercaCartaRisorsa(carteVisibili.get(2));
+    			color1 = cartaRisorsa.creaCarta();
+    			
+    		}
+    		else if(carteVisibili.get(2) == null) {
+    			color1 = Carta.stampaVuoto();
+    			
+    		}
+    		
+    			
+    			if(carteVisibili.get(3) instanceof CartaOro) {
+    				CartaOro cartaOro = this.cercaCartaOro(carteVisibili.get(3));
+    				color2 = cartaOro.creaCarta();
+    				
+    				}
+    			
+    			
+    			if(carteVisibili.get(3) instanceof CartaRisorsa) {
+    		   		
+    	   			CartaRisorsa cartaRisorsa = this.cercaCartaRisorsa(carteVisibili.get(3));
+    	   			color2 = cartaRisorsa.creaCarta();
+    	   			
+    	   		}
+    			else if(carteVisibili.get(3) == null) {
+    				color2 = Carta.stampaVuoto();
+    				
+    				
+    			}
+    			
+    			spazi = "        ";
+    			
+    			
+    			//stampa seconda parte
+    			
+    			for(int n=0;n<color1[0].length;n++) {
+    	    	      for(int m=0;m<color1.length;m++) {
+    	    	        System.out.print(color1[m][n]+" ");
+    	    	        
+    	    	      }
+    	    	      System.out.print("\033[0m ");
+    	    	      System.out.print(spazi);
+    	    	      
+    	    	      for(int m=0;m<color2.length;m++) {
+    		    	        System.out.print(color2[m][n]+" ");
+    		    	        
+    		    	  }
+    	    	      
+    	    	      System.out.println("");
+    	    	    }
+    	       System.out.print("\033[0m ");
+    	       System.out.println("");
+    	       
+    	       stampaCarteObComuni();
+    	
+    	
+    }
+    
+    private void stampaCarteObComuni() {
+    	String [][] color1 = this.carteObiettivoComuni.get(0).creaCarta();
+    	String [][] color2 = this.carteObiettivoComuni.get(1).creaCarta();
+    	
+    	String spazi = "		 ";
+    	
+    	for(int n=0;n<color1[0].length;n++) {
+  	      for(int m=0;m<color1.length;m++) {
+  	        System.out.print(color1[m][n]+" ");
+  	        
+  	      }
+  	      System.out.print("\033[0m ");
+  	      System.out.print(spazi);
+  	      
+  	      for(int m=0;m<color2.length;m++) {
+	    	        System.out.print(color2[m][n]+" ");
+	    	        
+	    	  }
+  	      
+  	      System.out.println("");
+  	    }
+     System.out.print("\033[0m ");
+     System.out.println("");
+     
+     
+    	
+    }
+    public void InizioPartita() {
+    	
+    	
     }
 
 
@@ -989,7 +1163,17 @@ public class Partita {
 		this.mazzoOro = carteOro;
 		this.mazzoObiettivo = carteObiettivo;
 		this.mazzoIniziale = carteIniziali;
+		
+		mazzoRisorsa.mischiaMazzo();
+		mazzoOro.mischiaMazzo();
+		mazzoObiettivo.mischiaMazzo();
+		mazzoIniziale.mischiaMazzo();
 
+	}
+
+
+	public ArrayList<Giocatore> getGiocatori() {
+		return giocatori;
 	}
 	
 }

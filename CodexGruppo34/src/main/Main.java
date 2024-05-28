@@ -20,10 +20,10 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
- Angolo		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
- Angolo		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
- Angolo	    angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
- Angolo 	angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
+		Angolo	angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
+		Angolo	angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
+		Angolo	angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
+		Angolo  angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
 			
 		
 		CartaIniziale cartaIni2 = new CartaIniziale("id.I2",angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni2);
@@ -57,7 +57,9 @@ public class Main {
 		giocatore.piazzaCarta(par, carta4risorsa, 45, 47);
 		giocatore.piazzaCarta(par, carta6oro, 45, 45);
 		giocatore.piazzaCarta(par, cartaIni2, 46, 46);
-		giocatore.movimentoSuMatrice();
+		//giocatore.movimentoSuMatrice();
+		
+		//par.stampaCarteTavolo();
 		
 		
 		
