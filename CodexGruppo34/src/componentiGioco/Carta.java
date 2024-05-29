@@ -49,7 +49,7 @@ public class Carta {
 	public ArrayList<Risorsa> risorseAngoli (){
     	ArrayList<Risorsa> x = new ArrayList<Risorsa>();
     	for (int i=0;i<4;i++) {
-    	if(this.angoli[i] != null ) {
+    	if(this.angoli[i] != null || this.angoli[i].getRisorsa()!=Risorsa.vuoto ) {
     		x.add(angoli[i].getRisorsa());
     		
     	}

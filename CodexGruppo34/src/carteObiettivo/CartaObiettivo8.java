@@ -295,7 +295,7 @@ public class CartaObiettivo8 {
 			}
 		
 			
-			 a.getManoscritto().setCarteUsate(m.getCarteUsate());
+			 
 		     return punti;
 			
 		}

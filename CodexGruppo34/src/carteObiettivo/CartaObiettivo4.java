@@ -169,12 +169,8 @@ public class CartaObiettivo4 {
 			}
 		
 			
-			
-			
 		
-		
-			
-			 a.getManoscritto().setCarteUsate(m.getCarteUsate());
+			 m.getCarteUsate().clear();
 		     return punti;
 			
 		}

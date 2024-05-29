@@ -12,6 +12,7 @@ import gestioneObiettivi.ManagerPunti;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 
 public class Giocatore {
@@ -120,35 +121,68 @@ public class Giocatore {
 		return cont;
 	}
 	
-	public void piazzaCarta(Partita partita, Carta carta,int x,int y) {
+	public boolean piazzaCarta(Partita partita, Carta carta,int x,int y) {
 		
-		if(carta instanceof CartaIniziale) {
-			this.getManoscritto().piazzaCarta(carta, 46, 46);
-			CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
-			this.risorseVisibili.addAll(cartaIniziale.risorseAngoli());
-			if(cartaIniziale.getRisorseBase()!=null) {
-				this.risorseVisibili.addAll(cartaIniziale.getRisorseBase());
+		boolean prova = true;
+		if(this.manoscritto.getCarta(x, y)==null) {
+			if(carta instanceof CartaIniziale) {
+				this.getManoscritto().piazzaCarta(carta, 46, 46);
+				CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+				this.risorseVisibili.addAll(cartaIniziale.risorseAngoli());
+				if(cartaIniziale.getRisorseBase()!=null) {
+					this.risorseVisibili.addAll(cartaIniziale.getRisorseBase());
+				}
 			}
-		}
-		
-		if(carta instanceof CartaOro) {
-			CartaOro cartaOro = partita.cercaCartaOro(carta);
-			if(checkRichiesta(cartaOro)==true) {
-				angoloCoperto(x, y);
-				this.punti = punti + ManagerPunti.puntiCarta(this, cartaOro);
-				this.getManoscritto().piazzaCarta(carta, x, y);
-				this.risorseVisibili.addAll(cartaOro.risorseAngoli());
+			
+			if(carta instanceof CartaOro) {
+				CartaOro cartaOro = partita.cercaCartaOro(carta);
+				if(checkRichiesta(cartaOro)==true) {
+					int p= angoloCoperto(x, y);
+					if(p>0)
+						prova = true;
+					if(prova ==true) {
+						this.punti = punti + ManagerPunti.puntiCarta(this, cartaOro,p);
+						this.getManoscritto().piazzaCarta(carta, x, y);
+						this.risorseVisibili.addAll(cartaOro.risorseAngoli());
+						if(cartaOro.getRisorsaPermanente()!=null) {
+							this.risorseVisibili.add(cartaOro.getRisorsaPermanente());
+						}
+					}
+					else {
+						System.out.println("impossibile piazzare, nessun angolo occupabile");
+						return false;
+					}
+					
+				}
+				else {
+					System.out.println("impossibile piazzare, la richiesta della carta oro non è soddisfatta");
+					return false;
+				}
+			}
+			
+			if(carta instanceof CartaRisorsa) {
+				if(angoloCoperto(x, y)>0)
+					prova = true;
+				if(prova ==true) {
+					this.getManoscritto().piazzaCarta(carta, x, y);
+					CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+					this.punti = punti + ManagerPunti.puntiCarta(this, cartaRisorsa);
+					this.risorseVisibili.addAll(cartaRisorsa.risorseAngoli());
+					if(cartaRisorsa.getRisorsaPermanente()!=null) {
+						this.risorseVisibili.add(cartaRisorsa.getRisorsaPermanente());
+					}
+				}
+				else {
+					System.out.println("impossibile piazzare, nessun angolo occupabile");
+					return false;
+				}
 				
 			}
+		}else {
+			System.out.println("impossibile piazzare, lo spazio è gia occupato da un'altra carta");
+			return false;
 		}
-		
-		if(carta instanceof CartaRisorsa) {
-			this.getManoscritto().piazzaCarta(carta, x, y);
-			CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
-			this.punti = punti + ManagerPunti.puntiCarta(this, cartaRisorsa);
-			this.risorseVisibili.addAll(cartaRisorsa.risorseAngoli());
-			angoloCoperto(x, y);
-		}
+		return true;
 		
 	}
 	
@@ -187,15 +221,16 @@ public class Giocatore {
 		
 	}
 	
-	private void angoloCoperto(int x,int y) {
+	private int angoloCoperto(int x,int y) {
+	int angoloEsiste = 0;
 	int a = x;
 	int b = y;
 	Carta carta = this.getManoscritto().getCarta(a--, b--);
 	if(carta != null) {
-		if(carta.getAngolo(3) != null ) {
+		if(carta.getAngolo(3) != null || carta.getAngolo(3).getRisorsa()!=Risorsa.vuoto ) {
 			
 			removeRisorsa(carta.getAngolo(3).getRisorsa());
-			
+			angoloEsiste ++;
 		}
 	}
 	
@@ -203,10 +238,10 @@ public class Giocatore {
 	 b = y;
 	carta = this.getManoscritto().getCarta(a++, b--);
 	if(carta != null) {
-		if(carta.getAngolo(1) != null ) {
+		if(carta.getAngolo(1) != null || carta.getAngolo(1).getRisorsa()!=Risorsa.vuoto) {
 			
 			removeRisorsa(carta.getAngolo(1).getRisorsa());
-			
+			angoloEsiste ++;
 		}
 	}
 	
@@ -214,37 +249,38 @@ public class Giocatore {
 	 b = y;
 	carta = this.getManoscritto().getCarta(a--, b++);
 	if(carta != null) {
-		if(carta.getAngolo(2) != null ) {
+		if(carta.getAngolo(2) != null || carta.getAngolo(2).getRisorsa()!=Risorsa.vuoto) {
 			
 			removeRisorsa(carta.getAngolo(2).getRisorsa());
-			
+			angoloEsiste ++;
 		}
 	}
 	 a = x;
 	 b = y;
 	carta = this.getManoscritto().getCarta(a++, b++);
 	if(carta != null) {
-		if(carta.getAngolo(0) != null ) {
+		if(carta.getAngolo(0) != null || carta.getAngolo(1).getRisorsa()!=Risorsa.vuoto) {
 			
 			removeRisorsa(carta.getAngolo(0).getRisorsa());
-			
+			angoloEsiste ++;
 		}
 	}
+	return angoloEsiste;
 	}
 	
-    public int[] movimentoSuMatrice() {
-    	int[] xy = new int[2];
+    public void movimentoSuMatrice(Partita par,Carta carta) throws InterruptedException {
+ 
     	int x = 46;
     	int y = 46;
     	int a = x;
     	int b = y;
-    	Manoscritto m = this.manoscritto;
     	String scelta = "";
     	System.out.println("sei sulla carta iniziale");
     	stampa(x,y);
     	do {
+    		TimeUnit.SECONDS.sleep(2);
     		scelta="";
-            System.out.println("in che direzione vuoi muoverti? \n Direzioni: \n as alto sx, \n bs basso sx,\n ad alto dx,\n bd basso dx \n inizio per tornare alla carta iniziale \n ");
+            System.out.println("In che direzione vuoi muoverti? \n Direzioni: \n as alto sx, \n bs basso sx,\n ad alto dx,\n bd basso dx \n inizio per tornare alla carta iniziale \n Scrivi piazza per piazzare la carta");
              Scanner sc = new Scanner(System.in);
              scelta = sc.nextLine();
              
@@ -330,11 +366,9 @@ public class Giocatore {
 				
 			}
              
-            }while(!scelta.equalsIgnoreCase("piazza"));
+            }while(!scelta.equalsIgnoreCase("piazza") && piazzaCarta(par,carta,x,y)==false);
     	
-		xy[0]=x;
-		xy[1]=y;
-		return xy;
+		
     	   	
     }
     
@@ -587,9 +621,55 @@ public class Giocatore {
 	   
    }
    
+   public void stampaCarteInMano() {
+	   
+	   
+   }
    
-   
-   
+   public void stampaCartaObiettivo() {
+	   
+	   String[][] color1 = carteObiettivo.get(0).creaCarta();
+	   if(carteObiettivo.get(0)!=null) {
+		   String spazi = "		 ";
+		   String[][] color2 = carteObiettivo.get(1).creaCarta();
+		   
+		   for(int n=0;n<color1[0].length;n++) {
+	    	      for(int m=0;m<color1.length;m++) {
+	    	        System.out.print(color1[m][n]+" ");
+	    	        
+	    	      }
+	    	      System.out.print("\033[0m ");
+	    	      System.out.print(spazi);
+	    	      
+	    	      for(int m=0;m<color2.length;m++) {
+		    	        System.out.print(color2[m][n]+" ");
+		    	        
+		    	  }
+	    	      
+	    	      System.out.println("");
+	    	    }
+			
+	        System.out.print("\033[0m ");
+	       
+			System.out.println("\n");
+		   
+	   }
+	   else {
+		   
+		   for(int n=0;n<color1[0].length;n++) {
+	    	      for(int m=0;m<color1.length;m++) {
+	    	        System.out.print(color1[m][n]+" ");
+	    	        
+	    	      }
+	    	      
+	    	      System.out.println("");
+			}
+		    System.out.print("\033[0m ");
+			System.out.println("");
+		   
+	   }
+	
+   }
    
    
    

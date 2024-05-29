@@ -173,7 +173,7 @@ public class CartaObiettivo3 {
 		
 		
 			
-			 a.getManoscritto().setCarteUsate(m.getCarteUsate());
+			 m.getCarteUsate().clear();
 		     return punti;
 			
 		}

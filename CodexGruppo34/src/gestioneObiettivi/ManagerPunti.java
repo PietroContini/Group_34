@@ -24,6 +24,7 @@ import componentiGioco.CartaObiettivoEn;
 import componentiGioco.CartaOro;
 import componentiGioco.CartaRisorsa;
 import componentiGioco.PuntiPerCarta;
+import componentiGioco.Risorsa;
 import gestioneGioco.Giocatore;
 import gestioneGioco.Partita;
 
@@ -34,7 +35,7 @@ public class ManagerPunti {
 	public static int checkObiettivi(Giocatore a, Partita ps) {
 		
 		ArrayList<CartaObiettivo> b = a.getCarteObiettivo();
-		
+		ArrayList<CartaObiettivo> p = ps.getCarteObiettivoComuni();
 		
 		int punti = 0;
 		
@@ -149,43 +150,6 @@ public class ManagerPunti {
 				if(b.get(0).getTipo() == CartaObiettivoEn.COTreDiversi ) {
 					punti = punti + CartaObiettivo13.checkObietTreDiversi(a);
 				}
-		
-				return punti;
-	}
-	
-	public static int checkObiettiviFinali(Giocatore a, Partita ps) {
-		
-		ArrayList<CartaObiettivo> p = ps.getCarteObiettivoComuni();
-		
-		int punti = 0;
-		
-		
-			
-			/*
-			 {0,0,0,0,0,0,0,0,0
-			  0,0,0,0,0,0,0,0,0
-			  0,0,0,0,0,0,0,0,0
-			  0,0,0,0,0,0,0,0,0
-			  0,0,0,0,0,0,0,0,0
-			  0,0,0,0,0,0,0,0,0
-			  0,0,0,0,0,0,0,0,0
-			  0,0,0,0,0,0,0,0,0
-			  0,0,0,0,0,0,0,0,0}
-			 
-			 9 x 9 il centro è 5,5
-			 
-			 {0   0   0   0   0
-			    0   0   0   0
-			  0   0   0   0   0
-			    0   0   0   0
-			  0   0   1   0   0
-			    0   0   0   0
-			  0   0   0   0   0
-			    0   0   0   0
-			  0   0   0   0   0}
-			 
-			 matrice effettivamente giocabile, dove piazziamo le carte
-			 */
 				
 				// tripla rossa
 				if( p.get(0).getTipo() == CartaObiettivoEn.COTriplaRossa || p.get(1).getTipo() == CartaObiettivoEn.COTriplaRossa  ) {
@@ -274,7 +238,7 @@ public class ManagerPunti {
 				return punti;
 	}
 	
-	public static int puntiCarta(Giocatore g, CartaOro b) {
+	public static int puntiCarta(Giocatore g, CartaOro b,int p) {
 		
 		int punti = 0;
 
@@ -284,17 +248,17 @@ public class ManagerPunti {
 			if(x.getMoltiplicatore()==null) {
 				punti = x.getPunti();
 			}
+			else if(x.getMoltiplicatore()==Risorsa.vuoto) {
+				punti = p * x.getPunti();
+			}
 			else {
 				int cont = g.ricercaRisorsa(x.getMoltiplicatore());
 				punti = cont * x.getPunti();
 			}
-		
-		
-		return punti;
-		
+				return punti;
 	}
 	
-	
+
 	
 	public static int puntiCarta(Giocatore g, CartaRisorsa b) {
 		
