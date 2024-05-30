@@ -24,10 +24,13 @@ public class Giocatore {
 	private int punti;
 	private ArrayList<Risorsa> risorseVisibili = new ArrayList<Risorsa>();
 	
-	public Giocatore(Manoscritto m, String nome) {
+	public Giocatore(Manoscritto m, String nome,Partita par) {
 		this.manoscritto = m;
 		this.punti = 0;
 		this.nome = nome;
+		pescaCartaOro(par);
+		pescaCartaRis(par);
+		pescaCartaRis(par);
 	}
 	
 	public String getNome() {
@@ -227,9 +230,10 @@ public class Giocatore {
 	int b = y;
 	Carta carta = this.getManoscritto().getCarta(a--, b--);
 	if(carta != null) {
-		if(carta.getAngolo(3) != null || carta.getAngolo(3).getRisorsa()!=Risorsa.vuoto ) {
-			
+		if(carta.getAngolo(3) != null  ) {
+			if(carta.getAngolo(3).getRisorsa()!=Risorsa.vuoto) {
 			removeRisorsa(carta.getAngolo(3).getRisorsa());
+			}
 			angoloEsiste ++;
 		}
 	}
@@ -238,9 +242,10 @@ public class Giocatore {
 	 b = y;
 	carta = this.getManoscritto().getCarta(a++, b--);
 	if(carta != null) {
-		if(carta.getAngolo(1) != null || carta.getAngolo(1).getRisorsa()!=Risorsa.vuoto) {
-			
+		if(carta.getAngolo(1) != null ) {
+			if(carta.getAngolo(1).getRisorsa()!=Risorsa.vuoto) {
 			removeRisorsa(carta.getAngolo(1).getRisorsa());
+			}
 			angoloEsiste ++;
 		}
 	}
@@ -249,9 +254,10 @@ public class Giocatore {
 	 b = y;
 	carta = this.getManoscritto().getCarta(a--, b++);
 	if(carta != null) {
-		if(carta.getAngolo(2) != null || carta.getAngolo(2).getRisorsa()!=Risorsa.vuoto) {
-			
+		if(carta.getAngolo(2) != null ) {
+			if(carta.getAngolo(2).getRisorsa()!=Risorsa.vuoto) {
 			removeRisorsa(carta.getAngolo(2).getRisorsa());
+			}
 			angoloEsiste ++;
 		}
 	}
@@ -259,9 +265,10 @@ public class Giocatore {
 	 b = y;
 	carta = this.getManoscritto().getCarta(a++, b++);
 	if(carta != null) {
-		if(carta.getAngolo(0) != null || carta.getAngolo(1).getRisorsa()!=Risorsa.vuoto) {
-			
+		if(carta.getAngolo(0) != null ) {
+			if(carta.getAngolo(0).getRisorsa()!=Risorsa.vuoto) {
 			removeRisorsa(carta.getAngolo(0).getRisorsa());
+			}
 			angoloEsiste ++;
 		}
 	}
@@ -621,8 +628,116 @@ public class Giocatore {
 	   
    }
    
-   public void stampaCarteInMano() {
+   public void stampaCarteInMano(Partita par) {
 	   
+	   		String [][]color1 = new String[10][5];
+	   		String [][]color2 = new String[10][5];
+	   		String [][]color3 = new String[10][5];
+	   		boolean testOk = false;
+	   		boolean testOk1 = false;
+	   		boolean testOk2 = false;
+	   		int t = 0;
+	   		if(carteInMano.get(0) instanceof CartaOro) {
+	   			CartaOro a = par.cercaCartaOro(carteInMano.get(0));
+	   			color1 = a.creaCarta();
+	   			testOk = this.checkRichiesta(a);
+	   			t++;
+	   		}
+	   		else if(carteInMano.get(0) instanceof CartaRisorsa){
+	   			CartaRisorsa a = par.cercaCartaRisorsa(carteInMano.get(0));
+	   		   	color1 = a.creaCarta();
+	   		}
+	   		else {
+	   			color1 = Carta.stampaVuoto();
+	   		}
+	   		
+	   		if(carteInMano.get(1) instanceof CartaOro) {
+	   			CartaOro a = par.cercaCartaOro(carteInMano.get(1));
+	   			color2 = a.creaCarta();
+	   			testOk1 = this.checkRichiesta(a);
+	   			t++;
+	   		}
+	   		else if(carteInMano.get(1) instanceof CartaRisorsa){
+	   			CartaRisorsa a = par.cercaCartaRisorsa(carteInMano.get(1));
+	   		   	color2 = a.creaCarta();
+	   		}
+	   		else {
+	   			color2 = Carta.stampaVuoto();
+	   		}
+	   		
+	   		if(carteInMano.get(2) instanceof CartaOro) {
+	   			CartaOro a = par.cercaCartaOro(carteInMano.get(2));
+	   			color3 = a.creaCarta();
+	   			testOk2 = this.checkRichiesta(a);
+	   			t++;
+	   		}
+	   		else if(carteInMano.get(2) instanceof CartaRisorsa) {
+	   			CartaRisorsa a = par.cercaCartaRisorsa(carteInMano.get(2));
+	   		   	color3 = a.creaCarta();
+	   		}
+	   		else {
+	   			color3 = Carta.stampaVuoto();
+	   		}
+	    
+		   
+		   String spazi = "	 ";
+		   for(int n=0;n<color1[0].length;n++) {
+	    	      for(int m=0;m<color1.length;m++) {
+	    	        System.out.print(color1[m][n]+" ");
+	    	        
+	    	      }
+	    	      System.out.print("\033[0m ");
+	    	      System.out.print(spazi);
+	    	      
+	    	      for(int m=0;m<color2.length;m++) {
+		    	        System.out.print(color2[m][n]+" ");
+		    	        
+		    	  }
+	    	      System.out.print("\033[0m ");
+	    	      System.out.print(spazi);
+	    	      
+	    	      for(int m=0;m<color3.length;m++) {
+		    	        System.out.print(color2[m][n]+" ");
+		    	        
+		    	  }
+	    	      
+	    	      System.out.println("");
+	    	    }
+			
+	        System.out.print("\033[0m ");
+	       
+			System.out.println("");
+			if(t==1) {
+				System.out.print("Puoi piazzare la carta oro che hai in mano ?\n");
+				if(testOk == true) {
+					System.out.print("Si");
+				}
+				else {
+					System.out.print("No");
+				}
+			}
+			else if(t>1) {
+				System.out.print("Puoi piazzare le carte oro che hai in mano ? Ordine da sinistra\n");
+				if(testOk == true) {
+					System.out.println("La prima : Si");
+				}
+				else {
+					System.out.println("La prima : No");
+				}
+				if(testOk1 == true) {
+					System.out.println("La seconda : Si");
+				}
+				else {
+					System.out.println("La seconda : No");
+				}
+				if(t==3 && testOk2 == true) {
+					System.out.println("La terza : Si");
+				}
+				else {
+					System.out.println("La terza : No");
+				}
+			}
+			System.out.println("\n");
 	   
    }
    

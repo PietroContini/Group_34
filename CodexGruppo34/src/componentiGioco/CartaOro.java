@@ -169,52 +169,54 @@ public class CartaOro extends Carta {
 	     //impostazione colori prima riga
 	     
 	     PuntiPerCarta punti = this.getPuntiCarta();
-	     if(punti.getMoltiplicatore()==null) {
-	    	 color[1][0] = colore+"  ";
-	    	 color[2][0] = colore+" ";
-	    	 color[3][0] = colore+" ";
-	    	 color[4][0] = coloreS + punti.getPunti() + " ";
-	    	 color[5][0] = colore+" ";
-	    	 color[6][0] = colore+" ";
-	    	 color[7][0] = colore+" ";
-	    	 color[8][0] = colore+" ";
-	    	 
-	     }
-	     
-	     else {
-	    	 color[1][0] = colore+" ";
-	    	 color[2][0] = colore+" ";
-	    	 color[3][0] = colore+" ";
-	    	 color[4][0] = coloreS + punti.getPunti() + " ";
-	    	 if(punti.getMoltiplicatore()==Risorsa.lupo){
-		    	 color[0][9] = coloreS + "L ";
+	     if(punti!=null) {
+		     if(punti.getMoltiplicatore()==null) {
+		    	 color[1][0] = colore+"  ";
+		    	 color[2][0] = colore+" ";
+		    	 color[3][0] = colore+" ";
+		    	 color[4][0] = coloreS + punti.getPunti() + " ";
+		    	 color[5][0] = colore+" ";
+		    	 color[6][0] = colore+" ";
+		    	 color[7][0] = colore+" ";
+		    	 color[8][0] = colore+" ";
+		    	 
 		     }
-		     else if(punti.getMoltiplicatore()==Risorsa.farfalla){
-		    	 color[5][0] = coloreS + "FA";
+		     
+		     else {
+		    	 color[1][0] = colore+" ";
+		    	 color[2][0] = colore+" ";
+		    	 color[3][0] = colore+" ";
+		    	 color[4][0] = coloreS + punti.getPunti() + " ";
+		    	 if(punti.getMoltiplicatore()==Risorsa.lupo){
+			    	 color[5][0] = coloreS + "L ";
+			     }
+			     else if(punti.getMoltiplicatore()==Risorsa.farfalla){
+			    	 color[5][0] = coloreS + "FA";
+			     }
+			     else if(punti.getMoltiplicatore()==Risorsa.foglia){
+			    	 color[5][0]= coloreS + "F ";
+			     }
+			     else if(punti.getMoltiplicatore()==Risorsa.boccetta){
+			    	 color[5][0] = coloreS + "B ";
+			     }
+			     else if(punti.getMoltiplicatore()==Risorsa.fungo){
+			    	 color[5][0] = coloreS + "FU";
+			     }
+			     else if(punti.getMoltiplicatore()==Risorsa.pergamena){
+			    	 color[5][0] = coloreS + "PE";
+			     }
+			     else if(punti.getMoltiplicatore()==Risorsa.piuma){
+			    	 color[5][0] = coloreS + "P ";
+			     }
+			     else if(punti.getMoltiplicatore()==Risorsa.vuoto){
+			    	 color[5][0] = coloreS + "S ";
+			     }
+		    	 color[6][0] = colore+" ";
+		    	 color[7][0] = colore+" ";
+		    	 color[8][0] = colore+" ";
+		    	 
+		    	 
 		     }
-		     else if(punti.getMoltiplicatore()==Risorsa.foglia){
-		    	 color[5][0]= coloreS + "F ";
-		     }
-		     else if(punti.getMoltiplicatore()==Risorsa.boccetta){
-		    	 color[5][0] = coloreS + "B ";
-		     }
-		     else if(punti.getMoltiplicatore()==Risorsa.fungo){
-		    	 color[5][0] = coloreS + "FU";
-		     }
-		     else if(punti.getMoltiplicatore()==Risorsa.pergamena){
-		    	 color[5][0] = coloreS + "PE";
-		     }
-		     else if(punti.getMoltiplicatore()==Risorsa.piuma){
-		    	 color[5][0] = coloreS + "P ";
-		     }
-		     else if(punti.getMoltiplicatore()==Risorsa.vuoto){
-		    	 color[5][0] = coloreS + "S ";
-		     }
-	    	 color[6][0] = colore+" ";
-	    	 color[7][0] = colore+" ";
-	    	 color[8][0] = colore+" ";
-	    	 
-	    	 
 	     }
 	     
 	       
@@ -278,7 +280,28 @@ public class CartaOro extends Carta {
 		    	 color[9][4] = coloreS + "  ";
 		   }
 	       
+	       //retro carta oro risorsa
+	       
+	       if(this.risorsaPermanente!=null) {
+	    	   if(this.risorsaPermanente==Risorsa.lupo){
+	  	      	 color[4][2] = coloreS + "L ";
+	  	       }
+	  	       else if(this.risorsaPermanente==Risorsa.farfalla){
+	  	    	 color[4][2] = coloreS + "FA";
+	  	       }
+	  	       else if(this.risorsaPermanente==Risorsa.foglia){
+	  	    	 color[4][2] = coloreS + "F ";
+	  	       }
+	  	       else if(this.risorsaPermanente==Risorsa.fungo){
+	  	    	 color[4][2] = coloreS + "FU";
+		       }
+	    	   color[9][1] = colore+"      ";
+	    	   color[9][2] = colore+"      ";
+	    	   color[9][3] = colore+"      ";
+	       }
+	       
 	       //impostazione colori e richiesta carta, ultima riga
+	       if(this.getRichiesta()!=null) {
 	    	   color[1][4]=colore;
 		     
 		     	int o=2;
@@ -310,7 +333,7 @@ public class CartaOro extends Carta {
 				  }
 				  color[7][4]=colore;
 				  color[8][4]=colore;
-				  
+	       }
 	       
 	       
 		return color;

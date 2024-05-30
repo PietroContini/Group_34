@@ -52,16 +52,18 @@ public class Main {
 		Partita par = new Partita();
 		
 		
-		Giocatore giocatore = new Giocatore(m,"pietro");
+		Giocatore giocatore = new Giocatore(m,"pietro",par);
 		
 		giocatore.piazzaCarta(par, carta4risorsa, 45, 47);
-		giocatore.piazzaCarta(par, carta6oro, 45, 45);
 		giocatore.piazzaCarta(par, cartaIni2, 46, 46);
 		//giocatore.movimentoSuMatrice();
 		
 		//par.stampaCarteTavolo();
 		
+		//giocatore.stampaCarteInMano(par);
 		
+		CartaRisorsa retro = CartaRisorsa.retroCarta(carta4risorsa);
+		retro.stampaCarta();
 		
 	
 	}

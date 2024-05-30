@@ -162,7 +162,6 @@ public class CartaRisorsa extends Carta {
 	     
 	     //impostazione colori prima riga
 	     
-	     
 	     	if(this.puntiRis!=0) {
 	    	 color[1][0] = colore+" ";
 	    	 color[2][0] = colore+" ";
@@ -186,6 +185,23 @@ public class CartaRisorsa extends Carta {
 	     	}
 	     
 	     
+	     	 if(this.risorsaPermanente!=null) {
+		    	   if(this.risorsaPermanente==Risorsa.lupo){
+		  	      	 color[4][2] = coloreS + "L ";
+		  	       }
+		  	       else if(this.risorsaPermanente==Risorsa.farfalla){
+		  	    	 color[4][2] = coloreS + "FA";
+		  	       }
+		  	       else if(this.risorsaPermanente==Risorsa.foglia){
+		  	    	 color[4][2] = coloreS + "F ";
+		  	       }
+		  	       else if(this.risorsaPermanente==Risorsa.fungo){
+		  	    	 color[4][2] = coloreS + "FU";
+			       }
+		    	   color[9][1] = colore+" ";
+		    	   color[9][2] = colore+"";
+		    	   color[9][3] = colore+" ";
+		       }
 	     
 	     
 	       
