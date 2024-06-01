@@ -23,6 +23,8 @@ public class Giocatore {
 	private Manoscritto manoscritto;
 	private int punti;
 	private ArrayList<Risorsa> risorseVisibili = new ArrayList<Risorsa>();
+	private int minS; //variabili per stampa manoscritto
+	private int maxS;// variabili per stampa manoscritto
 	
 	public Giocatore(Manoscritto m, String nome,Partita par) {
 		this.manoscritto = m;
@@ -31,6 +33,8 @@ public class Giocatore {
 		pescaCartaOro(par);
 		pescaCartaRis(par);
 		pescaCartaRis(par);
+		minS=0;
+		maxS=0;
 	}
 	
 	public String getNome() {
@@ -786,13 +790,134 @@ public class Giocatore {
 	
    }
    
-   
+   private void miniManoscritto() {
+	   
+	   Manoscritto mn = this.manoscritto;
+	   
+	   String [][] minimap =  new String [90][90];
+	   
+	   for(int ns=0;ns<mn.getCarteManoscritto()[0].length;ns++) {
+	 	      for(int ms=0;ms<mn.getCarteManoscritto().length;ms++) {
+	 	        
+	 	    	 minimap[ms][ns]= "\033[48;2;213;212;179m";
+	 	    	
+	 	        
+	 	      }
+	   }
+	   
+	   String [][] minimapS = minimap;
+	   
+	   for(int n=0;n<mn.getCarteManoscritto()[0].length;n++) {
+ 	      for(int m=0;m<mn.getCarteManoscritto().length;m++) {
+ 	    	 if(mn.getCarta(m, n)==null) {
+ 	    		minimap[m][n]= "\033[48;2;255;255;255m  ";
+ 	 	      }
+ 	    	 
+ 	    	 else if(mn.getCarta(m, n).getColor() == Colore.viola) {
+ 		    	   minimap[m][n]= "\033[48;2;129;13;165m  ";
+ 		    	  
+ 		       }
+ 		       
+ 	    	 else if(mn.getCarta(m, n).getColor() == Colore.verde) {
+ 		    	  minimap[m][n] = "\033[48;2;28;165;13m  ";
+ 		    	   
+ 		       }
+ 		       
+ 	    	 else if(mn.getCarta(m, n).getColor() == Colore.rosso) {
+ 		    	  minimap[m][n] = "\033[48;2;189;15;15m  ";
+ 		    	   
+ 		       }
+ 		       
+ 	    	 else if(mn.getCarta(m, n).getColor() == Colore.azzurro) {
+ 		    	  minimap[m][n] = "\033[48;2;14;170;201m  ";
+ 		    	   
+ 		       }
+ 	    	else if(mn.getCarta(m, n) instanceof CartaIniziale) {
+		    	  minimap[m][n] = "\033[48;2;213;212;179m  ";
+		    	   
+		       }
+ 	
+ 	      }
+ 
+	   }
+		   
+		   
+		          
+	        /*
+	        for(int x=30;x<=60;x++) {
+
+	        	minimap[60][x]= "\033[48;2;169;169;169m ";
+		
+		    }
+		   
+	        for(int x=30;x<=60;x++) {
+
+	        	minimap[30][x]= "\033[48;2;169;169;169m ";
+		
+		    }*/
+	        
+	        minimap[45][46]= "  ";
+	   
+	        int min = 40;
+	        int max = 55;
+	         
+	        
+	        for(int n=0;n<mn.getCarteManoscritto()[0].length;n++) {
+	        	
+	        	if(mn.getCarta(n, min)!=null) {
+	        		minS = minS-5;
+	        		break;
+	        	}
+	   
+		  	}
+	        for(int n=0;n<mn.getCarteManoscritto().length;n++) {
+	        	
+	        	if(mn.getCarta(n, max)!=null) {
+	        		maxS = maxS+5;
+	        		break;
+	        	}
+	   
+		  	}
+	        
+	        min = min + minS;
+	        max = max + maxS;
+	        
+	        
+	        for(int y=min;y<=max;y++) {
+		           
+		      	   minimap[y][min]= "\033[48;2;169;169;169m ";
+		         
+			    }
+
+		   
+			    
+		        for(int y=min;y<=max;y++) {
+		            
+		        	minimapS[y][max]= "\033[48;2;169;169;169m ";
+		            
+			    } 
+		        
+		        
+	        
+	   for(int n=min;n<=max;n++) {
+	 	      for(int m=min;m<=max;m++) {
+	 	    	 System.out.print(minimap[m][n]+" ");
+	 	    	 
+ 	      }
+ 	      System.out.println("");
+		}
+	    System.out.print("\033[0m ");
+		System.out.println("");
+	   
+	   
+   }
    
   
    
    
 
    public void round () {
+	   
 	   
    }
 

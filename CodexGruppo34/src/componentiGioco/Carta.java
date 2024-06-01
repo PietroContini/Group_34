@@ -31,12 +31,14 @@ public class Carta {
     	this.angoli[2] = angolo3;
     	this.angoli[3] = angolo4;
     	this.id=id;
+    	
     }
     
     public Carta() {
     	
     }
-    public Colore getColor() {
+    
+	public Colore getColor() {
 		return color;
 	}
 	public String getId() {

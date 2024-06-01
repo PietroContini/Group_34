@@ -62,9 +62,7 @@ public class Main {
 		
 		//giocatore.stampaCarteInMano(par);
 		
-		CartaRisorsa retro = CartaRisorsa.retroCarta(carta4risorsa);
-		retro.stampaCarta();
-		
+		carta4risorsa.stampaCartaeRetro();
 	
 	}
 

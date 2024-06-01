@@ -51,4 +51,8 @@ public class Manoscritto {
 		
 		carteManoscritto[x][y] = carta;
 	}
+
+	public Carta[][] getCarteManoscritto() {
+		return carteManoscritto;
+	}
 }

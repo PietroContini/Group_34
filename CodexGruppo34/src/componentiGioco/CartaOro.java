@@ -356,6 +356,40 @@ public class CartaOro extends Carta {
 			
 			
 		}
+	 	
+	 	public void stampaCartaeRetro() {
+			
+			String [][] color = creaCarta();
+			CartaOro carta = retroCarta(this);
+			String [][] color1 = carta.creaCarta();
+			
+			String spazi = "     ";
+			   
+			   for(int n=0;n<color[0].length;n++) {
+				   System.out.print("\033[0m ");
+			        System.out.print("   ");
+		    	      for(int m=0;m<color.length;m++) {
+		    	    	 
+		    	        System.out.print(color[m][n]+" ");
+		    	        
+		    	      }
+		    	      System.out.print("\033[0m ");
+		    	      System.out.print(spazi);
+		    	      
+		    	      for(int m=0;m<color1.length;m++) {
+			    	        System.out.print(color1[m][n]+" ");
+			    	        
+			    	  }
+		    	      
+		    	      System.out.println("");
+		    	    }
+				
+		        System.out.print("\033[0m ");
+		       
+				System.out.println("\n");
+			
+			
+		}
 
 		public Risorsa getRisorsaPermanente() {
 			return risorsaPermanente;

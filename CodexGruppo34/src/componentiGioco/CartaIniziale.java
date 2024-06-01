@@ -9,6 +9,7 @@ public class CartaIniziale extends Carta {
 	private ArrayList<Risorsa> risorseBase = null;
 	private TipoIni tipo;
 	
+	
 
     public CartaIniziale(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,ArrayList <Risorsa> richiesta) {
     	 
