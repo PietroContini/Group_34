@@ -18,7 +18,7 @@ import gestioneGioco.Partita;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		Angolo	angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
 		Angolo	angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
@@ -62,7 +62,9 @@ public class Main {
 		
 		//giocatore.stampaCarteInMano(par);
 		
-		carta4risorsa.stampaCartaeRetro();
+		
+		giocatore.sceltaCartaObiettivo(par);
+		giocatore.round(par);
 	
 	}
 

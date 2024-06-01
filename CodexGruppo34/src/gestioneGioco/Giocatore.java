@@ -156,13 +156,13 @@ public class Giocatore {
 						}
 					}
 					else {
-						System.out.println("impossibile piazzare, nessun angolo occupabile");
+						System.out.println("\n impossibile piazzare, nessun angolo occupabile \n");
 						return false;
 					}
 					
 				}
 				else {
-					System.out.println("impossibile piazzare, la richiesta della carta oro non è soddisfatta");
+					System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
 					return false;
 				}
 			}
@@ -180,13 +180,13 @@ public class Giocatore {
 					}
 				}
 				else {
-					System.out.println("impossibile piazzare, nessun angolo occupabile");
+					System.out.println("\n impossibile piazzare, nessun angolo occupabile \n");
 					return false;
 				}
 				
 			}
 		}else {
-			System.out.println("impossibile piazzare, lo spazio è gia occupato da un'altra carta");
+			System.out.println(" \n impossibile piazzare, lo spazio è gia occupato da un'altra carta \n");
 			return false;
 		}
 		return true;
@@ -197,27 +197,27 @@ public class Giocatore {
 		int a = x;
 		int b = y;
 		
-		Carta carta = this.getManoscritto().getCarta(a--, b--);
+		Carta carta = this.getManoscritto().getCarta(--a, --b);
 		if(carta != null) {
 			return true;
 		}
 		
 		 a = x;
 		 b = y;
-		carta = this.getManoscritto().getCarta(a++, b--);
+		carta = this.getManoscritto().getCarta(++a, --b);
 		if(carta != null) {
 			return true;
 		}
 		
 		 a = x;
 		 b = y;
-		carta = this.getManoscritto().getCarta(a--, b++);
+		carta = this.getManoscritto().getCarta(--a, ++b);
 		if(carta != null) {
 			return true;
 		}
 		 a = x;
 		 b = y;
-		carta = this.getManoscritto().getCarta(a++, b++);
+		carta = this.getManoscritto().getCarta(++a, ++b);
 		if(carta != null) {
 			return true;
 		}
@@ -281,6 +281,7 @@ public class Giocatore {
 	
     public void movimentoSuMatrice(Partita par,Carta carta) throws InterruptedException {
  
+    	boolean prova = true;
     	int x = 46;
     	int y = 46;
     	int a = x;
@@ -288,6 +289,7 @@ public class Giocatore {
     	String scelta = "";
     	System.out.println("sei sulla carta iniziale");
     	stampa(x,y);
+    	do {
     	do {
     		TimeUnit.SECONDS.sleep(2);
     		scelta="";
@@ -370,14 +372,16 @@ public class Giocatore {
  				stampa(x,y);
  				
  			}
+             
 
             else {
             	
-				System.out.println("\n il valore inserito non e' un opzione \n");
+            	System.out.println(" \n il valore inserito non e' un opzione \n");
 				
 			}
              
-            }while(!scelta.equalsIgnoreCase("piazza") && piazzaCarta(par,carta,x,y)==false);
+            }while(!scelta.equalsIgnoreCase("piazza"));
+    	}while(piazzaCarta(par,carta,x,y)==false);
     	
 		
     	   	
@@ -748,7 +752,7 @@ public class Giocatore {
    public void stampaCartaObiettivo() {
 	   
 	   String[][] color1 = carteObiettivo.get(0).creaCarta();
-	   if(carteObiettivo.get(0)!=null) {
+	   if(carteObiettivo.size()!=1) {
 		   String spazi = "		 ";
 		   String[][] color2 = carteObiettivo.get(1).creaCarta();
 		   
@@ -916,9 +920,268 @@ public class Giocatore {
    
    
 
-   public void round () {
+   public void round (Partita partita) throws InterruptedException {
 	   
+	   String scelta = "";
 	   
+	   boolean sceltaSbagliata = false;
+	   
+	   do {
+		   
+		   System.out.println("vuoi piazzare una carta:premi 1 \n");
+		   System.out.println("vuoi vedere le carte sul tavolo:premi 2 \n");
+		   System.out.println("vuoi vedere le carte obiettivo comuni:premi 3 \n");
+		   System.out.println("vuoi vedere le carte obiettivo personali:premi 4 \n");
+		   System.out.println("vuoi vedere il manoscritto:premi 5 \n");
+		   
+		   
+		   
+		   Scanner sc = new Scanner(System.in);
+		   scelta = sc.nextLine();   
+	  
+	   if(scelta.equalsIgnoreCase("1")) {
+		   boolean sceltaCartaSbagliata = true;
+	     do {
+		   System.out.println("quale carta vuoi piazzare?: premi 1,2,3");
+		   stampaCarteInMano(partita);
+		   Scanner scanner = new Scanner(System.in);
+		 String  sceltacarta = scanner.nextLine();
+		   
+		    if(sceltacarta.equalsIgnoreCase("1")) {
+		  
+		    	
+		    	if(carteInMano.get(0) instanceof CartaOro) {
+		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(0));
+		    		 if(checkRichiesta(carta)==true) {
+		    			 movimentoSuMatrice(partita, carteInMano.get(0));
+		 		    	carteInMano.remove(0);
+		    		 }
+		    		 else {
+		    			 System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
+		    			 sceltaCartaSbagliata=false;
+		    		 }
+		    	}else {
+		    	
+		    	movimentoSuMatrice(partita, carteInMano.get(0));
+		    	carteInMano.remove(0);
+		    	}
+			   
+		  	}
+
+				
+			
+		   else if(sceltacarta.equalsIgnoreCase("2")) {
+			   
+		    	
+		    	if(carteInMano.get(1) instanceof CartaOro) {
+		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(1));
+		    		 if(checkRichiesta(carta)==true) {
+		    			 movimentoSuMatrice(partita, carteInMano.get(1));
+		 		    	carteInMano.remove(1);
+		    		 }
+		    		 else {
+		    			 System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
+		    			 sceltaCartaSbagliata=false;
+		    		 }
+		    	}else {
+		    	
+		    	movimentoSuMatrice(partita, carteInMano.get(1));
+		    	carteInMano.remove(1);
+		    	}
+			
+			   
+			}
+		
+			
+		
+		   else if(sceltacarta.equalsIgnoreCase("3")) {
+			   
+		    	
+		    	if(carteInMano.get(2) instanceof CartaOro) {
+		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(2));
+		    		 if(checkRichiesta(carta)==true) {
+		    			 movimentoSuMatrice(partita, carteInMano.get(2));
+		 		    	carteInMano.remove(2);
+		    		 }
+		    		 else {
+		    			 System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
+		    			 sceltaCartaSbagliata=false;
+		    		 }
+		    	}else {
+		    	
+		    	movimentoSuMatrice(partita, carteInMano.get(2));
+		    	carteInMano.remove(2);
+		    	}
+			   
+			}else {
+				   System.out.println("scelta non disponibile, riprova! \n");
+				   sceltaCartaSbagliata = false;
+			}
+	     }while(sceltaCartaSbagliata == false);
+		 
+
+
+
+	   boolean sceltaCartaSbagliata1 = true;
+	     do {
+	    	 
+	  	   System.out.println("Devi pescare una carta \n");
+		   System.out.println("vuoi pescare una carta risorsa dal mazzo:premi A \n");
+		   System.out.println("vuoi pescare una carta oro dal mazzo:premi B \n");
+		   System.out.println("vuoi prendere una carta sul tavolo:premi C \n");
+		   
+		  
+		   Scanner scanner = new Scanner(System.in);
+		 String  sceltaPesca = scanner.nextLine();
+		   
+		    if(sceltaPesca.equalsIgnoreCase("A")) {
+		  
+		    	this.pescaCartaRis(partita);
+			   
+		  	}
+
+				
+			
+		   else if(sceltaPesca.equalsIgnoreCase("B")) {
+			   
+			  this.pescaCartaOro(partita);
+			
+			   
+			}
+		
+			
+		
+		   else if(sceltaPesca.equalsIgnoreCase("C")) {
+			   
+			 boolean sceltaCartaTavolo = true;
+			    do {
+			    	System.out.println("quale vuoi prendere? : \n dall'alto verso il basso premi 1,2,3,4 \n");
+					   stampaCarteInMano(partita);
+					   Scanner scanner2 = new Scanner(System.in);
+					 String  sceltacarta = scanner2.nextLine();
+					   
+					    if(sceltacarta.equalsIgnoreCase("1")) {
+					  
+					    	carteInMano.add(partita.pescaCartaTavolo(0));
+						   
+					  	}
+
+							
+						
+					   else if(sceltacarta.equalsIgnoreCase("2")) {
+						   
+						   carteInMano.add(partita.pescaCartaTavolo(1));
+						   
+						}
+					
+						
+					
+					   else if(sceltacarta.equalsIgnoreCase("3")) {
+						   
+						   carteInMano.add(partita.pescaCartaTavolo(2));
+						   
+					   }
+						   
+					   else if(sceltacarta.equalsIgnoreCase("4")) {
+							   
+						   carteInMano.add(partita.pescaCartaTavolo(3));
+							   
+						
+						   
+					  }else {
+							   System.out.println("scelta non disponibile, riprova! \n");
+							   sceltaCartaTavolo = false;
+						}
+				     }while(sceltaCartaTavolo == false);
+			
+			   
+			}else {
+				   System.out.println("scelta non disponibile, riprova! \n");
+				   sceltaCartaSbagliata1 = false;
+			}
+	     }while(sceltaCartaSbagliata1 == false);
+	   
+	       	}
+
+				
+			
+	   
+	   else if(scelta.equalsIgnoreCase("2")) {
+	  
+		   partita.stampaCarteTavolo();
+		   sceltaSbagliata = true;
+		   
+	  	}
+
+			
+		
+	   else if(scelta.equalsIgnoreCase("3")) {
+		   
+		   partita.stampaCarteObComuni();
+		   sceltaSbagliata = true;
+		   
+		}
+	
+		
+	
+	   else if(scelta.equalsIgnoreCase("4")) {
+		   
+		   this.stampaCartaObiettivo();
+		   sceltaSbagliata = true;
+		  
+		}
+	
+		
+	
+	   else if(scelta.equalsIgnoreCase("5")) {
+		   
+	       miniManoscritto();
+		   sceltaSbagliata = true;
+		}
+	   
+	   else{
+		   System.out.println("scelta non disponibile, riprova! \n");
+		   sceltaSbagliata = true;
+	   }
+		
+	
+	   
+    }while(sceltaSbagliata == true);
+	   
+
+	   
+   }
+   
+   public void sceltaCartaObiettivo(Partita partita) {
+	   
+	   this.pescaCartaObiettivo(partita);
+	   this.pescaCartaObiettivo(partita);
+	    
+	   boolean sceltaCartaSbagliata = true;
+	     do {
+		   System.out.println("quale carta vuoi tenere?: premi 1,2 \n");
+		   stampaCartaObiettivo();
+		   Scanner scanner = new Scanner(System.in);
+		 String  sceltacarta = scanner.nextLine();
+		   
+		    if(sceltacarta.equalsIgnoreCase("1")) {
+		 
+			   carteObiettivo.remove(0);
+		    	
+		  	}
+
+				
+			
+		   else if(sceltacarta.equalsIgnoreCase("2")) {
+			   
+			   carteObiettivo.remove(1);
+			   
+			}else {
+				   System.out.println("scelta non disponibile, riprova! \n");
+				   sceltaCartaSbagliata = false;
+			}
+	     }while(sceltaCartaSbagliata == false);
+	  
    }
 
 }

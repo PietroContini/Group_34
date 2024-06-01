@@ -70,6 +70,7 @@ public class Partita {
 	public  Carta pescaCartaTavolo(int i) {
 		
 		Carta x =  carteVisibili.get(i);
+		carteVisibili.remove(i);
 		if(i == 0 || i == 1) {	
 		carteVisibili.add(i,pescaCartaRis());
 		}
@@ -89,6 +90,8 @@ public class Partita {
 		carteObiettivoComuni.add(pescaCartaObiettivo());
 		carteObiettivoComuni.add(pescaCartaObiettivo());
 	}
+	
+
 
 	public ArrayList<CartaObiettivo> getCarteObiettivoComuni() {
 		return carteObiettivoComuni;
@@ -253,12 +256,13 @@ public class Partita {
     	       System.out.print("\033[0m ");
     	       System.out.println("");
     	       
-    	       stampaCarteObComuni();
+    	      stampaCarteObComuni();
+    	     
     	
     	
     }
     
-    private void stampaCarteObComuni() {
+    public void stampaCarteObComuni() {
     	String [][] color1 = this.carteObiettivoComuni.get(0).creaCarta();
     	String [][] color2 = this.carteObiettivoComuni.get(1).creaCarta();
     	
