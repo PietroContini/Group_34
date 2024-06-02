@@ -360,6 +360,12 @@ public class Partita {
     		mazzoRisorsa = false;
     		mazzoOro = false;
     		for (Giocatore giocatore : giocatori) {
+    			
+    			finePartita = false;
+        		ultimoGiocatore = false;
+        		mazzoRisorsa = false;
+        		mazzoOro = false;
+        		
     			System.out.println("");
     			this.segnapunti.stampaPunti();
     			System.out.println("");
@@ -392,8 +398,8 @@ public class Partita {
     		
     		
     		
-    	}while(finePartita == true && ultimoGiocatore == true);
-    	}while(mazzoOro = true && mazzoRisorsa == true);
+    	}while(finePartita == false && ultimoGiocatore == false);
+    	}while(mazzoOro == false && mazzoRisorsa == false);
     	System.out.println("\n calcolo dei punti... \n");
     	
     	for (Giocatore giocatore : giocatori) {

@@ -88,7 +88,7 @@ public class Mazzo {
 	
 	public CartaRisorsa getCartaR() {
 		
-		if(num >= 0) {
+		if(num > 0) {
 			
 		num--;
 		return this.carteRisorsa.get(num);
@@ -98,7 +98,7 @@ public class Mazzo {
 	}
 	public CartaOro getCartaO() {
 		
-		if(num >= 0) {
+		if(num > 0) {
 		num--;
 		return this.carteOro.get(num);
 		}

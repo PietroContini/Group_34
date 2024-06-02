@@ -413,7 +413,7 @@ public class Giocatore {
             }while(!scelta.equalsIgnoreCase("piazza"));
     	}while(piazzaCarta(par,carta,x,y,0)==false);
     	
-    	System.out.println("\n Csrta piazzata ! \n");
+    	System.out.println("\n Carta piazzata ! \n");
     	
 		
     	   	
@@ -737,7 +737,7 @@ public class Giocatore {
 	    	      System.out.print(spazi);
 	    	      
 	    	      for(int m=0;m<color3.length;m++) {
-		    	        System.out.print(color2[m][n]+" ");
+		    	        System.out.print(color3[m][n]+" ");
 		    	        
 		    	  }
 	    	      
