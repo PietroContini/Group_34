@@ -965,6 +965,24 @@ public class Giocatore {
 		    	
 		    	if(carteInMano.get(0) instanceof CartaOro) {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(0));
+		    		 boolean sceltanonCorretta = false;
+		    		 do {
+		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
+		    			   carta.stampaCartaeRetro();
+		    			   Scanner scan = new Scanner(System.in);
+		    			 String  sceltacart = scanner.nextLine();
+		    			 
+		    			 if(sceltacart.equalsIgnoreCase("r")){
+		    				 carta = CartaOro.retroCarta(carta);
+		    			 }
+		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
+		    				 sceltanonCorretta=true;
+		    			 }
+		    			 
+		    			 
+		    		 }while(sceltanonCorretta==true);
+		    		 
 		    		 if(checkRichiesta(carta)==true) {
 		    			 movimentoSuMatrice(partita, carteInMano.get(0));
 		 		    	carteInMano.remove(0);
@@ -974,7 +992,24 @@ public class Giocatore {
 		    			 sceltaCartaSbagliata=false;
 		    		 }
 		    	}else {
-		    	
+		    		boolean sceltanonCorretta = false;
+		    		CartaRisorsa carta = partita.cercaCartaRisorsa(carteInMano.get(0));
+		    		 do {
+		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
+		    			   carta.stampaCartaeRetro();
+		    			   Scanner scan = new Scanner(System.in);
+		    			 String  sceltacart = scanner.nextLine();
+		    			 
+		    			 if(sceltacart.equalsIgnoreCase("r")){
+		    				 carta = CartaRisorsa.retroCarta(carta);
+		    			 }
+		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
+		    				 sceltanonCorretta=true;
+		    			 }
+		    			 
+		    			 
+		    		 }while(sceltanonCorretta==true);
 		    	movimentoSuMatrice(partita, carteInMano.get(0));
 		    	carteInMano.remove(0);
 		    	}
@@ -988,16 +1023,51 @@ public class Giocatore {
 		    	
 		    	if(carteInMano.get(1) instanceof CartaOro) {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(1));
+		    		 boolean sceltanonCorretta = false;
+		    		 do {
+		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
+		    			   carta.stampaCartaeRetro();
+		    			   Scanner scan = new Scanner(System.in);
+		    			 String  sceltacart = scanner.nextLine();
+		    			 
+		    			 if(sceltacart.equalsIgnoreCase("r")){
+		    				 carta = CartaOro.retroCarta(carta);
+		    			 }
+		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
+		    				 sceltanonCorretta=true;
+		    			 }
+		    			 
+		    			 
+		    		 }while(sceltanonCorretta==true);
 		    		 if(checkRichiesta(carta)==true) {
 		    			 movimentoSuMatrice(partita, carteInMano.get(1));
 		 		    	carteInMano.remove(1);
 		    		 }
 		    		 else {
+		    			 
 		    			 System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
 		    			 sceltaCartaSbagliata=false;
 		    		 }
 		    	}else {
-		    	
+		    		boolean sceltanonCorretta = false;
+		    		CartaRisorsa carta = partita.cercaCartaRisorsa(carteInMano.get(1));
+		    		 do {
+		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
+		    			   carta.stampaCartaeRetro();
+		    			   Scanner scan = new Scanner(System.in);
+		    			 String  sceltacart = scanner.nextLine();
+		    			 
+		    			 if(sceltacart.equalsIgnoreCase("r")){
+		    				 carta = CartaRisorsa.retroCarta(carta);
+		    			 }
+		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
+		    				 sceltanonCorretta=true;
+		    			 }
+		    			 
+		    			 
+		    		 }while(sceltanonCorretta==true);
 		    	movimentoSuMatrice(partita, carteInMano.get(1));
 		    	carteInMano.remove(1);
 		    	}
@@ -1012,6 +1082,23 @@ public class Giocatore {
 		    	
 		    	if(carteInMano.get(2) instanceof CartaOro) {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(2));
+		    		 boolean sceltanonCorretta = false;
+		    		 do {
+		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
+		    			   carta.stampaCartaeRetro();
+		    			   Scanner scan = new Scanner(System.in);
+		    			 String  sceltacart = scanner.nextLine();
+		    			 
+		    			 if(sceltacart.equalsIgnoreCase("r")){
+		    				 carta = CartaOro.retroCarta(carta);
+		    			 }
+		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
+		    				 sceltanonCorretta=true;
+		    			 }
+		    			 
+		    			 
+		    		 }while(sceltanonCorretta==true);
 		    		 if(checkRichiesta(carta)==true) {
 		    			 movimentoSuMatrice(partita, carteInMano.get(2));
 		 		    	carteInMano.remove(2);
@@ -1021,7 +1108,24 @@ public class Giocatore {
 		    			 sceltaCartaSbagliata=false;
 		    		 }
 		    	}else {
-		    	
+		    		boolean sceltanonCorretta = false;
+		    		CartaRisorsa carta = partita.cercaCartaRisorsa(carteInMano.get(2));
+		    		 do {
+		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
+		    			   carta.stampaCartaeRetro();
+		    			   Scanner scan = new Scanner(System.in);
+		    			 String  sceltacart = scanner.nextLine();
+		    			 
+		    			 if(sceltacart.equalsIgnoreCase("r")){
+		    				 carta = CartaRisorsa.retroCarta(carta);
+		    			 }
+		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
+		    				 sceltanonCorretta=true;
+		    			 }
+		    			 
+		    			 
+		    		 }while(sceltanonCorretta==true);
 		    	movimentoSuMatrice(partita, carteInMano.get(2));
 		    	carteInMano.remove(2);
 		    	}
