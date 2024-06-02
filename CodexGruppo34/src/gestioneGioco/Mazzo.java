@@ -88,13 +88,23 @@ public class Mazzo {
 	}
 	
 	public CartaRisorsa getCartaR() {
+		
+		if(num >= 0) {
+			
 		num--;
 		return this.carteRisorsa.get(num);
 		
+		}
+		return null;
 	}
 	public CartaOro getCartaO() {
+		
+		if(num >= 0) {
 		num--;
 		return this.carteOro.get(num);
+		}
+
+		return null;
 		
 	}
 	
@@ -113,6 +123,9 @@ public class Mazzo {
 		return carte;
 	}
 
+	public int getCartaRimasta() {
+		return num;
+	}
 	
 	
 	

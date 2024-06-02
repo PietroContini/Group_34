@@ -37,6 +37,8 @@ public class Segnapunti {
 		
 	}
 	
+	
+	
 	public void stampaPunti() {
 		
 		for (HashMap.Entry<String, Integer> entry : puntiGiocatori.entrySet()) {
@@ -48,6 +50,35 @@ public class Segnapunti {
 		}
 		
 		
+	}
+	
+	public int vincitore() {
+	 
+		int vincitori = 0;
+		
+		ArrayList<String> giocatoriVincenti = new ArrayList<String>();
+		int maxPunti = 0;
+		
+		for (HashMap.Entry<String, Integer> entry : puntiGiocatori.entrySet()) {
+			String key = entry.getKey();
+			Integer val = entry.getValue();
+			
+			if(val >= maxPunti){
+				giocatoriVincenti.add(key);
+			}
+			
+		}
+		vincitori = giocatoriVincenti.size();
+			if(vincitori == 1) {
+				
+				System.out.println("\n Il vincitore è: " + giocatoriVincenti.get(0) + "\n");
+				
+			}
+				return vincitori;
+	}
+
+	public HashMap<String, Integer> getPuntiGiocatori() {
+		return puntiGiocatori;
 	}
 
 }

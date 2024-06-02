@@ -1,5 +1,8 @@
 package gestioneGioco;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import componentiGioco.Angolo;
 import componentiGioco.Carta;
@@ -13,6 +16,7 @@ import componentiGioco.Posizione;
 import componentiGioco.Risorsa;
 import componentiGioco.Segnapunti;
 import componentiGioco.TipoIni;
+import gestioneObiettivi.ManagerPunti;
 
 public class Partita {
 	
@@ -71,11 +75,17 @@ public class Partita {
 		
 		Carta x =  carteVisibili.get(i);
 		carteVisibili.remove(i);
+		
 		if(i == 0 || i == 1) {	
-		carteVisibili.add(i,pescaCartaRis());
+			if(this.getMazzoRisorsa().getCartaRimasta() > 0) {
+				carteVisibili.add(i,pescaCartaRis());
+		    	}
 		}
-		if(i == 2|| i == 3) {	
-		carteVisibili.add(i,pescaCartaOro());
+		if(i == 2|| i == 3) {
+			if(this.getMazzoOro().getCartaRimasta() > 0) {
+				carteVisibili.add(i,pescaCartaOro());
+		    	}
+		
 		}
 		return x;
 			
@@ -289,10 +299,144 @@ public class Partita {
      
     	
     }
-    public void InizioPartita() {
+    public void InizioPartita() throws InterruptedException {
     	
+    	for (Giocatore giocatore : giocatori) {
+    		boolean sceltaSbagliata = false;
+    		
+			do{
+				
+				System.out.println("Tocca a: " + giocatore.getNome() + "\n");
+				giocatore.pescaCartaIni(this);
+				giocatore.getCartaIni().stampaCartaeRetro();
+				System.out.println("Questa è la tua carta iniziale \n vuoi posizionarla sulla facciata o sul retro? premi F, R \n ");
+				Scanner sc = new Scanner(System.in);
+				String scelta = sc.nextLine();
+				if(scelta.equalsIgnoreCase("r")) {
+					
+					giocatore.setCartaIni(CartaIniziale.retroCarta(giocatore.getCartaIni()));
+					giocatore.piazzaCarta(this, giocatore.getCartaIni(), 46, 46);
+				}
+				else if(scelta.equalsIgnoreCase("f")) {
+					
+					giocatore.piazzaCarta(this, giocatore.getCartaIni(), 46, 46);
+				}
+				else if(!scelta.equalsIgnoreCase("r") || !scelta.equalsIgnoreCase("f")) {
+    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
+    				 sceltaSbagliata=true;
+    			 }
+    			 
+				
+			}while(sceltaSbagliata == true);
+			
+		}
     	
+    	gestioneRound();
     }
+    
+    public Mazzo getMazzoOro() {
+		return mazzoOro;
+	}
+
+
+	public Mazzo getMazzoRisorsa() {
+		return mazzoRisorsa;
+	}
+
+
+	public void gestioneRound() throws InterruptedException {
+    	
+    	boolean finePartita = false;
+    	boolean ultimoGiocatore = false;
+    	boolean mazzoRisorsa = false;
+    	boolean mazzoOro = false;
+    	int numGiocatori = giocatori.size();
+    	numGiocatori--;
+    	do{
+    		
+    		for (Giocatore giocatore : giocatori) {
+    			System.out.println("");
+    			this.segnapunti.stampaPunti();
+    			System.out.println("");
+    			
+    			if(this.mazzoOro.getCartaRimasta() == 0) {
+    				mazzoOro = true;
+    			}
+    			
+    			if(this.mazzoRisorsa.getCartaRimasta() == 0) {
+    				mazzoRisorsa = true;
+    			}
+    			
+				giocatore.round(this);
+				this.segnapunti.aggiornaPunti(this);
+				
+				if(giocatore == giocatori.get(numGiocatori)){
+					
+					ultimoGiocatore = true;
+				}
+				if(giocatore.getPunti() >= 20) {
+					
+				  finePartita = true;
+				  System.out.println("\n" + giocatore.getNome() + "ha raggiunto 20 o più punti \n questo è l'ultimo round per tutti \n");
+				}
+				
+				if(mazzoOro == true && mazzoRisorsa == true) {
+					System.out.println("\n I mazzi sono vuoti, partita conclusa \n");
+				}
+			}
+    		
+    		
+    		
+    	}while((finePartita == true && ultimoGiocatore == true) || (mazzoOro = true && mazzoRisorsa == true));
+    	
+    	System.out.println("\n calcolo dei punti... \n");
+    	
+    	for (Giocatore giocatore : giocatori) {
+			giocatore.setPunti(ManagerPunti.checkObiettivi(giocatore, this));
+			
+		}
+    	this.segnapunti.aggiornaPunti(this);
+    	
+    	TimeUnit.SECONDS.sleep(3);
+    	System.out.println("");
+    	this.segnapunti.stampaPunti();
+    	System.out.println("");
+    	
+    	if(this.segnapunti.vincitore() > 1) {
+    		System.out.println("\n Più giocatori hanno gli stessi punti \n il vincitore sarà chi ha realizzato più carte obiettivo \n");
+    		
+    		HashMap<String,Integer> puntiGiocatori = this.segnapunti.getPuntiGiocatori();
+    		
+    		for (Giocatore giocatore : giocatori) {
+    			
+    			puntiGiocatori.replace(giocatore.getNome(), ManagerPunti.checkObiettivi(giocatore, this));
+    			
+    		}
+    		
+    		int maxPunti = 0;
+    		
+    		String nomeVincitore = new String();
+    		
+    		for (HashMap.Entry<String, Integer> entry : puntiGiocatori.entrySet()) {
+    			String key = entry.getKey();
+    			Integer val = entry.getValue();
+    			
+    			if(val >= maxPunti){
+    				nomeVincitore = key;
+    			}
+    			
+    		}
+    				  				
+    				System.out.println("\n Il vincitore è: " + nomeVincitore + "\n");
+    				
+    	}
+    }
+
+
+	public void setGiocatori(ArrayList<Giocatore> giocatori) {
+		this.giocatori = giocatori;
+		this.segnapunti = new Segnapunti(this);
+	}
 
 
 	public void creaMazzi() {

@@ -18,8 +18,9 @@ import java.util.concurrent.TimeUnit;
 public class Giocatore {
 	
 	private String nome;
-	private ArrayList<Carta> carteInMano = new ArrayList<Carta>();;
-	private ArrayList<CartaObiettivo> carteObiettivo = new ArrayList<CartaObiettivo>();;
+	private ArrayList<Carta> carteInMano = new ArrayList<Carta>();
+	private CartaIniziale cartaIniziale;
+	private ArrayList<CartaObiettivo> carteObiettivo = new ArrayList<CartaObiettivo>();
 	private Manoscritto manoscritto;
 	private int punti;
 	private ArrayList<Risorsa> risorseVisibili = new ArrayList<Risorsa>();
@@ -49,7 +50,7 @@ public class Giocatore {
 	
 	public void pescaCartaIni(Partita a) {
 		
-		carteInMano.add(a.pescaCartaIni());
+		this.cartaIniziale = a.pescaCartaIni() ;
 	}
 	
 	public void pescaCartaRis(Partita a) {
@@ -82,6 +83,17 @@ public class Giocatore {
 		
 	}
 	
+	public CartaIniziale getCartaIni() {
+		return this.cartaIniziale;
+	}
+	
+	public void setCartaIni(CartaIniziale cartaIni) {
+		this.cartaIniziale = cartaIni;
+	}
+	
+	public void setPunti(int punti) {
+		this.punti = this.punti + punti;
+	}
 	public int ricercaRisorsa(Risorsa risorsa) {
 		int cont = 0;
 		for(int i=0;i<risorseVisibili.size();i++) {
@@ -939,6 +951,8 @@ public class Giocatore {
 	   
 	   boolean sceltaSbagliata = false;
 	   
+	   System.out.println("\n Round di : " + this.getNome() + "\n");
+	   
 	   do {
 		   
 		   System.out.println("vuoi piazzare una carta:premi 1 \n");
@@ -1153,16 +1167,27 @@ public class Giocatore {
 		   
 		    if(sceltaPesca.equalsIgnoreCase("A")) {
 		  
+		    	if(partita.getMazzoRisorsa().getCartaRimasta() > 0) {
 		    	this.pescaCartaRis(partita);
-			   
+		    	}
+		    	else {
+		    	 sceltaCartaSbagliata1 = false;
+		    	 System.out.println("\n Pesca in un altro modo, il mazzo delle carte risorsa è finito");
+		    	}
 		  	}
 
 				
 			
 		   else if(sceltaPesca.equalsIgnoreCase("B")) {
 			   
-			  this.pescaCartaOro(partita);
-			
+		    	if(partita.getMazzoOro().getCartaRimasta() > 0) {
+		    	this.pescaCartaOro(partita);
+		    	}
+		    	else {
+		    	 sceltaCartaSbagliata1 = false;
+		    	 System.out.println("\n Pesca in un altro modo, il mazzo delle carte oro è finito");
+		    	 
+		    	}
 			   
 			}
 		

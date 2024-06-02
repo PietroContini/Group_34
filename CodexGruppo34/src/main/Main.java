@@ -2,6 +2,7 @@ package main;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import componentiGioco.Angolo;
 import componentiGioco.Carta;
@@ -20,51 +21,48 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		Angolo	angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.foglia);
-		Angolo	angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.fungo);
-		Angolo	angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.lupo);
-		Angolo  angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.farfalla);
+		Partita partita = new Partita();
+		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
+		boolean sceltaSbagliata = false;
+		do {
+		System.out.println("\n Quanti giocatori siete? min 2, max 4 \n");
+		Scanner sc = new Scanner(System.in);
+		String scelta = sc.nextLine();
+		
+		if(!scelta.equalsIgnoreCase("2") || !scelta.equalsIgnoreCase("3") || !scelta.equalsIgnoreCase("4") ) {
 			
 		
-		CartaIniziale cartaIni2 = new CartaIniziale("id.I2",angolo1,angolo2,angolo3,angolo4,TipoIni.CartaIni2);
+			int numGiocatori = Integer.parseInt(scelta);
+			ArrayList<String> nomi = new ArrayList<String>();
+			
+			for(int i=0 ; i<=numGiocatori ; i++) {
+				
+				boolean sceltaNome = false;
+				do {
+				System.out.println("\n Come ti chiami? Giocatore N:"+ i+1 + "\n");
+				Scanner sc1 = new Scanner(System.in);
+				String scelta1 = sc1.nextLine();
+				
+				if(!nomi.contains(scelta1)) {
+					Manoscritto m = new Manoscritto();
+					Giocatore giocatore = new Giocatore(m,scelta1,partita);
+					giocatori.add(giocatore);
+				}
+				else {
+					sceltaNome = true;
+					System.out.println("\n Il nome del giocatore è già stato usato \n");
+				}
+				
+				}while(sceltaNome == true);
+			}
+		}
+		else {
+			sceltaSbagliata = true;
+		}
+		}while(sceltaSbagliata = true);
 		
-		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
-		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
-		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
-		angolo4 = new Angolo(Posizione.BassoDestra,null);
-		ArrayList<Risorsa> lista6 = new ArrayList<Risorsa> ();
-		lista6.add(Risorsa.fungo);
-		lista6.add(Risorsa.fungo);
-		lista6.add(Risorsa.fungo);
-		lista6.add(Risorsa.farfalla);
-		CartaOro carta6oro = new CartaOro ("id.O6",angolo1,angolo2,angolo3,angolo4,lista6,2,Risorsa.vuoto,Colore.rosso);
-		
-	    angolo1 = new Angolo(Posizione.AltoSinistra,null);
-		angolo2 = new Angolo(Posizione.BassoSinistra,Risorsa.vuoto);
-		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.fungo);
-		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
-		CartaRisorsa carta4risorsa = new CartaRisorsa("id.R4",angolo1,angolo2,angolo3,angolo4,1,Colore.rosso);
-		
-		
-		Manoscritto m = new Manoscritto();
-		m.piazzaCarta(carta6oro, 45, 45);
-		m.piazzaCarta(carta4risorsa, 47, 45);
-		Partita par = new Partita();
-		
-		
-		Giocatore giocatore = new Giocatore(m,"pietro",par);
-		
-		giocatore.piazzaCarta(par, carta4risorsa, 45, 47);
-		giocatore.piazzaCarta(par, cartaIni2, 46, 46);
-		//giocatore.movimentoSuMatrice();
-		
-		//par.stampaCarteTavolo();
-		
-		//giocatore.stampaCarteInMano(par);
-		
-		
-		giocatore.sceltaCartaObiettivo(par);
-		giocatore.round(par);
+		partita.setGiocatori(giocatori);
+		partita.InizioPartita();
 	
 	}
 
