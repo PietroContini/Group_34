@@ -1,7 +1,6 @@
 package gestioneGioco;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 import componentiGioco.Carta;
 import componentiGioco.CartaIniziale;

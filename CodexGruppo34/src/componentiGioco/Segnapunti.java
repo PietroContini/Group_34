@@ -63,11 +63,20 @@ public class Segnapunti {
 			String key = entry.getKey();
 			Integer val = entry.getValue();
 			
+			if(maxPunti==0) {
+				maxPunti = val;
+			}
+			
 			if(val >= maxPunti){
 				giocatoriVincenti.add(key);
+				maxPunti=val;
+			}
+			if(puntiGiocatori.get(giocatoriVincenti.get(0))<maxPunti) {
+				giocatoriVincenti.remove(0);
 			}
 			
 		}
+		
 		vincitori = giocatoriVincenti.size();
 			if(vincitori == 1) {
 				

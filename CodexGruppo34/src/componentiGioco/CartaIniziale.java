@@ -88,7 +88,7 @@ public class CartaIniziale extends Carta {
     	ArrayList<Risorsa> listaIni5 = new ArrayList<> ();
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
-		angolo3 = new Angolo(Posizione.AltoDestra,null);
+		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
 		listaIni5.add(Risorsa.lupo);
 		listaIni5.add(Risorsa.farfalla);
@@ -101,7 +101,7 @@ public class CartaIniziale extends Carta {
     	ArrayList<Risorsa> listaIni6 = new ArrayList<> ();
 		angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
 		angolo2 = new Angolo(Posizione.BassoSinistra,null);
-		angolo3 = new Angolo(Posizione.AltoDestra,null);
+		angolo3 = new Angolo(Posizione.AltoDestra,Risorsa.vuoto);
 		angolo4 = new Angolo(Posizione.BassoDestra,null);
 		listaIni6.add(Risorsa.foglia);
 		listaIni6.add(Risorsa.lupo);
@@ -144,7 +144,7 @@ public class CartaIniziale extends Carta {
 		
 	     if(this.getAngolo(0).getRisorsa()==null) {
 	    	
-	    	 color[0][0] = colore+" ";
+	    	 color[0][0] = colore+"  ";
 
 	     }else if(this.getAngolo(0).getRisorsa()==Risorsa.lupo){
 	    	 color[0][0] = coloreS + "L ";
@@ -171,9 +171,10 @@ public class CartaIniziale extends Carta {
 	    	 color[0][0] = coloreS + "  ";
 	     }
 	     
-	     if(this.getAngolo(2).getRisorsa()==null) {
+	     
+	    if(this.getAngolo(2).getRisorsa()==null) {
 	     	
-	    	 color[9][0] = colore+" ";
+	    	 color[9][0] = colore+"  ";
 
 	     }else if(this.getAngolo(2).getRisorsa()==Risorsa.lupo){
 	    	 color[9][0] = coloreS + "L ";
@@ -206,7 +207,7 @@ public class CartaIniziale extends Carta {
 	   	
 	       if(this.getAngolo(1).getRisorsa()==null) {
 	      	
-	      	 color[0][4] = colore+" ";
+	      	 color[0][4] = colore+"  ";
 
 	       }else if(this.getAngolo(1).getRisorsa()==Risorsa.lupo){
 	      	 color[0][4] = coloreS + "L ";
@@ -288,6 +289,9 @@ public class CartaIniziale extends Carta {
 				 color[9][2] = " ";
 				 color[9][3] = " ";
 				 
+				 color[5][1] = "   ";
+				 color[5][2] = "   ";
+				 color[5][3] = "   ";
 				 int o=1;
 				for(int i=0;i<this.risorseBase.size();i++) {
 					

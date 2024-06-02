@@ -32,6 +32,7 @@ public class CartaObiettivo1 {
 			cop = 0;
 			int xs = x;
 			int ys = y;
+			if(x<90 && y<90) {
 			if(m.getCarta(x, y)!=null) {
 				if(m.getCarta(x, y).getColor()==Colore.rosso && m.getCarta(--xs, ++ys).getColor()==Colore.rosso && m.getCarta(xs=xs+2, ys=ys-2).getColor()==Colore.rosso  ) {
 					xs=x; 
@@ -95,7 +96,8 @@ public class CartaObiettivo1 {
 							
 						}
 		
-		}
+			}
+			}
 		}
 		cont = 0;
 		while(x>0) {
@@ -104,6 +106,7 @@ public class CartaObiettivo1 {
 			cont++;
 			int xs = x;
 			int ys = y;
+			if(x>=0 && y>=0) {
 			if(m.getCarta(x, y)!=null) {
 				if(m.getCarta(x, y).getColor()==Colore.rosso && m.getCarta(--xs, ++ys).getColor()==Colore.rosso && m.getCarta(xs=xs+2, ys=ys-2).getColor()==Colore.rosso  ) {
 					xs=x; 
@@ -169,7 +172,7 @@ public class CartaObiettivo1 {
 						}
 		
 			}
-		
+			}
 
 		}
 		 m.getCarteUsate().clear();

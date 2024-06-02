@@ -5,11 +5,11 @@ import componentiGioco.CartaObiettivo;
 import componentiGioco.CartaOro;
 import componentiGioco.CartaRisorsa;
 import componentiGioco.Colore;
-import componentiGioco.PuntiPerCarta;
+
 import componentiGioco.Risorsa;
 import gestioneObiettivi.ManagerPunti;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -140,14 +140,21 @@ public class Giocatore {
 		return cont;
 	}
 	
-	public boolean piazzaCarta(Partita partita, Carta carta,int x,int y) {
+	public boolean piazzaCarta(Partita partita, Carta carta,int x,int y,int scelt) {
 		
 		boolean prova = true;
 		if(this.manoscritto.getCarta(x, y)==null) {
 			if(carta instanceof CartaIniziale) {
 				this.getManoscritto().piazzaCarta(carta, 46, 46);
+				if(scelt == 1) {
+					CartaIniziale cartaIniziale = CartaIniziale.retroCarta(partita.cercaCartaIniziale(carta));
+					
+					this.risorseVisibili.addAll(cartaIniziale.risorseAngoli());
+					
+				}else {
 				CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
 				this.risorseVisibili.addAll(cartaIniziale.risorseAngoli());
+				}
 				if(cartaIniziale.getRisorseBase()!=null) {
 					this.risorseVisibili.addAll(cartaIniziale.getRisorseBase());
 				}
@@ -404,7 +411,7 @@ public class Giocatore {
 			}
              
             }while(!scelta.equalsIgnoreCase("piazza"));
-    	}while(piazzaCarta(par,carta,x,y)==false);
+    	}while(piazzaCarta(par,carta,x,y,0)==false);
     	
     	System.out.println("\n Csrta piazzata ! \n");
     	
@@ -954,7 +961,7 @@ public class Giocatore {
 	   System.out.println("\n Round di : " + this.getNome() + "\n");
 	   
 	   do {
-		   
+		   sceltaSbagliata = false;
 		   System.out.println("vuoi piazzare una carta:premi 1 \n");
 		   System.out.println("vuoi vedere le carte sul tavolo:premi 2 \n");
 		   System.out.println("vuoi vedere le carte obiettivo comuni:premi 3 \n");
@@ -969,6 +976,7 @@ public class Giocatore {
 	   if(scelta.equalsIgnoreCase("1")) {
 		   boolean sceltaCartaSbagliata = true;
 	     do {
+	    	 sceltaCartaSbagliata = true;
 		   System.out.println("quale carta vuoi piazzare?: premi 1,2,3");
 		   stampaCarteInMano(partita);
 		   Scanner scanner = new Scanner(System.in);
@@ -981,6 +989,7 @@ public class Giocatore {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(0));
 		    		 boolean sceltanonCorretta = false;
 		    		 do {
+		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
@@ -989,7 +998,7 @@ public class Giocatore {
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaOro.retroCarta(carta);
 		    			 }
-		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
 		    				 sceltanonCorretta=true;
 		    			 }
@@ -1009,6 +1018,7 @@ public class Giocatore {
 		    		boolean sceltanonCorretta = false;
 		    		CartaRisorsa carta = partita.cercaCartaRisorsa(carteInMano.get(0));
 		    		 do {
+		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
@@ -1017,7 +1027,7 @@ public class Giocatore {
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaRisorsa.retroCarta(carta);
 		    			 }
-		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
 		    				 sceltanonCorretta=true;
 		    			 }
@@ -1039,6 +1049,7 @@ public class Giocatore {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(1));
 		    		 boolean sceltanonCorretta = false;
 		    		 do {
+		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
@@ -1047,7 +1058,7 @@ public class Giocatore {
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaOro.retroCarta(carta);
 		    			 }
-		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
 		    				 sceltanonCorretta=true;
 		    			 }
@@ -1067,6 +1078,7 @@ public class Giocatore {
 		    		boolean sceltanonCorretta = false;
 		    		CartaRisorsa carta = partita.cercaCartaRisorsa(carteInMano.get(1));
 		    		 do {
+		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
@@ -1075,7 +1087,7 @@ public class Giocatore {
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaRisorsa.retroCarta(carta);
 		    			 }
-		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
 		    				 sceltanonCorretta=true;
 		    			 }
@@ -1098,6 +1110,7 @@ public class Giocatore {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(2));
 		    		 boolean sceltanonCorretta = false;
 		    		 do {
+		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
@@ -1106,7 +1119,7 @@ public class Giocatore {
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaOro.retroCarta(carta);
 		    			 }
-		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
 		    				 sceltanonCorretta=true;
 		    			 }
@@ -1125,6 +1138,7 @@ public class Giocatore {
 		    		boolean sceltanonCorretta = false;
 		    		CartaRisorsa carta = partita.cercaCartaRisorsa(carteInMano.get(2));
 		    		 do {
+		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
@@ -1133,7 +1147,7 @@ public class Giocatore {
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaRisorsa.retroCarta(carta);
 		    			 }
-		    			 else if(!sceltacart.equalsIgnoreCase("r") || !sceltacart.equalsIgnoreCase("f")) {
+		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
 		    				 sceltanonCorretta=true;
 		    			 }
@@ -1155,7 +1169,7 @@ public class Giocatore {
 
 	   boolean sceltaCartaSbagliata1 = true;
 	     do {
-	    	 
+	       sceltaCartaSbagliata1 = true;
 	  	   System.out.println("Devi pescare una carta \n");
 		   System.out.println("vuoi pescare una carta risorsa dal mazzo:premi A \n");
 		   System.out.println("vuoi pescare una carta oro dal mazzo:premi B \n");
@@ -1197,6 +1211,7 @@ public class Giocatore {
 			   
 			 boolean sceltaCartaTavolo = true;
 			    do {
+			    	sceltaCartaTavolo = true;
 			    	System.out.println("quale vuoi prendere? : \n dall'alto verso il basso premi 1,2,3,4 \n");
 					   partita.stampaCarteTavolo();
 					   Scanner scanner2 = new Scanner(System.in);
@@ -1300,8 +1315,10 @@ public class Giocatore {
 	   this.pescaCartaObiettivo(partita);
 	    
 	   boolean sceltaCartaSbagliata = true;
+	   System.out.println("\n Queste sono le tue carte obiettivo \n");
 	     do {
-		   System.out.println("quale carta vuoi tenere?: premi 1,2 \n");
+	       sceltaCartaSbagliata = true;
+		   System.out.println("\n quale carta obiettivo vuoi tenere?: premi 1,2 \n");
 		   stampaCartaObiettivo();
 		   Scanner scanner = new Scanner(System.in);
 		 String  sceltacarta = scanner.nextLine();

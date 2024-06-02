@@ -303,10 +303,10 @@ public class Partita {
     	
     	for (Giocatore giocatore : giocatori) {
     		boolean sceltaSbagliata = false;
-    		
+    		System.out.println("Tocca a: " + giocatore.getNome() + "\n");
 			do{
+				sceltaSbagliata = false;
 				
-				System.out.println("Tocca a: " + giocatore.getNome() + "\n");
 				giocatore.pescaCartaIni(this);
 				giocatore.getCartaIni().stampaCartaeRetro();
 				System.out.println("Questa è la tua carta iniziale \n vuoi posizionarla sulla facciata o sul retro? premi F, R \n ");
@@ -314,12 +314,12 @@ public class Partita {
 				String scelta = sc.nextLine();
 				if(scelta.equalsIgnoreCase("r")) {
 					
+					giocatore.piazzaCarta(this, giocatore.getCartaIni(), 46, 46,1);
 					giocatore.setCartaIni(CartaIniziale.retroCarta(giocatore.getCartaIni()));
-					giocatore.piazzaCarta(this, giocatore.getCartaIni(), 46, 46);
 				}
 				else if(scelta.equalsIgnoreCase("f")) {
 					
-					giocatore.piazzaCarta(this, giocatore.getCartaIni(), 46, 46);
+					giocatore.piazzaCarta(this, giocatore.getCartaIni(), 46, 46,0);
 				}
 				else if(!scelta.equalsIgnoreCase("r") || !scelta.equalsIgnoreCase("f")) {
     				 System.out.println("\n Scelta sbagliata,riscrivere \n");
@@ -328,8 +328,9 @@ public class Partita {
     			 
 				
 			}while(sceltaSbagliata == true);
-			
-		}
+
+				giocatore.sceltaCartaObiettivo(this);
+    	}
     	
     	gestioneRound();
     }
@@ -352,8 +353,12 @@ public class Partita {
     	boolean mazzoOro = false;
     	int numGiocatori = giocatori.size();
     	numGiocatori--;
+    	do {
     	do{
-    		
+    		finePartita = false;
+    		ultimoGiocatore = false;
+    		mazzoRisorsa = false;
+    		mazzoOro = false;
     		for (Giocatore giocatore : giocatori) {
     			System.out.println("");
     			this.segnapunti.stampaPunti();
@@ -387,8 +392,8 @@ public class Partita {
     		
     		
     		
-    	}while((finePartita == true && ultimoGiocatore == true) || (mazzoOro = true && mazzoRisorsa == true));
-    	
+    	}while(finePartita == true && ultimoGiocatore == true);
+    	}while(mazzoOro = true && mazzoRisorsa == true);
     	System.out.println("\n calcolo dei punti... \n");
     	
     	for (Giocatore giocatore : giocatori) {

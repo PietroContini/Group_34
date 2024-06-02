@@ -30,6 +30,7 @@ public class CartaObiettivo3 {
 				cop = 0;
 				int xs = x;
 				int ys = y;
+				if(x>=0 && y<90) {
 				if(m.getCarta(x, y)!=null) {
 					if(m.getCarta(x, y).getColor()==Colore.viola && m.getCarta(--xs, --ys).getColor()==Colore.viola && m.getCarta(xs=xs+2, ys=ys+2).getColor()==Colore.viola  ) {
 						xs=x; 
@@ -93,7 +94,8 @@ public class CartaObiettivo3 {
 								
 							}
 			
-			}
+				}
+				}
 			}
 			cont = 0;
 			while(y>0) {
@@ -102,6 +104,7 @@ public class CartaObiettivo3 {
 				cont++;
 				int xs = x;
 				int ys = y;
+				if(x<90 && y>=0) {
 				if(m.getCarta(x, y)!=null) {
 					if(m.getCarta(x, y).getColor()==Colore.viola && m.getCarta(--xs, --ys).getColor()==Colore.viola && m.getCarta(xs=xs+2, ys=ys+2).getColor()==Colore.viola  ) {
 						xs=x; 
@@ -165,7 +168,8 @@ public class CartaObiettivo3 {
 								
 							}
 			
-			}
+				}
+				}
 			}
 		
 			
