@@ -111,15 +111,15 @@ public class Giocatore {
 			cont++;
 		
 		}
-		else 	if(ricercaRisorsa(Risorsa.farfalla)>=ricercaRisorsa(Risorsa.farfalla,risorse)) {
+		if(ricercaRisorsa(Risorsa.farfalla)>=ricercaRisorsa(Risorsa.farfalla,risorse)) {
 			cont++;
 		
 		}
-		else 	if(ricercaRisorsa(Risorsa.lupo)>=ricercaRisorsa(Risorsa.lupo,risorse)) {
+		if(ricercaRisorsa(Risorsa.lupo)>=ricercaRisorsa(Risorsa.lupo,risorse)) {
 			cont++;
 		
 		}
-		else 	if(ricercaRisorsa(Risorsa.fungo)>=ricercaRisorsa(Risorsa.fungo,risorse)) {
+		if(ricercaRisorsa(Risorsa.fungo)>=ricercaRisorsa(Risorsa.fungo,risorse)) {
 			cont++;
 		
 		}
@@ -140,39 +140,46 @@ public class Giocatore {
 		return cont;
 	}
 	
-	public boolean piazzaCarta(Partita partita, Carta carta,int x,int y,int scelt) {
+	public boolean piazzaCarta(Partita partita, Carta carta,int x,int y, int scelt) {
 		
 		boolean prova = true;
 		if(this.manoscritto.getCarta(x, y)==null) {
 			if(carta instanceof CartaIniziale) {
-				this.getManoscritto().piazzaCarta(carta, 46, 46);
-				if(scelt == 1) {
-					CartaIniziale cartaIniziale = CartaIniziale.retroCarta(partita.cercaCartaIniziale(carta));
+				CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+				if(carta.getRetro() == 1 || scelt == 1) {
+					 cartaIniziale = CartaIniziale.retroCarta(partita.cercaCartaIniziale(carta));
 					
 					this.risorseVisibili.addAll(cartaIniziale.risorseAngoli());
+					this.getManoscritto().piazzaCarta(cartaIniziale, 46, 46);
+					this.risorseVisibili.addAll(cartaIniziale.getRisorseBase());
 					
 				}else {
-				CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+					this.getManoscritto().piazzaCarta(carta, 46, 46);
+				 cartaIniziale = partita.cercaCartaIniziale(carta);
 				this.risorseVisibili.addAll(cartaIniziale.risorseAngoli());
 				}
-				if(cartaIniziale.getRisorseBase()!=null) {
-					this.risorseVisibili.addAll(cartaIniziale.getRisorseBase());
-				}
+				
 			}
 			
 			if(carta instanceof CartaOro) {
 				CartaOro cartaOro = partita.cercaCartaOro(carta);
-				if(checkRichiesta(cartaOro)==true) {
-					int p= angoloCoperto(x, y);
-					if(p==0)
-						prova = true;
-					if(prova ==true) {
+				int p= angoloCoperto(x, y);
+				if(p==0)
+					prova = true;
+				if(carta.getRetro() == 1 && prova == true) {
+					 cartaOro = CartaOro.retroCarta(partita.cercaCartaOro(carta));
+					
+					this.risorseVisibili.addAll(cartaOro.risorseAngoli());
+					this.getManoscritto().piazzaCarta(cartaOro, x, y);
+					this.risorseVisibili.add(cartaOro.getRisorsaPermanente());
+					
+				}else if(checkRichiesta(cartaOro)==true ) {
+					
+					if(prova == true) {
 						this.punti = punti + ManagerPunti.puntiCarta(this, cartaOro,p);
 						this.getManoscritto().piazzaCarta(carta, x, y);
 						this.risorseVisibili.addAll(cartaOro.risorseAngoli());
-						if(cartaOro.getRisorsaPermanente()!=null) {
-							this.risorseVisibili.add(cartaOro.getRisorsaPermanente());
-						}
+						
 					}
 					else {
 						System.out.println("\n impossibile piazzare, nessun angolo occupabile \n");
@@ -187,16 +194,24 @@ public class Giocatore {
 			}
 			
 			if(carta instanceof CartaRisorsa) {
+				CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
 				if(angoloCoperto(x, y)==0)
 					prova = true;
-				if(prova ==true) {
+				if(carta.getRetro() == 1 && prova == true) {
+					 cartaRisorsa = CartaRisorsa.retroCarta(partita.cercaCartaRisorsa(carta));
+					
+					this.risorseVisibili.addAll(cartaRisorsa.risorseAngoli());
+					this.getManoscritto().piazzaCarta(cartaRisorsa, x, y);
+					this.risorseVisibili.add(cartaRisorsa.getRisorsaPermanente());
+					
+				}
+				
+				else if(prova ==true ) {
 					this.getManoscritto().piazzaCarta(carta, x, y);
-					CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+					cartaRisorsa = partita.cercaCartaRisorsa(carta);
 					this.punti = punti + ManagerPunti.puntiCarta(this, cartaRisorsa);
 					this.risorseVisibili.addAll(cartaRisorsa.risorseAngoli());
-					if(cartaRisorsa.getRisorsaPermanente()!=null) {
-						this.risorseVisibili.add(cartaRisorsa.getRisorsaPermanente());
-					}
+					
 				}
 				else {
 					System.out.println("\n impossibile piazzare, nessun angolo occupabile o non tutti gli angoli sono occupabili \n");
@@ -407,7 +422,7 @@ public class Giocatore {
             else if(!scelta.equalsIgnoreCase("piazza")){
             	
             	System.out.println(" \n il valore inserito non e' un opzione \n");
-				
+            	stampa(x,y);
 			}
              
             }while(!scelta.equalsIgnoreCase("piazza"));
@@ -437,7 +452,8 @@ public class Giocatore {
 	  
 		if(carta instanceof CartaIniziale) {
 			
-			CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+			CartaIniziale cartaIniziale = this.cartaIniziale;
+			
 			color1 = cartaIniziale.creaCarta();
 			spazi = spazi +"     ";
 			sp++;
@@ -446,7 +462,11 @@ public class Giocatore {
 		
 		
 		if(carta instanceof CartaOro) {
+			
 			CartaOro cartaOro = partita.cercaCartaOro(carta);
+			if(carta.getRetro() == 1) {
+				cartaOro = CartaOro.retroCarta(partita.cercaCartaOro(carta));
+			}
 			color1 = cartaOro.creaCarta();
 			sp--;
 			}
@@ -455,6 +475,9 @@ public class Giocatore {
 		if(carta instanceof CartaRisorsa) {
 		
 			CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+			if(carta.getRetro() == 1) {
+				cartaRisorsa = CartaRisorsa.retroCarta(partita.cercaCartaRisorsa(carta));
+			}
 			color1 = cartaRisorsa.creaCarta();
 			sp--;
 		}
@@ -474,7 +497,8 @@ public class Giocatore {
 			  
 		  	if(carta instanceof CartaIniziale) {
 				
-				CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+		  		CartaIniziale cartaIniziale = this.cartaIniziale;
+				
 				color2 = cartaIniziale.creaCarta();
 				spazi = spazi +"     ";
 				sp++;
@@ -483,6 +507,9 @@ public class Giocatore {
 			
 			if(carta instanceof CartaOro) {
 				CartaOro cartaOro = partita.cercaCartaOro(carta);
+				if(carta.getRetro() == 1) {
+					cartaOro = CartaOro.retroCarta(partita.cercaCartaOro(carta));
+				}
 				color2 = cartaOro.creaCarta();
 				sp--;
 				}
@@ -491,6 +518,9 @@ public class Giocatore {
 			if(carta instanceof CartaRisorsa) {
 			
 				CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+				if(carta.getRetro() == 1) {
+					cartaRisorsa = CartaRisorsa.retroCarta(partita.cercaCartaRisorsa(carta));
+				}
 				color2 = cartaRisorsa.creaCarta();
 				sp--;
 			}
@@ -533,7 +563,8 @@ public class Giocatore {
 			  
 			if(carta instanceof CartaIniziale) {
 				
-				CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+				CartaIniziale cartaIniziale = this.cartaIniziale;
+				
 				colorC = cartaIniziale.creaCarta();
 				spazi = spazi +"        ";
 				
@@ -542,6 +573,9 @@ public class Giocatore {
 			
 			if(carta instanceof CartaOro) {
 				CartaOro cartaOro = partita.cercaCartaOro(carta);
+				if(carta.getRetro() == 1) {
+					cartaOro = CartaOro.retroCarta(partita.cercaCartaOro(carta));
+				}
 				colorC = cartaOro.creaCarta();
 				}
 			
@@ -549,6 +583,9 @@ public class Giocatore {
 			if(carta instanceof CartaRisorsa) {
 			
 				CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+				if(carta.getRetro() == 1) {
+					cartaRisorsa = CartaRisorsa.retroCarta(partita.cercaCartaRisorsa(carta));
+				}
 				colorC = cartaRisorsa.creaCarta();
 			}
 			else if(carta == null) {
@@ -579,7 +616,8 @@ public class Giocatore {
 			  
 			   if(carta instanceof CartaIniziale) {
 					
-					CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+				   CartaIniziale cartaIniziale = this.cartaIniziale;
+				   
 					color1 = cartaIniziale.creaCarta();
 					spazi = spazi +"     ";
 					sp++;
@@ -588,6 +626,9 @@ public class Giocatore {
 				
 				if(carta instanceof CartaOro) {
 					CartaOro cartaOro = partita.cercaCartaOro(carta);
+					if(carta.getRetro() == 1) {
+						cartaOro = CartaOro.retroCarta(partita.cercaCartaOro(carta));
+					}
 					color1 = cartaOro.creaCarta();
 					sp--;
 					}
@@ -596,6 +637,9 @@ public class Giocatore {
 				if(carta instanceof CartaRisorsa) {
 				
 					CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+					if(carta.getRetro() == 1) {
+						cartaRisorsa = CartaRisorsa.retroCarta(partita.cercaCartaRisorsa(carta));
+					}
 					color1 = cartaRisorsa.creaCarta();
 					sp--;
 				}
@@ -615,7 +659,8 @@ public class Giocatore {
 					  
 				    if(carta instanceof CartaIniziale) {
 						
-						CartaIniziale cartaIniziale = partita.cercaCartaIniziale(carta);
+				    	CartaIniziale cartaIniziale = this.cartaIniziale;
+				    	
 						color2 = cartaIniziale.creaCarta();
 						spazi = spazi +"     ";
 						sp++;
@@ -624,6 +669,9 @@ public class Giocatore {
 					
 					if(carta instanceof CartaOro) {
 						CartaOro cartaOro = partita.cercaCartaOro(carta);
+						if(carta.getRetro() == 1) {
+							cartaOro = CartaOro.retroCarta(partita.cercaCartaOro(carta));
+						}
 						color2 = cartaOro.creaCarta();
 						sp--;
 						}
@@ -632,6 +680,9 @@ public class Giocatore {
 					if(carta instanceof CartaRisorsa) {
 					
 						CartaRisorsa cartaRisorsa = partita.cercaCartaRisorsa(carta);
+						if(carta.getRetro() == 1) {
+							cartaRisorsa = CartaRisorsa.retroCarta(partita.cercaCartaRisorsa(carta));
+						}
 						color2 = cartaRisorsa.creaCarta();
 						sp--;
 					}
@@ -676,6 +727,9 @@ public class Giocatore {
 	   		boolean testOk = false;
 	   		boolean testOk1 = false;
 	   		boolean testOk2 = false;
+	   		boolean testOkR = false;
+	   		boolean testOkR1 = false;
+	   		boolean testOkR2 = false;
 	   		int t = 0;
 	   		if(carteInMano.get(0) instanceof CartaOro) {
 	   			CartaOro a = par.cercaCartaOro(carteInMano.get(0));
@@ -686,6 +740,7 @@ public class Giocatore {
 	   		else if(carteInMano.get(0) instanceof CartaRisorsa){
 	   			CartaRisorsa a = par.cercaCartaRisorsa(carteInMano.get(0));
 	   		   	color1 = a.creaCarta();
+	   		   	testOkR = true;
 	   		}
 	   		else {
 	   			color1 = Carta.stampaVuoto();
@@ -700,6 +755,7 @@ public class Giocatore {
 	   		else if(carteInMano.get(1) instanceof CartaRisorsa){
 	   			CartaRisorsa a = par.cercaCartaRisorsa(carteInMano.get(1));
 	   		   	color2 = a.creaCarta();
+	   		   	testOkR1 = true;
 	   		}
 	   		else {
 	   			color2 = Carta.stampaVuoto();
@@ -714,6 +770,7 @@ public class Giocatore {
 	   		else if(carteInMano.get(2) instanceof CartaRisorsa) {
 	   			CartaRisorsa a = par.cercaCartaRisorsa(carteInMano.get(2));
 	   		   	color3 = a.creaCarta();
+	   		   	testOkR2 = true;
 	   		}
 	   		else {
 	   			color3 = Carta.stampaVuoto();
@@ -749,31 +806,31 @@ public class Giocatore {
 			System.out.println("");
 			if(t==1) {
 				System.out.print("Puoi piazzare la carta oro che hai in mano ?\n");
-				if(testOk == true) {
+				if(testOk == true && testOkR == false) {
 					System.out.print("Si");
 				}
-				else {
+				else if(testOk == false && testOkR == false){
 					System.out.print("No");
 				}
 			}
 			else if(t>1) {
 				System.out.print("Puoi piazzare le carte oro che hai in mano ? Ordine da sinistra\n");
-				if(testOk == true) {
+				if(testOk == true && testOkR == false) {
 					System.out.println("La prima : Si");
 				}
-				else {
+				else if(testOk == false && testOkR == false){
 					System.out.println("La prima : No");
 				}
-				if(testOk1 == true) {
+				if(testOk1 == true && testOkR1 == false) {
 					System.out.println("La seconda : Si");
 				}
-				else {
+				else if(testOk1 == false && testOkR1 == false){
 					System.out.println("La seconda : No");
 				}
-				if(t==3 && testOk2 == true) {
+				if( testOk2 == true && testOkR2 == false) {
 					System.out.println("La terza : Si");
 				}
-				else {
+				else if( testOk2 == false && testOkR2 == false) {
 					System.out.println("La terza : No");
 				}
 			}
@@ -957,6 +1014,9 @@ public class Giocatore {
 	   String scelta = "";
 	   
 	   boolean sceltaSbagliata = false;
+	   int carteOroimp1 = 0;
+	   int carteOroimp2 = 0;
+	   int carteOroimp3 = 0;
 	   
 	   System.out.println("\n Round di : " + this.getNome() + "\n");
 	   
@@ -976,6 +1036,7 @@ public class Giocatore {
 	   if(scelta.equalsIgnoreCase("1")) {
 		   boolean sceltaCartaSbagliata = true;
 	     do {
+	    	 
 	    	 sceltaCartaSbagliata = true;
 		   System.out.println("quale carta vuoi piazzare?: premi 1,2,3");
 		   stampaCarteInMano(partita);
@@ -987,16 +1048,18 @@ public class Giocatore {
 		    	
 		    	if(carteInMano.get(0) instanceof CartaOro) {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(0));
+		    		 String sceltacart = "";
 		    		 boolean sceltanonCorretta = false;
 		    		 do {
 		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
-		    			 String  sceltacart = scanner.nextLine();
+		    			   sceltacart = scanner.nextLine();
 		    			 
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaOro.retroCarta(carta);
+		    				 
 		    			 }
 		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
@@ -1006,13 +1069,18 @@ public class Giocatore {
 		    			 
 		    		 }while(sceltanonCorretta==true);
 		    		 
-		    		 if(checkRichiesta(carta)==true) {
+		    		 if(checkRichiesta(carta)==true && !sceltacart.equalsIgnoreCase("r")) {
 		    			 movimentoSuMatrice(partita, carteInMano.get(0));
 		 		    	carteInMano.remove(0);
 		    		 }
-		    		 else {
+		    		 else if(!sceltacart.equalsIgnoreCase("r")) {
 		    			 System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
 		    			 sceltaCartaSbagliata=false;
+		    			 carteOroimp1++;
+		    		 }
+		    		 else if (sceltacart.equalsIgnoreCase("r")) {
+		    			 movimentoSuMatrice(partita, carta);
+			 		    carteInMano.remove(0);
 		    		 }
 		    	}else {
 		    		boolean sceltanonCorretta = false;
@@ -1026,6 +1094,7 @@ public class Giocatore {
 		    			 
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaRisorsa.retroCarta(carta);
+		    				 
 		    			 }
 		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
@@ -1034,7 +1103,7 @@ public class Giocatore {
 		    			 
 		    			 
 		    		 }while(sceltanonCorretta==true);
-		    	movimentoSuMatrice(partita, carteInMano.get(0));
+		    	movimentoSuMatrice(partita, carta);
 		    	carteInMano.remove(0);
 		    	}
 			   
@@ -1048,15 +1117,17 @@ public class Giocatore {
 		    	if(carteInMano.get(1) instanceof CartaOro) {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(1));
 		    		 boolean sceltanonCorretta = false;
+		    		 String sceltacart = "";
 		    		 do {
 		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
-		    			 String  sceltacart = scanner.nextLine();
+		    			   sceltacart = scanner.nextLine();
 		    			 
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaOro.retroCarta(carta);
+		    				 
 		    			 }
 		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
@@ -1065,14 +1136,19 @@ public class Giocatore {
 		    			 
 		    			 
 		    		 }while(sceltanonCorretta==true);
-		    		 if(checkRichiesta(carta)==true) {
+		    		 if(checkRichiesta(carta)==true && !sceltacart.equalsIgnoreCase("r")) {
 		    			 movimentoSuMatrice(partita, carteInMano.get(1));
 		 		    	carteInMano.remove(1);
 		    		 }
-		    		 else {
+		    		 else if(!sceltacart.equalsIgnoreCase("r")) {
 		    			 
 		    			 System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
 		    			 sceltaCartaSbagliata=false;
+		    			 carteOroimp2++;
+		    		 }
+		    		 else if (sceltacart.equalsIgnoreCase("r")) {
+		    			 movimentoSuMatrice(partita, carta);
+			 		    carteInMano.remove(1);
 		    		 }
 		    	}else {
 		    		boolean sceltanonCorretta = false;
@@ -1086,6 +1162,7 @@ public class Giocatore {
 		    			 
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaRisorsa.retroCarta(carta);
+		    				 
 		    			 }
 		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
@@ -1094,7 +1171,7 @@ public class Giocatore {
 		    			 
 		    			 
 		    		 }while(sceltanonCorretta==true);
-		    	movimentoSuMatrice(partita, carteInMano.get(1));
+		    	movimentoSuMatrice(partita, carta);
 		    	carteInMano.remove(1);
 		    	}
 			
@@ -1108,16 +1185,18 @@ public class Giocatore {
 		    	
 		    	if(carteInMano.get(2) instanceof CartaOro) {
 		    		 CartaOro carta = partita.cercaCartaOro(carteInMano.get(2));
+		    		 String sceltacart = "";
 		    		 boolean sceltanonCorretta = false;
 		    		 do {
 		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
-		    			 String  sceltacart = scanner.nextLine();
+		    			   sceltacart = scanner.nextLine();
 		    			 
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaOro.retroCarta(carta);
+		    				 
 		    			 }
 		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
@@ -1125,27 +1204,34 @@ public class Giocatore {
 		    			 }
 		    			 
 		    			 
-		    		 }while(sceltanonCorretta==true);
+		    		 }while(sceltanonCorretta==true && !sceltacart.equalsIgnoreCase("r"));
 		    		 if(checkRichiesta(carta)==true) {
 		    			 movimentoSuMatrice(partita, carteInMano.get(2));
 		 		    	carteInMano.remove(2);
 		    		 }
-		    		 else {
+		    		 else if( !sceltacart.equalsIgnoreCase("r")){
 		    			 System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
 		    			 sceltaCartaSbagliata=false;
+		    			 carteOroimp3++;
+		    		 }
+		    		 else if (sceltacart.equalsIgnoreCase("r")) {
+		    			 movimentoSuMatrice(partita, carta);
+			 		     carteInMano.remove(2);
 		    		 }
 		    	}else {
 		    		boolean sceltanonCorretta = false;
 		    		CartaRisorsa carta = partita.cercaCartaRisorsa(carteInMano.get(2));
+		    		
 		    		 do {
 		    			 sceltanonCorretta = false;
 		    			 System.out.println("\n Vuoi piazzare la facciata o il retro? premi, f o r \n");
 		    			   carta.stampaCartaeRetro();
 		    			   Scanner scan = new Scanner(System.in);
-		    			 String  sceltacart = scanner.nextLine();
+		    			 String sceltacart = scanner.nextLine();
 		    			 
 		    			 if(sceltacart.equalsIgnoreCase("r")){
 		    				 carta = CartaRisorsa.retroCarta(carta);
+		    				
 		    			 }
 		    			 else if(!sceltacart.equalsIgnoreCase("r") && !sceltacart.equalsIgnoreCase("f")) {
 		    				 System.out.println("\n Scelta sbagliata,riscrivere \n");
@@ -1154,7 +1240,7 @@ public class Giocatore {
 		    			 
 		    			 
 		    		 }while(sceltanonCorretta==true);
-		    	movimentoSuMatrice(partita, carteInMano.get(2));
+		    	movimentoSuMatrice(partita, carta);
 		    	carteInMano.remove(2);
 		    	}
 			   
@@ -1162,6 +1248,11 @@ public class Giocatore {
 				   System.out.println("scelta non disponibile, riprova! \n");
 				   sceltaCartaSbagliata = false;
 			}
+		    int carteOroimp = carteOroimp1 + carteOroimp2 + carteOroimp3 ;
+		    if(carteOroimp == 3) {
+		    	System.out.println("\n Mi dispiace, verrai saltato perche' impossibilitato a piazzare \n");
+		    	break;
+		    }
 	     }while(sceltaCartaSbagliata == false);
 		 
 
@@ -1325,7 +1416,7 @@ public class Giocatore {
 		   
 		    if(sceltacarta.equalsIgnoreCase("1")) {
 		 
-			   carteObiettivo.remove(0);
+			   carteObiettivo.remove(1);
 		    	
 		  	}
 
@@ -1333,7 +1424,7 @@ public class Giocatore {
 			
 		   else if(sceltacarta.equalsIgnoreCase("2")) {
 			   
-			   carteObiettivo.remove(1);
+			   carteObiettivo.remove(0);
 			   
 			}else {
 				   System.out.println("scelta non disponibile, riprova! \n");
@@ -1342,5 +1433,9 @@ public class Giocatore {
 	     }while(sceltaCartaSbagliata == false);
 	  
    }
+
+public ArrayList<Risorsa> getRisorseVisibili() {
+	return risorseVisibili;
+}
 
 }

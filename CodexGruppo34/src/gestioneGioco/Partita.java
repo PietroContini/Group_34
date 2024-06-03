@@ -313,9 +313,9 @@ public class Partita {
 				Scanner sc = new Scanner(System.in);
 				String scelta = sc.nextLine();
 				if(scelta.equalsIgnoreCase("r")) {
-					
 					giocatore.piazzaCarta(this, giocatore.getCartaIni(), 46, 46,1);
 					giocatore.setCartaIni(CartaIniziale.retroCarta(giocatore.getCartaIni()));
+					
 				}
 				else if(scelta.equalsIgnoreCase("f")) {
 					
@@ -353,18 +353,11 @@ public class Partita {
     	boolean mazzoOro = false;
     	int numGiocatori = giocatori.size();
     	numGiocatori--;
-    	do {
+    	int primo =1;
+    	
     	do{
-    		finePartita = false;
-    		ultimoGiocatore = false;
-    		mazzoRisorsa = false;
-    		mazzoOro = false;
     		for (Giocatore giocatore : giocatori) {
     			
-    			finePartita = false;
-        		ultimoGiocatore = false;
-        		mazzoRisorsa = false;
-        		mazzoOro = false;
         		
     			System.out.println("");
     			this.segnapunti.stampaPunti();
@@ -385,21 +378,27 @@ public class Partita {
 					
 					ultimoGiocatore = true;
 				}
-				if(giocatore.getPunti() >= 20) {
-					
+				if(giocatore.getPunti() >= 20 && primo==1) {
+				  primo++;
 				  finePartita = true;
-				  System.out.println("\n" + giocatore.getNome() + "ha raggiunto 20 o più punti \n questo è l'ultimo round per tutti \n");
+				  System.out.println("\n" + giocatore.getNome() + " ha raggiunto 20 o più punti \n questo è l'ultimo round per tutti \n");
 				}
 				
 				if(mazzoOro == true && mazzoRisorsa == true) {
 					System.out.println("\n I mazzi sono vuoti, partita conclusa \n");
 				}
+				if(primo==2 && ultimoGiocatore == true) {
+					break;
+				}
+			}
+    		if(primo==2 && ultimoGiocatore == true) {
+    			System.out.println("\n Fine partita ! \n");
+				break;
 			}
     		
     		
-    		
-    	}while(finePartita == false && ultimoGiocatore == false);
-    	}while(mazzoOro == false && mazzoRisorsa == false);
+    	}while((finePartita == false && ultimoGiocatore == false) || (mazzoOro == false && mazzoRisorsa == false));
+    
     	System.out.println("\n calcolo dei punti... \n");
     	
     	for (Giocatore giocatore : giocatori) {

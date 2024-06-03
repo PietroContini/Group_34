@@ -242,7 +242,7 @@ public class ManagerPunti {
 		
 		int punti = 0;
 
-		
+		if(b.getRetro()==0) {
 		PuntiPerCarta x = b.getPuntiCarta();
 		
 			if(x.getMoltiplicatore()==null) {
@@ -255,6 +255,7 @@ public class ManagerPunti {
 				int cont = g.ricercaRisorsa(x.getMoltiplicatore());
 				punti = cont * x.getPunti();
 			}
+		}
 				return punti;
 	}
 	
@@ -263,10 +264,10 @@ public class ManagerPunti {
 	public static int puntiCarta(Giocatore g, CartaRisorsa b) {
 		
 		int punti = 0;
-
+		if(b.getRetro()==0) {
 			punti = b.getPuntiRis();
 			
-		
+		}
 		return punti;
 		
 	}

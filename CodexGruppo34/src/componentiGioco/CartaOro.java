@@ -18,7 +18,7 @@ public class CartaOro extends Carta {
     
     public CartaOro(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,Colore col,Risorsa ris) {
     	 
-    	super(id,angolo1,angolo2,angolo3,angolo4,col);
+    	super(id,angolo1,angolo2,angolo3,angolo4,col,1);
     	this.risorsaPermanente = ris;
     	
     }

@@ -32,18 +32,24 @@ public class CartaObiettivo7 {
 			int ys = y;
 			if(x<90 && y<90) {
 			if(m.getCarta(x, y)!=null) {
-				if(x!=46 && y!=46 && m.getCarta(x, y).getColor()==Colore.azzurro && m.getCarta(xs, 2+ys).getColor()==Colore.azzurro && m.getCarta(++xs, ys=ys+3).getColor()==Colore.rosso  ) {
-					xs=x; 
-					ys=y;
-					if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs, 2+ys)) ==false && m.search(m.getCarta(++xs, ys=ys+3))==false) {
-						copy.add(m.getCarta(x, y));
+				if(x!=46 && y!=46 && m.getCarta(x, y).getColor()==Colore.azzurro ) {
+					if(m.getCarta(xs, ys=ys+2)!=null && m.getCarta(++xs, ys=ys+3)!=null ) {
 						xs=x; 
 						ys=y;
-						copy.add(m.getCarta(xs, ys=ys+2));
-						copy.add(m.getCarta(++xs, ys=ys+3));
-						m.addS(copy);
-						punti=punti+2;
-						copy.clear();
+						if(m.getCarta(xs, ys=ys+2).getColor()==Colore.azzurro && m.getCarta(++xs, ys=ys+3).getColor()==Colore.rosso ) {
+							xs=x; 
+							ys=y;
+							if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs, 2+ys)) ==false && m.search(m.getCarta(++xs, ys=ys+3))==false) {
+								copy.add(m.getCarta(x, y));
+								xs=x; 
+								ys=y;
+								copy.add(m.getCarta(xs, ys=ys+2));
+								copy.add(m.getCarta(++xs, ys=ys+3));
+								m.addS(copy);
+								punti=punti+2;
+								copy.clear();
+							}
+						}
 					}
 					
 				}
@@ -51,7 +57,7 @@ public class CartaObiettivo7 {
 				
 					int as=x;
 					int bs=y;
-					while(y<90) {
+					while(bs<90) {
 					Carta fg =	m.getCarta(--as, ++bs);
 					xs=as;
 					ys=bs;
@@ -106,7 +112,7 @@ public class CartaObiettivo7 {
 					bs=y;
 					xs=x;
 					ys=y;
-					while(y>0) {
+					while(bs>0) {
 						Carta fg =	m.getCarta(++as, --bs);
 						xs=as;
 						ys=bs;
@@ -170,18 +176,24 @@ public class CartaObiettivo7 {
 			int ys = y;
 			if(x>=0 && y>=0) {
 			if(m.getCarta(x, y)!=null) {
-				if(x!=46 && y!=46 && m.getCarta(x, y).getColor()==Colore.azzurro && m.getCarta(xs, ys=ys+2).getColor()==Colore.azzurro && m.getCarta(++xs, ys=ys+3).getColor()==Colore.rosso  ) {
-					xs=x; 
-					ys=y;
-					if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs, ys=ys+2)) ==false && m.search(m.getCarta(++xs, ys=ys+3))==false) {
-						copy.add(m.getCarta(x, y));
+				if(x!=46 && y!=46 && m.getCarta(x, y).getColor()==Colore.azzurro ) {
+					if(m.getCarta(xs, ys=ys+2)!=null && m.getCarta(++xs, ys=ys+3)!=null ) {
 						xs=x; 
 						ys=y;
-						copy.add(m.getCarta(xs, ys=ys+2));
-						copy.add(m.getCarta(++xs, ys=ys+3));
-						m.addS(copy);
-						punti=punti+2;
-						copy.clear();
+						if(m.getCarta(xs, ys=ys+2).getColor()==Colore.azzurro && m.getCarta(++xs, ys=ys+3).getColor()==Colore.rosso ) {
+							xs=x; 
+							ys=y;
+							if(m.search(m.getCarta(x, y))==false && m.search(m.getCarta(xs, ys=ys+2)) ==false && m.search(m.getCarta(++xs, ys=ys+3))==false) {
+								copy.add(m.getCarta(x, y));
+								xs=x; 
+								ys=y;
+								copy.add(m.getCarta(xs, ys=ys+2));
+								copy.add(m.getCarta(++xs, ys=ys+3));
+								m.addS(copy);
+								punti=punti+2;
+								copy.clear();
+							}
+						}
 					}
 					
 				}
@@ -189,7 +201,7 @@ public class CartaObiettivo7 {
 				
 				int as=x;
 				int bs=y;
-				while(y<90) {
+				while(bs<90) {
 				Carta fg =	m.getCarta(--as, ++bs);
 				xs=as;
 				ys=bs;
@@ -244,8 +256,8 @@ public class CartaObiettivo7 {
 				bs=y;
 				xs=x;
 				ys=y;
-					while(y>0) {
-						Carta fg =	m.getCarta(as+1, bs-1);
+					while(bs>0) {
+						Carta fg =	m.getCarta(++as, --bs);
 						xs=as;
 						ys=bs;
 						if(fg == null) {

@@ -7,6 +7,7 @@ public class Carta {
 	private Angolo [] angoli = new Angolo [4];
 	private Colore color;
 	private String id;
+	private int retro = 0;
     
 
    
@@ -24,6 +25,22 @@ public class Carta {
     	this.angoli[3] = angolo4;
     	this.color=col;
     	this.id=id;
+    }
+    public Carta(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,Colore col,int retro) {
+    	this.angoli[0] = angolo1;
+    	this.angoli[1] = angolo2;
+    	this.angoli[2] = angolo3;
+    	this.angoli[3] = angolo4;
+    	this.color=col;
+    	this.id=id;
+    	this.retro=retro;
+    }
+    public Carta(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,int retro) {
+    	this.angoli[0] = angolo1;
+    	this.angoli[1] = angolo2;
+    	this.angoli[2] = angolo3;
+    	this.angoli[3] = angolo4;
+    	this.retro=retro;
     }
     public Carta(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4) {
     	this.angoli[0] = angolo1;
@@ -112,4 +129,10 @@ public class Carta {
 		       
 		       
 		   }
+	public int getRetro() {
+		return retro;
+	}
+	public void setRetro(int retro) {
+		this.retro = retro;
+	}
 }

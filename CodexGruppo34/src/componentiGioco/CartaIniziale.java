@@ -11,9 +11,9 @@ public class CartaIniziale extends Carta {
 	
 	
 
-    public CartaIniziale(Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,ArrayList <Risorsa> richiesta) {
+    public CartaIniziale(String id,Angolo angolo1,Angolo angolo2,Angolo angolo3,Angolo angolo4,ArrayList <Risorsa> richiesta) {
     	 
-    	super(angolo1,angolo2,angolo3,angolo4);
+    	super(id,angolo1,angolo2,angolo3,angolo4,1);
     	this.risorseBase = richiesta;
 
     }
@@ -43,7 +43,7 @@ public class CartaIniziale extends Carta {
 		
 		listaIni1.add(Risorsa.farfalla);
 		
-		CartaIniziale cartaIni1 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni1);
+		CartaIniziale cartaIni1 = new CartaIniziale(x.getId(),angolo1,angolo2,angolo3,angolo4,listaIni1);
 		return cartaIni1;
 		
     	}
@@ -55,7 +55,7 @@ public class CartaIniziale extends Carta {
 		angolo4 = new Angolo(Posizione.BassoDestra,Risorsa.fungo);
 		listaIni2.add(Risorsa.fungo);
 		
-		CartaIniziale cartaIni2 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni2);
+		CartaIniziale cartaIni2 = new CartaIniziale(x.getId(),angolo1,angolo2,angolo3,angolo4,listaIni2);
 		return cartaIni2;
 		
     	}
@@ -68,7 +68,7 @@ public class CartaIniziale extends Carta {
 		listaIni3.add(Risorsa.foglia);
 		listaIni3.add(Risorsa.fungo);
 		
-		CartaIniziale cartaIni3 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni3);
+		CartaIniziale cartaIni3 = new CartaIniziale(x.getId(),angolo1,angolo2,angolo3,angolo4,listaIni3);
 		return cartaIni3;
 		
     	}
@@ -81,7 +81,7 @@ public class CartaIniziale extends Carta {
 		listaIni4.add(Risorsa.lupo);
 		listaIni4.add(Risorsa.farfalla);
 		
-		CartaIniziale cartaIni4 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni4);
+		CartaIniziale cartaIni4 = new CartaIniziale(x.getId(),angolo1,angolo2,angolo3,angolo4,listaIni4);
 		return cartaIni4;
     	}
     	else if(x.tipo == TipoIni.CartaIni5) {
@@ -94,7 +94,7 @@ public class CartaIniziale extends Carta {
 		listaIni5.add(Risorsa.farfalla);
 		listaIni5.add(Risorsa.foglia);
 		
-		CartaIniziale cartaIni5 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni5);
+		CartaIniziale cartaIni5 = new CartaIniziale(x.getId(),angolo1,angolo2,angolo3,angolo4,listaIni5);
 		return cartaIni5;
     	}
     	else if(x.tipo == TipoIni.CartaIni6) {
@@ -107,7 +107,7 @@ public class CartaIniziale extends Carta {
 		listaIni6.add(Risorsa.lupo);
 		listaIni6.add(Risorsa.fungo);
 		
-		CartaIniziale cartaIni6 = new CartaIniziale(angolo1,angolo2,angolo3,angolo4,listaIni6);
+		CartaIniziale cartaIni6 = new CartaIniziale(x.getId(),angolo1,angolo2,angolo3,angolo4,listaIni6);
 		return cartaIni6;
 		
     	}
