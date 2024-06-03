@@ -22,7 +22,10 @@ public class CartaOro extends Carta {
     	this.risorsaPermanente = ris;
     	
     }
-    
+	/**
+	 * creazione retro delle carte iniziali
+	 * @return CartaIniziale
+	 */
     public static CartaOro retroCarta(CartaOro x) {
     	
     	Angolo angolo1 = new Angolo(Posizione.AltoSinistra,Risorsa.vuoto);
@@ -55,7 +58,10 @@ public class CartaOro extends Carta {
 	public PuntiPerCarta getPuntiCarta() {
 		return puntiCarta;
 	}
-	
+	/**
+	 * creazione carte oro
+	 * @return String [][]
+	 */
 	 public String [][] creaCarta() {
 		 
 		//ATT! i vari spazi e assegnazioni manuali servono per rendere la stampa omogenea visivamente

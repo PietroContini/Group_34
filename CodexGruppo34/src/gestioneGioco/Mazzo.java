@@ -66,7 +66,9 @@ public class Mazzo {
 
     }
     
-
+	/**
+	 * mischia mazzo
+	 */
 	public void mischiaMazzo() {
 		if(this.carte!=null) {
 		    Collections.shuffle(carte);

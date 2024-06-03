@@ -38,7 +38,9 @@ public class Segnapunti {
 	}
 	
 	
-	
+	/**
+	 * stampa dei punti dei giocatori
+	 */
 	public void stampaPunti() {
 		
 		for (HashMap.Entry<String, Integer> entry : puntiGiocatori.entrySet()) {
@@ -51,6 +53,11 @@ public class Segnapunti {
 		
 		
 	}
+	
+	/**
+	 * numero di vincitori, se è uno solo stampiamo chi è il vincitore
+	 * @return int
+	 */
 	
 	public int vincitore() {
 	 

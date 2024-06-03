@@ -336,7 +336,12 @@ public class CartaObiettivo5 {
 	   
 	
 	}
-
+	
+	/**
+	 * assegnazione colori, impostazioni colori righe
+	 * @return String [][]
+	 */
+	
 	public static String [][] creaCarta() {
 		
 		// assegnazione colori carta 

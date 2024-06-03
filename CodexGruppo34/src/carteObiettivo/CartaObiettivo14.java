@@ -7,7 +7,11 @@ import gestioneGioco.Giocatore;
 
 public class CartaObiettivo14 {
 	
-	
+	/**
+	 * verifica obiettivo due pergamene carta obiettivo
+	 * @param Giocatore a
+	 * @return
+	 */
 	public static int checkObietDuePergamene(Giocatore a) {
 		
 	 int punti = 0;
@@ -30,7 +34,12 @@ public class CartaObiettivo14 {
 	    	    }
 	       System.out.print("\033[0m ");
 	}
-
+	
+	/**
+	 * assegnazione colori, impostazioni colori righe
+	 * @return String [][]
+	 */
+	
 	public static String [][] creaCarta() {
 
 		 // assegnazione colori carta 

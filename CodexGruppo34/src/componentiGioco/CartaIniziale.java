@@ -26,7 +26,10 @@ public class CartaIniziale extends Carta {
 	public TipoIni getTipo() {
 		return tipo;
 	}
-    
+	/**
+	 * creazione retro delle carte iniziali
+	 * @return CartaIniziale
+	 */
     public static CartaIniziale retroCarta(CartaIniziale x) {
     	
     	Angolo angolo1 = new Angolo();
@@ -119,7 +122,10 @@ public class CartaIniziale extends Carta {
 	}
 	
 	
-	
+	/**
+	 * creazione carte iniziali 
+	 * @return String [][]
+	 */
 	public String [][] creaCarta() {
 		  // assegnazione colori carta 
 		  
@@ -348,7 +354,10 @@ public class CartaIniziale extends Carta {
 	       
 	
 	}
-	
+	/**
+	 * stampa carta iniziale
+	 * @return 
+	 */
 	public void stampaCarta() {
 		
 		String [][] color = creaCarta();

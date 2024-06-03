@@ -51,7 +51,12 @@ public class CartaRisorsa extends Carta {
 	public int getPuntiRis() {
 		return puntiRis;
 	}
-    
+	
+	/**
+	 * creazione carte risorsa 
+	 * @return String [][]
+	 */
+	
 	public String [][] creaCarta() {
 		
 		//ATT! i vari spazi e assegnazioni manuali servono per rendere la stampa omogenea visivamente

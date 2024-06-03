@@ -10,7 +10,11 @@ import gestioneGioco.Manoscritto;
 public class CartaObiettivo2 {
 
 
-
+	/**
+	 * verifica obiettivo triple verdi carta obiettivo
+	 * @param Giocatore a
+	 * @return
+	 */
 	public static int checkObietTripleVerdi(Giocatore a) {
 	
 	Manoscritto m = a.getManoscritto();

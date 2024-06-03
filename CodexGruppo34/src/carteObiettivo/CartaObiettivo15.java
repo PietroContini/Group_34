@@ -7,7 +7,11 @@ import gestioneGioco.Giocatore;
 
 public class CartaObiettivo15 {
 	
-	
+	/**
+	 * verifica obiettivo due boccette carta obiettivo
+	 * @param Giocatore a
+	 * @return
+	 */
 	public static int checkObietDueBoccette(Giocatore a) {
 		
 	 int punti = 0;

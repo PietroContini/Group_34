@@ -104,6 +104,12 @@ public class Giocatore {
 		return cont;
 	}
 	
+	/**
+	 * verifica richiesta posizionamento carte oro
+	 * @param CartaOro carta
+	 * @return boolean
+	 */
+	
 	public boolean checkRichiesta(CartaOro carta) {
 		ArrayList<Risorsa> risorse = carta.getRichiesta();
 		int cont = 0;
@@ -139,6 +145,16 @@ public class Giocatore {
 		}
 		return cont;
 	}
+	
+	/**
+	 * metodo per posizionare la carta sul manoscritto
+	 * @param Partita partita
+	 * @param Carta carta
+	 * @param int x
+	 * @param int y
+	 * @param int scelt
+	 * @return boolean
+	 */
 	
 	public boolean piazzaCarta(Partita partita, Carta carta,int x,int y, int scelt) {
 		
@@ -323,6 +339,13 @@ public class Giocatore {
 		return 1;
 	}
 	}
+	
+	/**
+	 * movimento sulla matrice, per decidere dove piazzare la carta sucessivamente
+	 * @param Partita par
+	 * @param Carta carta
+	 * @throws InterruptedException
+	 */
 	
     public void movimentoSuMatrice(Partita par,Carta carta) throws InterruptedException {
  
@@ -719,6 +742,11 @@ public class Giocatore {
 	   
    }
    
+   /**
+    * stampa le carte in mano a disposizione del giocatore
+    * @param Partita par
+    */
+   
    public void stampaCarteInMano(Partita par) {
 	   
 	   		String [][]color1 = new String[10][5];
@@ -837,7 +865,9 @@ public class Giocatore {
 			System.out.println("\n");
 	   
    }
-   
+   /**
+    * stampa carte obiettivo
+    */
    public void stampaCartaObiettivo() {
 	   
 	   String[][] color1 = carteObiettivo.get(0).creaCarta();
@@ -1008,7 +1038,11 @@ public class Giocatore {
   
    
    
-
+/**
+ * metodo per il turno di gioco del giocatore
+ * @param Partita partita
+ * @throws InterruptedException
+ */
    public void round (Partita partita) throws InterruptedException {
 	   
 	   String scelta = "";

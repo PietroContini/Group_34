@@ -106,7 +106,11 @@ public class Partita {
 	public ArrayList<CartaObiettivo> getCarteObiettivoComuni() {
 		return carteObiettivoComuni;
 	}
-	
+	/**
+	 * metodo per cercare la carta risorsa nel mazzo di carte risorsa
+	 * @param Carta carta
+	 * @return CartaRisorsa
+	 */
     public CartaRisorsa cercaCartaRisorsa(Carta carta) {
     	for (CartaRisorsa cartaRisorsa : mazzoRisorsa.getCarteRisorsa()) {
 			if(cartaRisorsa.getId() == carta.getId()) {
@@ -133,7 +137,9 @@ public class Partita {
 		}
     	return null;
     }
-    
+    /**
+     * stampa carte sul tavolo
+     */
     public void stampaCarteTavolo() {
     	
     	String spazi = "		 ";
@@ -271,7 +277,9 @@ public class Partita {
     	
     	
     }
-    
+    /**
+     * stampa le carte obiettivo comuni ai giocatori
+     */
     public void stampaCarteObComuni() {
     	String [][] color1 = this.carteObiettivoComuni.get(0).creaCarta();
     	String [][] color2 = this.carteObiettivoComuni.get(1).creaCarta();
@@ -344,7 +352,10 @@ public class Partita {
 		return mazzoRisorsa;
 	}
 
-
+	/**
+	 * gestione del turno di gioco
+	 * @throws InterruptedException
+	 */
 	public void gestioneRound() throws InterruptedException {
     	
     	boolean finePartita = false;
@@ -448,7 +459,9 @@ public class Partita {
 		this.segnapunti = new Segnapunti(this);
 	}
 
-
+	/**
+	 * creazione mazzi
+	 */
 	public void creaMazzi() {
 	    //Creazione carte obiettivo
 		

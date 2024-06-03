@@ -12,7 +12,11 @@ import gestioneGioco.Manoscritto;
 public class CartaObiettivo1 {
 
 
-
+/**
+ * verifica obiettivo triple rosse carta obiettivo
+ * @param Giocatore a
+ * @return
+ */
 	public static int checkObietTripleRosse(Giocatore a) {
 	
 	Manoscritto m = a.getManoscritto();
@@ -192,7 +196,9 @@ public class CartaObiettivo1 {
 	     return punti;
 		
 	}
-
+	/**
+	 * stampa carta
+	 */
 	public static void stampaCarta() {
 		
 		String color[][] = creaCarta();
@@ -206,6 +212,10 @@ public class CartaObiettivo1 {
 	   
 	}
 
+	/**
+	 * assegnazione colori, impostazioni colori righe
+	 * @return String [][]
+	 */
 	public static String [][] creaCarta() {
 		// assegnazione colori carta 
 		  

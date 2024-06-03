@@ -21,7 +21,11 @@ public class Manoscritto {
 		
 	}
 	
-	
+	/**
+	 * cerca carte usate nel manoscritto
+	 * @param Carta x
+	 * @return boolean
+	 */
 	public boolean search(Carta x) {
 		
 		for(int i=0;i<carteUsate.size();i++) {

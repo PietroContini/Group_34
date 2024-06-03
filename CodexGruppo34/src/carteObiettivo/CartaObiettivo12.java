@@ -7,7 +7,11 @@ import gestioneGioco.Giocatore;
 
 public class CartaObiettivo12 {
 	
-	
+	/**
+	 * verifica obiettivo tre farfalle carta obiettivo
+	 * @param Giocatore a
+	 * @return
+	 */
 	public static int checkObietTreFarfalle(Giocatore a) {
 		
 		 int punti = 0;

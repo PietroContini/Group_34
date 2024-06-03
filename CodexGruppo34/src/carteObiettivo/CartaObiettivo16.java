@@ -7,7 +7,11 @@ import gestioneGioco.Giocatore;
 
 public class CartaObiettivo16 {
 	
-	
+	/**
+	 * verifica obiettivo due piume carta obiettivo
+	 * @param Giocatore a
+	 * @return
+	 */
 	public static int checkObietDuePiume(Giocatore a) {
 		
 	 int punti = 0;

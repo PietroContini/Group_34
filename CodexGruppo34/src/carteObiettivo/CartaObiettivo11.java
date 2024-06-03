@@ -7,7 +7,11 @@ import gestioneGioco.Giocatore;
 
 public class CartaObiettivo11 {
 	
-	
+	/**
+	 * verifica obiettivo tre lupi carta obiettivo
+	 * @param Giocatore a
+	 * @return
+	 */
 	public static int checkObietTreLupi(Giocatore a) {
 		
 		 int punti = 0;
@@ -32,7 +36,12 @@ public class CartaObiettivo11 {
 		    	    }
 		       System.out.print("\033[0m ");
 		}
-
+		
+		/**
+		 * assegnazione colori, impostazioni colori righe
+		 * @return String [][]
+		 */
+		
 		public static String [][] creaCarta() {
 			// assegnazione colori carta 
 			  

@@ -31,7 +31,12 @@ import gestioneGioco.Partita;
 public class ManagerPunti {
 	
 	
-	
+	/**
+	 *  verifica obiettivi
+	 * @param Giocatore a
+	 * @param Partita ps
+	 * @return int
+	 */
 	public static int checkObiettivi(Giocatore a, Partita ps) {
 		
 		ArrayList<CartaObiettivo> b = a.getCarteObiettivo();
@@ -238,6 +243,14 @@ public class ManagerPunti {
 				return punti;
 	}
 	
+	/**
+	 * punti per le carte oro
+	 * @param Giocatore g
+	 * @param CartaOro b
+	 * @param int p
+	 * @return int
+	 */
+	
 	public static int puntiCarta(Giocatore g, CartaOro b,int p) {
 		
 		int punti = 0;
@@ -260,7 +273,12 @@ public class ManagerPunti {
 	}
 	
 
-	
+	/**
+	 * punti per le carte risorsa
+	 * @param Giocatore g
+	 * @param CartaRisorsa b
+	 * @return int
+	 */
 	public static int puntiCarta(Giocatore g, CartaRisorsa b) {
 		
 		int punti = 0;
