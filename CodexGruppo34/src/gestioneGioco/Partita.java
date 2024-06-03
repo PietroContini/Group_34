@@ -374,6 +374,7 @@ public class Partita {
     			this.segnapunti.stampaPunti();
     			System.out.println("");
     			
+    			
     			if(this.mazzoOro.getCartaRimasta() == 0) {
     				mazzoOro = true;
     			}

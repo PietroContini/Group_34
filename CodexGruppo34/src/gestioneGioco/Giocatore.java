@@ -246,8 +246,11 @@ public class Giocatore {
 	private boolean posizioneVuota(int x,int y) {
 		int a = x;
 		int b = y;
-		
-		Carta carta = this.getManoscritto().getCarta(--a, --b);
+		Carta carta = this.getManoscritto().getCarta(x, y);
+		if(carta != null) {
+			return true;
+		}
+		carta = this.getManoscritto().getCarta(--a, --b);
 		if(carta != null) {
 			return true;
 		}
@@ -350,6 +353,7 @@ public class Giocatore {
     public void movimentoSuMatrice(Partita par,Carta carta) throws InterruptedException {
  
     	boolean prova = true;
+    	boolean prova1 = false;
     	int x = 46;
     	int y = 46;
     	int a = x;
@@ -378,6 +382,7 @@ public class Giocatore {
             	 System.out.println("\n ìmpossibile muoversi in uno spazio con tutti i lati vuoti ! cambiare direzione \n");
             	 a=x;
             	 b=y;
+            	 stampa(x,y);
             	}
 				
 			}
@@ -394,6 +399,7 @@ public class Giocatore {
              	 System.out.println("\n ìmpossibile muoversi in uno spazio con tutti i lati vuoti ! cambiare direzione \n");
              	 a=x;
            	     b=y;
+           	     stampa(x,y);
              	}
 				
 				
@@ -412,6 +418,7 @@ public class Giocatore {
               	 System.out.println("\n ìmpossibile muoversi in uno spazio con tutti i lati vuoti ! cambiare direzione \n");
               	 a=x;
            	     b=y;
+           	     stampa(x,y);
               	}
 
 				
@@ -429,6 +436,7 @@ public class Giocatore {
                	 System.out.println("\n ìmpossibile muoversi in uno spazio con tutti i lati vuoti ! cambiare direzione \n");
                  a=x;
            	     b=y;
+           	     stampa(x,y);
                	}
 				
 			}
@@ -448,8 +456,14 @@ public class Giocatore {
             	stampa(x,y);
 			}
              
+             
+             
             }while(!scelta.equalsIgnoreCase("piazza"));
-    	}while(piazzaCarta(par,carta,x,y,0)==false);
+	    	prova1 = piazzaCarta(par,carta,x,y,0);
+	        if(prova1==false) {
+	        	stampa(x,y);
+	        }
+    	}while(prova1==false);
     	
     	System.out.println("\n Carta piazzata ! \n");
     	
@@ -834,10 +848,10 @@ public class Giocatore {
 			System.out.println("");
 			if(t==1) {
 				System.out.print("Puoi piazzare la carta oro che hai in mano ?\n");
-				if(testOk == true && testOkR == false) {
+				if((testOk == true && testOkR == false) || (testOk1 == true && testOkR1 == false) ||  (testOk2 == true && testOkR2 == false)) {
 					System.out.print("Si");
 				}
-				else if(testOk == false && testOkR == false){
+				else if((testOk == false && testOkR == false) || (testOk1 == false && testOkR1 == false) ||  (testOk2 == false && testOkR2 == false)){
 					System.out.print("No");
 				}
 			}
@@ -934,52 +948,50 @@ public class Giocatore {
  	      for(int m=0;m<mn.getCarteManoscritto().length;m++) {
  	    	 if(mn.getCarta(m, n)==null) {
  	    		minimap[m][n]= "\033[48;2;255;255;255m  ";
+ 	    		
+	 	    		
  	 	      }
  	    	 
  	    	 else if(mn.getCarta(m, n).getColor() == Colore.viola) {
  		    	   minimap[m][n]= "\033[48;2;129;13;165m  ";
+ 		    	   
  		    	  
  		       }
  		       
  	    	 else if(mn.getCarta(m, n).getColor() == Colore.verde) {
  		    	  minimap[m][n] = "\033[48;2;28;165;13m  ";
+ 		    	 
+ 		    	    
  		    	   
  		       }
  		       
  	    	 else if(mn.getCarta(m, n).getColor() == Colore.rosso) {
  		    	  minimap[m][n] = "\033[48;2;189;15;15m  ";
+ 		    	
+ 		    	    
  		    	   
  		       }
  		       
  	    	 else if(mn.getCarta(m, n).getColor() == Colore.azzurro) {
  		    	  minimap[m][n] = "\033[48;2;14;170;201m  ";
+ 		    	 
+ 		    	    
  		    	   
  		       }
  	    	else if(mn.getCarta(m, n) instanceof CartaIniziale) {
 		    	  minimap[m][n] = "\033[48;2;213;212;179m  ";
+		    	  
 		    	   
 		       }
  	
  	      }
  
 	   }
-		   
-		   
-		          
-	        /*
-	        for(int x=30;x<=60;x++) {
-
-	        	minimap[60][x]= "\033[48;2;169;169;169m ";
-		
-		    }
-		   
-	        for(int x=30;x<=60;x++) {
-
-	        	minimap[30][x]= "\033[48;2;169;169;169m ";
-		
-		    }*/
+	  
+	  
+	  
 	        
-	        minimap[45][46]= "  ";
+	        minimap[45][46]= "\033[48;2;255;255;255m  ";
 	   
 	        int min = 40;
 	        int max = 55;
@@ -1025,13 +1037,15 @@ public class Giocatore {
 	   for(int n=min;n<=max;n++) {
 	 	      for(int m=min;m<=max;m++) {
 	 	    	 System.out.print(minimap[m][n]+" ");
-	 	    	 
+	 	    	
  	      }
  	      System.out.println("");
 		}
 	    System.out.print("\033[0m ");
 		System.out.println("");
-	   
+		
+		
+		
 	   
    }
    
@@ -1102,8 +1116,8 @@ public class Giocatore {
 		    			 
 		    			 
 		    		 }while(sceltanonCorretta==true);
-		    		 
-		    		 if(checkRichiesta(carta)==true && !sceltacart.equalsIgnoreCase("r")) {
+		    		 if(!sceltacart.equalsIgnoreCase("r")) {
+		    		 if(checkRichiesta(carta)==true ) {
 		    			 movimentoSuMatrice(partita, carteInMano.get(0));
 		 		    	carteInMano.remove(0);
 		    		 }
@@ -1111,6 +1125,7 @@ public class Giocatore {
 		    			 System.out.println(" \n impossibile piazzare, la richiesta della carta oro non è soddisfatta \n");
 		    			 sceltaCartaSbagliata=false;
 		    			 carteOroimp1++;
+		    		 }
 		    		 }
 		    		 else if (sceltacart.equalsIgnoreCase("r")) {
 		    			 movimentoSuMatrice(partita, carta);
